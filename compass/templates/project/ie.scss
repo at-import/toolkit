@@ -1,0 +1,28 @@
+////////////////////////
+// IE File
+//
+// This file gets turned into ie.css. This file should really
+//  hold nothing except for imports of your base, layout, and design
+//  partials, plus the mixins required to kickstart Aura and Style Guide.
+// This file is styles specific to IE 8 and below.
+////////////////////////
+
+////////////////////////
+// Base Import
+////////////////////////
+@import 'partials/global/base';
+
+////////////////////////
+// Import Style Guide
+////////////////////////
+@import 'partials/styleguide/style-guide';
+
+////////////////////////
+// Import Layout
+////////////////////////
+@import 'partials/layout/ie-layout';
+
+////////////////////////
+// Import Design
+////////////////////////
+@import 'partials/design/ie-design';

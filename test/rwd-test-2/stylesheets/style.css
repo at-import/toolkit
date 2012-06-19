@@ -1,0 +1,6 @@
+/* line 34, ../sass/partials/global/_base.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
