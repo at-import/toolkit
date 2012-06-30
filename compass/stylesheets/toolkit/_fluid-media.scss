@@ -8,6 +8,8 @@ img {
 
 ////////////////////////
 // Scaling Embeds WITH NO JAVASCIPT!
+//
+// From the outrageously awesome Scott Kellum
 ////////////////////////
 @mixin scale-elements($ratio: 16/9, $width: 100%, $elements: '*') {
   @extend %scaling-elements-parent;
