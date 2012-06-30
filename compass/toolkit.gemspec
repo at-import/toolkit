@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "toolkit"
-  s.version = "2.0"
+  s.version = "0.1"
   s.date = "2011-06-30"
   s.rubyforge_project = "toolkit"
   s.rubygems_version = "1.7.2"
