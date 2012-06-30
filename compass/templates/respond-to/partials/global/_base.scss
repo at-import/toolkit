@@ -9,12 +9,11 @@
 ////////////////////////
 // Compass Imports
 ////////////////////////
-@import 'compass';
 
 ////////////////////////
 // Compass Extensions
 ////////////////////////
-@import 'susy';
+@import 'toolkit';
 @import 'respond-to';
 
 ////////////////////////
@@ -24,11 +23,3 @@
 @import 'functions';
 @import 'mixins';
 @import 'extendables';
-
-////////////////////////
-// Cheat at CSS
-//
-// Applies a natural box layout modeul to all elements.
-//  From http://paulirish.com/2012/box-sizing-border-box-ftw/
-////////////////////////
-* { @include box-sizing('border-box'); }
