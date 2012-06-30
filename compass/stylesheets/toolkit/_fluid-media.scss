@@ -1,0 +1,36 @@
+////////////////////////
+// Fluid Images
+////////////////////////
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+////////////////////////
+// Scaling Embeds WITH NO JAVASCIPT!
+////////////////////////
+@mixin scale-elements($ratio: 16/9, $width: 100%, $elements: '*') {
+  @extend %scaling-elements-parent;
+  padding-top: (1 / $ratio) * $width;
+  width: $width;
+  @each $element in $elements {
+    > #{$element} {
+      @extend %scaling-elements-child;
+    }
+  }
+}
+
+%scaling-elements-parent {
+  position: relative;
+  height: 0;
+}
+
+%scaling-elements-child {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}

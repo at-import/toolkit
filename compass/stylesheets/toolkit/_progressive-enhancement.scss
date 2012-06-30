@@ -1,0 +1,57 @@
+////////////////////////
+// Enhance From
+//
+// - $feature: Modernizr feature (base CSS class name)
+////////////////////////
+@mixin enhance-with($feature) {
+  .#{$feature} & {
+    @content;
+  }
+}
+
+////////////////////////
+// Degrade From
+//
+// - $feature: Modernizr feature (base CSS class name)
+////////////////////////
+@mixin degrade-from($feature) {
+  .no-#{$feature} &,
+  .no-js & {
+    @content;
+  }
+}
+
+////////////////////////
+// Progressive Enhancement Text Replace Mixin
+//
+// - $image-name: Name of the image file without extension. 
+// - $path-from-images: The path from your images folder where the .png and .svg are stored. They should be stored in the same folder.
+// - $sprite-name: The name of the folder your files are stored in in order to name the sprite. See Compass Image Spriting for more info.
+// - $inline: Whether or not the parent item is an inline item. If the item is inline, squish-text() needs to be used. Defaults to false.
+////////////////////////
+@mixin replace-text-pe($image-name, $path-from-images, $sprite-name, $inline: false) {
+  // Put the height/width of the image in
+  height: image-height('#{$path-from-images}/#{$image-name}.png');
+  width: image-width('#{$path-from-images}/#{$image-name}.png');
+  // Hide text. Use squish-text() if the element is inline
+  @if $inline {
+    @include squish-text();
+  }
+  @else {
+    @include hide-text();
+  }
+  // No repeating backgrounds, please.
+  background-repeat: no-repeat;
+  
+  @include enhance-with('svg') {
+    // Inline the SVG so that advanced browsers and future tech doesn't need the extra HTTP requests for the SVG
+    background-image: inline-image('#{$path-from-images}/#{$image-name}.svg');
+    // Set background size to ensure that our SVG is the right size.
+    background-size: image-width('#{$path-from-images}/#{$image-name}.png') image-height('#{$path-from-images}/#{$image-name}.png');
+  }
+  
+  @include degrade-from('svg') {
+    // Call the Sprite'd image's position.
+    @include #{$sprite-name}-sprite(#{$image-name});
+  }
+}
