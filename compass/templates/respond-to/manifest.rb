@@ -1,29 +1,31 @@
 description "Responsive Web Design Kickstart"
 
 # Stylesheets
-stylesheet 'style.scss',  :media => 'screen, projection'
+file '../shared/style.scss',  :like => :stylesheet, :media => 'screen, projection', :to => 'style.scss'
 
-stylesheet 'partials/global/_base.scss'
-stylesheet 'partials/global/_variables.scss'
-stylesheet 'partials/global/_functions.scss'
-stylesheet 'partials/global/_mixins.scss'
-stylesheet 'partials/global/_extendables.scss'
+file '_base.scss',  :like => :stylesheet, :to => 'partials/global/_base.scss'
+file '../shared/_variables.scss', :like => :stylesheet, :to => 'partials/global/_variables.scss'
+file '../shared/_functions.scss', :like => :stylesheet, :to => 'partials/global/_functions.scss'
+file '../shared/_mixins.scss', :like => :stylesheet, :to => 'partials/global/_mixins.scss'
+file '../shared/_extendables.scss', :like => :stylesheet, :to => 'partials/global/_extendables.scss'
 
-stylesheet 'partials/styleguide/_style-guide.scss'
+file '../shared/_style-guide.scss', :like => :stylesheet, :to => 'partials/styleguide/_style-guide.scss'
 
-stylesheet 'partials/layout/_layout.scss'
-stylesheet 'partials/layout/_ie-layout.scss'
-stylesheet 'partials/layout/_print-layout.scss'
+file '../shared/_layout.scss', :like => :stylesheet, :to => 'partials/layout/_layout.scss'
+file '../shared/_ie-layout.scss', :like => :stylesheet, :to => 'partials/layout/_ie-layout.scss'
+file '../shared/_print-layout.scss', :like => :stylesheet, :to => 'partials/layout/_print-layout.scss'
 
-stylesheet 'partials/design/_design.scss'
-stylesheet 'partials/design/_ie-design.scss'
-stylesheet 'partials/design/_print-design.scss'
+file '../shared/_design.scss', :like => :stylesheet, :to => 'partials/design/_design.scss'
+file '../shared/_ie-design.scss', :like => :stylesheet, :to => 'partials/design/_ie-design.scss'
+file '../shared/_print-design.scss', :like => :stylesheet, :to => 'partials/design/_print-design.scss'
 
-stylesheet 'print.scss',  :media => 'print'
-stylesheet 'ie.scss',     :media => 'screen, projection', :condition => "lt IE 8"
+file '../shared/print.scss',  :like => :stylesheet, :media => 'print', :to => 'print.scss'
+file '../shared/ie.scss',     :like => :stylesheet, :media => 'screen, projection', :condition => "lt IE 8", :to => 'ie.scss'
 
-# JavaScript and Images
-discover :javascripts
+# JavaScript
+file '../shared/hammer.js',           :like => :javascript, :to => 'hammer.js'
+file '../shared/loader.js',           :like => :javascript, :to => 'loader.js'
+file '../shared/modernizr-2.5.3.js',  :like => :javascript, :to => 'modernizr-2.5.3.js'
 
 help %Q{
   Please contact Sam Richard or Mason Wendell with questions:
@@ -41,13 +43,13 @@ welcome_message %Q{
 The following is included in this build:
   Compass Extensions:
    * Susy
-   * Respond-To
+   * Toolkit
+   * Respond-to
    
   JavaScript:
    * Modernizr Custom Build with all Standard features of 2.3.5 except html5shiv w/printshiv or Media Queries. Build your own from http://modernizr.com/download/ when you are ready for production
    * Loader.js custom JavaScript file for holding conditional asset loading scripts thanks to Modernizr's yepnope (http://yepnopejs.com/). Comes with yepnope code for loading in Hammer.js, just make sure the path is correct from root.. Ready for production, but remember to minify and gzip!
    * Hammer.js (http://eightmedia.github.com/hammer.js/) for awesome touch events. Ready for production, but remember to minify and gzip!
-   * embeds.respond.js is an fluid iFrame solution for YouTube and Vimeo embeds that requires jQuery (for the time being, not included).
     
   Include the following in your <head> tag:
   
