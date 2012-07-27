@@ -24,34 +24,92 @@
 ////////////////////////
 // Progressive Enhancement Text Replace Mixin
 //
-// - $image-name: Name of the image file without extension. 
-// - $path-from-images: The path from your images folder where the .png and .svg are stored. They should be stored in the same folder.
-// - $sprite-name: The name of the folder your files are stored in in order to name the sprite. See Compass Image Spriting for more info.
-// - $inline: Whether or not the parent item is an inline item. If the item is inline, squish-text() needs to be used. Defaults to false.
+// - $png-path: The path to the pngs for the image sprite, including the *.png (just like normal image sprites)
+// - $sprite: The name of the sprite you want to use (this is the file name without extension)
+// - $inline-svg: Switches between a Base64 encoded SVG or a normal url() for the SVG. Default to true
+// - $with-dimensions: Switches between including dimensions (height/width for all and background-size for SVG) or not. Defaults to true.
+// - $inline: Whether or not the containing selector is an inline element. Defaults to false.
 ////////////////////////
-@mixin replace-text-pe($image-name, $path-from-images, $sprite-name, $inline: false) {
-  // Put the height/width of the image in
-  height: image-height('#{$path-from-images}/#{$image-name}.png');
-  width: image-width('#{$path-from-images}/#{$image-name}.png');
+@mixin replace-text-pe($png-path, $sprite, $inline-svg: true, $with-dimensions: true, $inline: false) {
+  // Map Out the Sprite
+  $sprite-map: sprite-map($png-path);
+  
+  // Build SVG file name
+  $svg-file: str-replace('*.png', '#{$sprite}.svg', $png-path);
+  
+  // Default Sprite File
+  $sprite-file: '' !default;
+  
+  @if $with-dimensions {
+    // Get Sprite File for Height/Width
+    $sprite-file: sprite-file($sprite-map, $sprite);
+
+    // Put the height/width of the image in
+    width: image-width($sprite-file);
+    height: image-height($sprite-file);
+  }
+  
   // Hide text. Use squish-text() if the element is inline
   @if $inline {
-    @include squish-text();
+    @extend %replace-text-pe-squish;
   }
   @else {
-    @include hide-text();
+    @extend %replace-text-pe-hide;
   }
-  // No repeating backgrounds, please.
-  background-repeat: no-repeat;
   
+  // Enhance with SVG
   @include enhance-with('svg') {
     // Inline the SVG so that advanced browsers and future tech doesn't need the extra HTTP requests for the SVG
-    background-image: inline-image('#{$path-from-images}/#{$image-name}.svg');
+    @if $inline-svg {
+      background-image: inline-image($svg-file);
+    }
+    @else {
+      background-image: image-url($svg-file);
+    }
+    // No repeating backgrounds, please
+    background-repeat: no-repeat;
     // Set background size to ensure that our SVG is the right size.
-    background-size: image-width('#{$path-from-images}/#{$image-name}.png') image-height('#{$path-from-images}/#{$image-name}.png');
+    @if $with-dimensions {
+      background-size: image-width($sprite-file) image-height($sprite-file);
+    }
   }
   
+  // Degrade from SVG 
   @include degrade-from('svg') {
+    // Extend the Sprite Background
+    @extend %#{sprite-map-name($sprite-map)}-image-map;
     // Call the Sprite'd image's position.
-    @include #{$sprite-name}-sprite(#{$image-name});
+    @include sprite($sprite-map, $sprite);
   }
+}
+
+//////////////////////////////
+// Sprite Map Generator
+//
+// Need a custom mixin to create extendable classes classes for background image for sprites because dynamic mixin names don't work.
+//
+// - $png-path: The path to the pngs for the image sprite, including the *.png (just like normal image sprites)
+//////////////////////////////
+@mixin sprite-map-generator($png-path) {
+  $png-path: sprite-map($png-path);
+  %#{sprite-map-name($png-path)}-image-map {
+    background: {
+      image: $png-path;
+      repeat: no-repeat;
+    }
+  }
+}
+
+//////////////////////////////
+// Extendable Class for Squish Text mixin
+//////////////////////////////
+%replace-text-pe-squish {
+  @include squish-text();
+}
+
+//////////////////////////////
+// Extendable Class for Hide Text mixin
+//////////////////////////////
+%replace-text-pe-hide {
+  @include hide-text();
 }
