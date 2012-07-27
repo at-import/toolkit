@@ -1,0 +1,27 @@
+////////////////////////
+// Base Partials
+//
+// These files will be shared across all three of your output
+//  CSS files. Generally included here are only Compass Extension
+//  imports and imports for variables, functions, mixins, and extendables.
+////////////////////////
+
+////////////////////////
+// Compass Imports
+//
+// Toolkit include @import 'compass' so you don't need to.
+////////////////////////
+
+////////////////////////
+// Compass Extensions
+////////////////////////
+@import 'toolkit';
+@import 'singularitygs';
+
+////////////////////////
+// Private Imports
+////////////////////////
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'extendables';
