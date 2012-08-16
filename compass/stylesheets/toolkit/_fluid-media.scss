@@ -11,13 +11,30 @@ img {
 //
 // From the outrageously awesome Scott Kellum
 ////////////////////////
-@mixin scale-elements($ratio: 16/9, $width: 100%, $elements: '*') {
-  @extend %scaling-elements-parent;
+@mixin scale-elements($ratio: 16/9, $width: 100%, $elements: '*', $no-extend: false) {
+  @if $no-extend {
+    position: relative;
+    height: 0;
+  }
+  @else {
+    @extend %scaling-elements-parent;
+  }
   padding-top: (1 / $ratio) * $width;
   width: $width;
   @each $element in $elements {
     > #{$element} {
-      @extend %scaling-elements-child;
+      @if $no-extend {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        margin: 0;
+        padding: 0;
+      }
+      @else {
+        @extend %scaling-elements-child;
+      }
     }
   }
 }
