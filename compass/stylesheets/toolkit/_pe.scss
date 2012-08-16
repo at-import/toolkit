@@ -14,10 +14,17 @@
 //
 // - $feature: Modernizr feature (base CSS class name)
 ////////////////////////
-@mixin degrade-from($feature) {
-  .no-#{$feature} &,
-  .no-js & {
-    @content;
+@mixin degrade-from($feature, $no-js: true) {
+  @if $feature == 'js' or not $no-js {
+    .no-#{$feature} & {
+      @content;
+    }
+  }
+  @else {
+    .no-#{$feature} &,
+    .no-js & {
+      @content;
+    }
   }
 }
 
@@ -30,12 +37,14 @@
 // - $with-dimensions: Switches between including dimensions (height/width for all and background-size for SVG) or not. Defaults to true.
 // - $inline: Whether or not the containing selector is an inline element. Defaults to false.
 ////////////////////////
-@mixin replace-text-pe($png-path, $sprite, $inline-svg: true, $with-dimensions: true, $inline: false) {
+@mixin replace-text-pe($img-path, $sprite, $inline-svg: true, $with-dimensions: true, $inline-element: false) {
   // Map Out the Sprite
+  $png-path: $img-path + '/*.png';
   $sprite-map: sprite-map($png-path);
   
   // Build SVG file name
-  $svg-file: str-replace('*.png', '#{$sprite}.svg', $png-path);
+//  $svg-file: str-replace('*.png', '#{$sprite}.svg', $png-path);
+  $svg-file: $img-path + '/#{$sprite}.svg';
   
   // Default Sprite File
   $sprite-file: '' !default;
@@ -50,7 +59,7 @@
   }
   
   // Hide text. Use squish-text() if the element is inline
-  @if $inline {
+  @if $inline-element {
     @extend %replace-text-pe-squish;
   }
   @else {
@@ -90,7 +99,8 @@
 //
 // - $png-path: The path to the pngs for the image sprite, including the *.png (just like normal image sprites)
 //////////////////////////////
-@mixin sprite-map-generator($png-path) {
+@mixin sprite-map-generator($img-path) {
+  $png-path: $img-path + '/*.png';
   $png-path: sprite-map($png-path);
   %#{sprite-map-name($png-path)}-image-map {
     background: {
