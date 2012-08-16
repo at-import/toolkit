@@ -18,6 +18,30 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 6. [Odds and Ends](#odds-and-ends)
 6. [Templates](#templates)
 
+## Requirements
+
+Toolkit is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use its awesomeness!
+
+Toolkit also requires Sass 3.2. Breakpoint should install Sass 3.2 for you when you install it, but in case you are getting errors, open up your terminal and type the following in:
+
+`gem install sass`
+
+This will install Sass 3.2. If you are compiling with CodeKit, [Chris Coyier has an awesome writeup](http://css-tricks.com/media-queries-sass-3-2-and-codekit/) on how to get CodeKit playing nice with Sass 3.2, at least until it is updated to 3.2.
+
+## Installation
+
+`gem install toolkit`
+
+#### If creating a new project
+`compass create <my_project> -r toolkit`
+
+#### If adding to existing project, in config.rb
+`require 'toolkit`
+
+#### Import the toolkit partial at the top of your working file
+`@import "toolkit";`
+
+
 ## Border Box
 
 The traditional box model is boring and annoying. I set my width to be 15%, but then my padding and my borders push that out even wider, making my life on a grid oh so hard and oh so annoying. I wish there was a way to keep everything within my set width.
