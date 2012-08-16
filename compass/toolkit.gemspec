@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "toolkit"
-  s.version = "0.1.14"
+  s.version = "0.1.15"
   s.date = "2011-08-16"
   s.rubyforge_project = "toolkit"
   s.rubygems_version = "1.7.2"
@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/Snugug/toolkit"
   
   # Project Description
-  s.description = "Toolkit of good things for Responsive Web Design"
-  s.summary = "RWD Toolkit"
+  s.description = "Toolkit for Progressive Enhancement and Responsive Web Design"
+  s.summary = "Progressive Enhancement and RWD toolkit of awesomeness"
   
   # Files to Include
   s.files = Dir.glob("lib/**/*.*")
