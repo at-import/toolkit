@@ -310,19 +310,19 @@ Templates should be used when first starting a project. Each template comes with
 compass create <my_project> -r toolkit --using toolkit/susy
 ```
 
-** Susy with Respond-to**
+**Susy with Respond-to**
 
 ```bash
 compass create <my_project> -r toolkit --using toolkit/susy-respond-to
 ```
 
-** Singularity with Breakpoint**
+**Singularity with Breakpoint**
 
 ```bash
 compass create <my_project> -r toolkit --using toolkit/singularity
 ```
 
-** Singularity with Respond-to**
+**Singularity with Respond-to**
 
 ```bash
 compass create <my_project> -r toolkit --using toolkit/singularity-respond-to
