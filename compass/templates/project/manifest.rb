@@ -1,26 +1,26 @@
 description "Responsive Web Design Kickstart"
 
 # Stylesheets
-file '../shared/style.scss',  :like => :stylesheet, :media => 'screen, projection', :to => 'style.scss'
+# file '../shared/style.scss',  :like => :stylesheet, :media => 'screen, projection', :to => 'style.scss'
 
 file '_base.scss',  :like => :stylesheet, :to => 'partials/global/_base.scss'
-file '../shared/_variables.scss', :like => :stylesheet, :to => 'partials/global/_variables.scss'
-file '../shared/_functions.scss', :like => :stylesheet, :to => 'partials/global/_functions.scss'
-file '../shared/_mixins.scss', :like => :stylesheet, :to => 'partials/global/_mixins.scss'
-file '../shared/_extendables.scss', :like => :stylesheet, :to => 'partials/global/_extendables.scss'
-
-file '../shared/_style-guide.scss', :like => :stylesheet, :to => 'partials/styleguide/_style-guide.scss'
-
-file '../shared/_layout.scss', :like => :stylesheet, :to => 'partials/layout/_layout.scss'
-file '../shared/_ie-layout.scss', :like => :stylesheet, :to => 'partials/layout/_ie-layout.scss'
-file '../shared/_print-layout.scss', :like => :stylesheet, :to => 'partials/layout/_print-layout.scss'
-
-file '../shared/_design.scss', :like => :stylesheet, :to => 'partials/design/_design.scss'
-file '../shared/_ie-design.scss', :like => :stylesheet, :to => 'partials/design/_ie-design.scss'
-file '../shared/_print-design.scss', :like => :stylesheet, :to => 'partials/design/_print-design.scss'
-
-file '../shared/print.scss',  :like => :stylesheet, :media => 'print', :to => 'print.scss'
-file '../shared/ie.scss',     :like => :stylesheet, :media => 'screen, projection', :condition => "lt IE 8", :to => 'ie.scss'
+# file '../shared/_variables.scss', :like => :stylesheet, :to => 'partials/global/_variables.scss'
+# file '../shared/_functions.scss', :like => :stylesheet, :to => 'partials/global/_functions.scss'
+# file '../shared/_mixins.scss', :like => :stylesheet, :to => 'partials/global/_mixins.scss'
+# file '../shared/_extendables.scss', :like => :stylesheet, :to => 'partials/global/_extendables.scss'
+# 
+# file '../shared/_style-guide.scss', :like => :stylesheet, :to => 'partials/styleguide/_style-guide.scss'
+# 
+# file '../shared/_layout.scss', :like => :stylesheet, :to => 'partials/layout/_layout.scss'
+# file '../shared/_ie-layout.scss', :like => :stylesheet, :to => 'partials/layout/_ie-layout.scss'
+# file '../shared/_print-layout.scss', :like => :stylesheet, :to => 'partials/layout/_print-layout.scss'
+# 
+# file '../shared/_design.scss', :like => :stylesheet, :to => 'partials/design/_design.scss'
+# file '../shared/_ie-design.scss', :like => :stylesheet, :to => 'partials/design/_ie-design.scss'
+# file '../shared/_print-design.scss', :like => :stylesheet, :to => 'partials/design/_print-design.scss'
+# 
+# file '../shared/print.scss',  :like => :stylesheet, :media => 'print', :to => 'print.scss'
+# file '../shared/ie.scss',     :like => :stylesheet, :media => 'screen, projection', :condition => "lt IE 8", :to => 'ie.scss'
 
 # JavaScript
 file '../shared/hammer.js',           :like => :javascript, :to => 'hammer.js'
@@ -42,9 +42,7 @@ welcome_message %Q{
   
 The following is included in this build:
   Compass Extensions:
-   * Susy
    * Toolkit
-   * Breakpoint
    
   JavaScript:
    * Modernizr Custom Build with all Standard features of 2.3.5 except html5shiv w/printshiv or Media Queries. Build your own from http://modernizr.com/download/ when you are ready for production
