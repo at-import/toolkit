@@ -1,0 +1,23 @@
+$legacy-support-for-ie: true !default;
+
+//////////////////////////////
+// Vertical Align of content with IE fallback
+//
+// Adapted from http://css-tricks.com/vertically-center-multi-lined-text/
+//////////////////////////////
+@mixin vertical-center {
+  display: table-cell;
+  vertical-align: middle;
+  
+  @if $legacy-support-for-ie {
+    margin-top: inherit;
+    *clear: expression(
+    style.marginTop = "" + (offsetHeight < parentNode.offsetHeight ? parseInt((parentNode.offsetHeight - offsetHeight) / 2) + "px" : "0"),
+    style.clear = "none", 0
+    );
+  }
+}
+
+%vertical-center {
+  @include vertical-center;
+}
