@@ -360,4 +360,6 @@ compass install toolkit
 
 ## License
 
+(c) Sam Richard, 2012
+
 Toolkit is dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl.html) Licenses.
