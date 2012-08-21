@@ -4,6 +4,7 @@
 
 Think of Toolkit as your swiss army knife for Progressive Enhancement and Responsive Web Design. Those little bits and bobs that make your life easy and you want to reuse throughout projects but never really had a place to put? They're here, and they're designed to make your life happy. Toolkit is broken out into individual pieces, so grab what you want, grab what you need, or grab the lot; the choice is yours.
 
+
 ## Table of Contents
 
 1. [Border Box](#border-box);
@@ -17,6 +18,30 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 5. [Vertical Align](#vertical-align)
 6. [Odds and Ends](#odds-and-ends)
 6. [Templates](#templates)
+
+## Requirements
+
+Toolkit is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use its awesomeness!
+
+Toolkit also requires Sass 3.2. Toolkit should install Sass 3.2 for you when you install it, but in case you are getting errors, open up your terminal and type the following in:
+
+`gem install sass`
+
+This will install Sass 3.2. If you are compiling with CodeKit, [Chris Coyier has an awesome writeup](http://css-tricks.com/media-queries-sass-3-2-and-codekit/) on how to get CodeKit playing nice with Sass 3.2, at least until it is updated to 3.2.
+
+## Installation
+
+`gem install toolkit`
+
+#### If creating a new project
+`compass create <my_project> -r toolkit`
+
+#### If adding to existing project, in config.rb
+`require 'toolkit`
+
+#### Import the toolkit partial at the top of your working file
+`@import "toolkit";`
+
 
 ## Border Box
 
