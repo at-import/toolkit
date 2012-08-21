@@ -1,9 +1,8 @@
 # Toolkit
 
-** Progressive Enhancement? Simple. Responsive Web Design? Done. **
+**Progressive Enhancement? Simple. Responsive Web Design? Done.**
 
 Think of Toolkit as your swiss army knife for Progressive Enhancement and Responsive Web Design. Those little bits and bobs that make your life easy and you want to reuse throughout projects but never really had a place to put? They're here, and they're designed to make your life happy. Toolkit is broken out into individual pieces, so grab what you want, grab what you need, or grab the lot; the choice is yours.
-
 
 ## Table of Contents
 
@@ -12,7 +11,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
    * [Fluid Images](#fluid-images)
    * [Intrinsic Ratios](#intrinsic-ratios)
 3. [Progressive Enhancement](#progressive-enhancement)
-   * [Enhance and Degrade](#modernizr-enhance-and-degrade)
+   * [Enhance and Degrade](#enhance-and-degrade)
    * [Progressively Enhanced Text Replacement](#progressively-enhanced-text-replacement)
 4. [Clearfix](#clearfix)
 5. [Vertical Align](#vertical-align)
@@ -23,7 +22,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 
 Toolkit is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use its awesomeness!
 
-Toolkit also requires Sass 3.2. Toolkit should install Sass 3.2 for you when you install it, but in case you are getting errors, open up your terminal and type the following in:
+Toolkit also requires Sass 3.2. Breakpoint should install Sass 3.2 for you when you install it, but in case you are getting errors, open up your terminal and type the following in:
 
 `gem install sass`
 
@@ -335,19 +334,19 @@ Templates should be used when first starting a project. Each template comes with
 compass create <my_project> -r toolkit --using toolkit/susy
 ```
 
-** Susy with Respond-to**
+**Susy with Respond-to**
 
 ```bash
 compass create <my_project> -r toolkit --using toolkit/susy-respond-to
 ```
 
-** Singularity with Breakpoint**
+**Singularity with Breakpoint**
 
 ```bash
 compass create <my_project> -r toolkit --using toolkit/singularity
 ```
 
-** Singularity with Respond-to**
+**Singularity with Respond-to**
 
 ```bash
 compass create <my_project> -r toolkit --using toolkit/singularity-respond-to
@@ -360,5 +359,7 @@ compass install toolkit
 ```
 
 ## License
+
+(c) Sam Richard, 2012
 
 Toolkit is dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl.html) Licenses.
