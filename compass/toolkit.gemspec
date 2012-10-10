@@ -3,8 +3,8 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "toolkit"
-  s.version = "0.1.15"
-  s.date = "2011-08-16"
+  s.version = "0.1.16"
+  s.date = "2011-10-10"
   s.rubyforge_project = "toolkit"
   s.rubygems_version = "1.7.2"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   
   # Dependent Gems
   s.add_dependency 'compass',             ">= 0.13.alpha.0" 
-  s.add_dependency 'susy',                ">= 1.0"
-  s.add_dependency 'respond-to',          ">= 2.2"
-  s.add_dependency 'singularitygs',       ">= 0.0.10"
+  s.add_dependency 'susy',                ">= 1.0.1"
+  s.add_dependency 'respond-to',          ">= 2.3"
+  s.add_dependency 'singularitygs',       ">= 0.0.14"
 end
