@@ -6,8 +6,8 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 
 ## Table of Contents
 
-1. [Border Box](#border-box);
-2. [Fluid Media](#fluid-media);
+1. [Border Box](#border-box)
+2. [Fluid Media](#fluid-media)
    * [Fluid Images](#fluid-images)
    * [Intrinsic Ratios](#intrinsic-ratios)
 3. [Progressive Enhancement](#progressive-enhancement)
