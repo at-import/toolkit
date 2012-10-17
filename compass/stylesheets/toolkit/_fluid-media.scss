@@ -1,7 +1,7 @@
 ////////////////////////
-// Fluid Images
+// Fluid Images and Video
 ////////////////////////
-img {
+img, video {
   max-width: 100%;
   height: auto;
 }
@@ -11,19 +11,24 @@ img {
 //
 // From the outrageously awesome Scott Kellum
 ////////////////////////
-@mixin scale-elements($ratio: 16/9, $width: 100%, $elements: '*', $no-extend: false) {
-  @if $no-extend {
+$intrinsic-ratio: 16/9 !default;
+$intrinsic-ratio-width: 100% !default;
+$intrinsic-ratio-elements: '*' !default;
+$intrinsic-ratio-extend: true !default;
+
+@mixin intrinsic-ratio($ratio: $intrinsic-ratio-extend, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend) {
+  @if not $extend {
     position: relative;
     height: 0;
   }
   @else {
-    @extend %scaling-elements-parent;
+    @extend %intrinsic-ratio-parent;
   }
   padding-top: (1 / $ratio) * $width;
   width: $width;
   @each $element in $elements {
     > #{$element} {
-      @if $no-extend {
+      @if not $extend {
         display: block;
         position: absolute;
         width: 100%;
@@ -33,18 +38,18 @@ img {
         padding: 0;
       }
       @else {
-        @extend %scaling-elements-child;
+        @extend %intrinsic-ratio-child;
       }
     }
   }
 }
 
-%scaling-elements-parent {
+%intrinsic-ratio-parent {
   position: relative;
   height: 0;
 }
 
-%scaling-elements-child {
+%intrinsic-ratio-child {
   display: block;
   position: absolute;
   width: 100%;
