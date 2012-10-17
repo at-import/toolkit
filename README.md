@@ -12,7 +12,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
    * [Intrinsic Ratios](#intrinsic-ratios)
 3. [Progressive Enhancement](#progressive-enhancement)
    * [Enhance and Degrade](#enhance-and-degrade)
-   * [Progressively Enhanced Background Images](#progressively-enhanced-background images)
+   * [Progressively Enhanced Background Images](#progressively-enhanced-background-images)
    * [Progressively Enhanced Text Replacement](#progressively-enhanced-text-replacement)
 4. [Clearfix](#clearfix)
 5. [Vertical Center](#vertical-center)
