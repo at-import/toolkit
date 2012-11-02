@@ -3,6 +3,8 @@
 //
 // - $feature: Modernizr feature (base CSS class name)
 ////////////////////////
+@import "compass/typography/text/replacement"
+
 @mixin enhance-with($feature) {
   .#{$feature} & {
     @content;
