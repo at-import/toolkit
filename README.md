@@ -16,8 +16,11 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
    * [Progressively Enhanced Text Replacement](#progressively-enhanced-text-replacement)
 4. [Clearfix](#clearfix)
 5. [Vertical Center](#vertical-center)
-6. [Odds and Ends](#odds-and-ends)
-6. [Templates](#templates)
+6. [Colour Functions](#colour-functions)
+	* [Tint and Shade](#tint-and-shade)
+	* [Colour Stacks](#colour-stacks)
+7. [Odds and Ends](#odds-and-ends)
+8. [Templates](#templates)
 
 ## Requirements
 
@@ -563,6 +566,48 @@ Vertical centering doesn't exist in CSS. If your designers do it, they're mean. 
   *clear: expression(style.marginTop = "" + (offsetHeight < parentNode.offsetHeight ? parseInt((parentNode.offsetHeight - offsetHeight) / 2) + "px" : "0"),     style.clear = "none", 0     );
 }
 ```
+
+## Colour Functions
+
+While Sass comes with lots of of great colour functions, there are a few missing ones, and a few that I've found particularly useful, that have been added.
+
+### Tint and Shade
+
+While Sass's built in `lighten` and `darken` functions are great if you're looking not to change the base colour, they aren't what designers think of when they think of lightening or darkening a colour. The mental model for those is actually mixing white or black to lighten or darken a colour. So, like so many others, we have a `tint` and `shade` function that will do just that. Simply pass the colour and the amount you want. For instance, if you wanted a red that was 25% lighter or darker than the standard CSS red, you'd do one of the followings:
+
+```scss
+$red: tint(red, 25%);
+// -or-
+$red: shade(red, 25%);
+```
+
+### Colour Stacks
+
+One technique for working with colour that I find very useful is to create colour stacks that get either lighter or darker as they go, allowing me to easily create full colour pallets with only a handful of base colours and then only needing to remember those base colours. I call these colour stacks, and making them with Toolkit is super easy. A sample colour stack, if written by hand, may look something like the following:
+
+```scss
+$red: red, #ff3f3f, #ff7f7f, #ffbfbf, #ffd8d8, #fff2f2;
+```
+
+This is a colour stack for red that gets tinted as I go (25%, 50%, 75%, 85%, 90%). To make figuring these out easier, there is the `colour-stack` function that takes two required parameters, the main colour you want to use and the secondary colour you want to use (in the case of shading red, the main colour would be red and the secondary colour would be black), and a variable number of arguments of what percent you want them mixed. For instance, if you wanted to mix red as your main colour with blue as your secondary colour and want a 25%, 50%, 75%, 100% mix, you would do the following:
+
+```scss
+$red-blue: colour-stack(red, blue, 25%, 50%, 75%, 100%);
+```
+
+The equivalent hand written stack would be:
+
+```scss
+$red-blue: red, #bf003f, #7f007f, #3f00bf, blue;
+```
+While main colour and secondary colour are always required, the amounts are not. The default mixing percentages are `25%, 50%, 75%, 85%, 90%`. Also, if you prefer the American spelling of colour to the English way, `color-stack` is an identical function.
+
+Finally, because the two most common use cases I've found for colour stacks are stacks of tints or shades, there are the `tint-stack` and `shade-stack` functions. They take in your primary colour and an optional set of amounts (just like the `colour-stack` function) and will return the tint or shade equivalents for `colour-stack`. So, if we take our original example of a colour stack, that can now be rewritten as:
+
+```scss
+$red: tint-stack(red);
+```
+
 
 ## Odds and Ends
 
