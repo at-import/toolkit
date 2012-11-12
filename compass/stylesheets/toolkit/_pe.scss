@@ -3,7 +3,7 @@
 //
 // - $feature: Modernizr feature (base CSS class name)
 ////////////////////////
-@import "compass/typography/text/replacement"
+@import "compass/typography/text/replacement";
 
 @mixin enhance-with($feature) {
   .#{$feature} & {
@@ -52,14 +52,14 @@ $replace-text-inline-element: false !default;
   @else {
     @extend %replace-text-pe-hide;
   }
-  
+
   @if $method == 'svg' {
     @include svg-background($img-path, $sprite, $inline-svg, $with-dimensions);
   }
   @else if $method == 'retina' {
     @include retina-background($img-path, $sprite, $with-dimensions);
   }
-  
+
 }
 
 //////////////////////////////
@@ -68,10 +68,10 @@ $replace-text-inline-element: false !default;
 @mixin svg-background($img-path, $sprite, $inline-svg: $replace-text-pe-inline-svg, $with-dimensions: $replace-text-pe-with-dimensions) {
   $png-path: $img-path + '/*.png';
   $sprite-map: sprite-map($png-path);
-  
+
   // Build SVG file name
   $svg-file: $img-path + '/#{$sprite}.svg';
-  
+
   // Default Sprite File
   $sprite-file: '' !default;
 
@@ -83,7 +83,7 @@ $replace-text-inline-element: false !default;
     width: image-width($sprite-file);
     height: image-height($sprite-file);
   }
-  
+
   @include enhance-with('svg') {
     // Inline the SVG so that advanced browsers and future tech doesn't need the extra HTTP requests for the SVG
     @if $inline-svg {
@@ -99,8 +99,8 @@ $replace-text-inline-element: false !default;
       background-size: image-width($sprite-file) image-height($sprite-file);
     }
   }
-  
-  // Degrade from SVG 
+
+  // Degrade from SVG
   @include degrade-from('svg') {
     // Extend the Sprite Background
     @extend %#{sprite-map-name($sprite-map)}-image-map;
@@ -115,21 +115,21 @@ $replace-text-inline-element: false !default;
 @mixin retina-background($img-path, $sprite, $with-dimensions: $replace-text-pe-with-dimensions) {
   $png-path: $img-path + '/*.png';
   $sprite-map: sprite-map($png-path);
-  
+
   $png2x-path: $img-path + '_2x/*.png';
   $retina-map: sprite-map($png2x-path);
-  
+
   // Default Sprite File
   $sprite-file: '' !default;
 
   @if $with-dimensions {
     // Get Sprite File for Height/Width
     $sprite-file: sprite-file($sprite-map, $sprite);
-    
+
     width: image-width($sprite-file);
     height: image-height($sprite-file);
   }
-  
+
   .ie6 &,
   .ie7 &,
   .ie8 & {
@@ -161,7 +161,7 @@ $replace-text-inline-element: false !default;
     }
     @include sprite($retina-map, $sprite);
   }
-  
+
     //////////////////////////////
     // Actual Hotness
     //
@@ -192,18 +192,18 @@ $replace-text-inline-element: false !default;
 @mixin sprite-map-generator($img-path, $method: $replace-text-pe-method) {
   $png-path: $img-path + '/*.png';
   $png-path: sprite-map($png-path);
-  
+
   @if $method == 'retina' {
     $png2x-path: $img-path + '_2x/*.png';
     $png2x-path: sprite-map($png2x-path);
-    
+
     %#{sprite-map-name($png-path)}-image-map-fallback {
       background: {
         image: $png-path;
         repeat: no-repeat;
       }
     }
-    
+
     @media (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (-o-max-device-pixel-ratio: 7/5), (min-resolution: 1.4dppx), (min-resolution: 134.4dpi) {
       %#{sprite-map-name($png-path)}-image-map {
         background: {
@@ -229,8 +229,8 @@ $replace-text-inline-element: false !default;
       }
     }
   }
-  
-  
+
+
 }
 
 //////////////////////////////
