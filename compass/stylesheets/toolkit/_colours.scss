@@ -1,0 +1,53 @@
+/// Tint and Shade
+@function tint($colour, $amount) {
+  @return mix(#fff, $colour, $amount);
+}
+
+@function shade($colour, $amount) {
+  @return mix(#000, $colour, $amount);
+}
+
+// Create a colour stack using the given colours and tints
+@function colour-stack($main, $secondary, $amounts...) {
+  @if length($amounts) == 0 {
+    $amounts: 25%, 50%, 75%, 85%, 90%;
+  }
+  @else if length($amounts) == 1 {
+    $amounts: nth($amounts, 1);
+  }
+
+  $stack: $main;
+
+  @each $amount in $amounts {
+    $stack: join($stack, mix($secondary, nth($stack, 1), $amount));
+  }
+
+  @return $stack;
+}
+
+@function color-stack($main, $secondary, $amounts...) {
+  @if length($amounts) > 0 {
+    @return colour-stack($main, $secondary, $amounts);
+  }
+  @else {
+    @return colour-stack($main, $secondary);
+  }
+}
+
+@function tint-stack($colour, $amounts...) {
+  @if length($amounts) > 0 {
+    @return colour-stack($colour, #fff, $amounts);
+  }
+  @else {
+    @return colour-stack($colour, #fff);
+  }
+}
+
+@function shade-stack($colour, $amounts...) {
+  @if length($amounts) > 0 {
+    @return colour-stack($colour, #000, $amounts);
+  }
+  @else {
+    @return colour-stack($colour, #000);
+  }
+}
