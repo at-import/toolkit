@@ -16,7 +16,7 @@ $intrinsic-ratio-width: 100% !default;
 $intrinsic-ratio-elements: '*' !default;
 $intrinsic-ratio-extend: true !default;
 
-@mixin intrinsic-ratio($ratio: $intrinsic-ratio-extend, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend) {
+@mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend) {
   @if not $extend {
     position: relative;
     height: 0;
