@@ -3,8 +3,8 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "toolkit"
-  s.version = "0.2.1.2"
-  s.date = "2011-11-14"
+  s.version = "0.2.1.3"
+  s.date = "2011-11-29"
   s.rubyforge_project = "toolkit"
   s.rubygems_version = "1.7.2"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.files += Dir.glob("LICENSE.txt")
 
   # Dependent Gems
-  s.add_dependency 'compass',             ">= 0.13.alpha.0"
+  s.add_dependency 'compass',             ">= 0.12.2"
   s.add_dependency 'susy',                ">= 1.0.1"
   s.add_dependency 'respond-to',          ">= 2.5"
   s.add_dependency 'singularitygs',       ">= 0.0.15"
