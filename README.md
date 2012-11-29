@@ -19,8 +19,9 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 6. [Colour Functions](#colour-functions)
 	* [Tint and Shade](#tint-and-shade)
 	* [Colour Stacks](#colour-stacks)
-7. [Odds and Ends](#odds-and-ends)
-8. [Templates](#templates)
+7. [Selectors](#selectors)
+8. [Odds and Ends](#odds-and-ends)
+9. [Templates](#templates)
 
 ## Requirements
 
@@ -608,6 +609,87 @@ Finally, because the two most common use cases I've found for colour stacks are 
 $red: tint-stack(red);
 ```
 
+## Selectors
+
+One of the most powerful and least used ways of selecting in CSS are Attribute Selectors. These nifty little things allow you to dive into the attributes of an item and style based on what you find. Want all of your Twitter links to have a little bird to the left without needing to deal with special classes or JavaScript? Easy as pie with CSS Attribute Selectors. Chris Coyier has a [great writeup on Attribute Selectors](http://css-tricks.com/attribute-selectors/) that will give you a fairly extensive overview of what they can do.
+
+### Style Attribute
+
+For most of the attribute selections you're going to want to do, you are only going to need a single attribute selector. There is now a `style-attribute` mixing that allows you to easily style based on an attribute. The mixin takes three required variables, `$attribute` for the attribute you're querying (such as `href` or `rel`), `$selector` for how you want to select which accepts 'equals', 'contains', 'begins with', 'ends with', 'within spaced list', and 'within dashed list', and `$value` for the value you want to query. There is a fourth optional selector, `$sibling`, for if you want to attach the query to a sibling, such as a tag or a class. If you don't include a sibling, just the attribute selector will be written. For instance, the first example Chris has written, `h2[rel="friend"] {}` could be rewritten as follows:
+
+```scss
+@include style-attribute('rel', 'equals', 'friend', 'h2') {
+  // Styles Go Here;
+}
+```
+
+### Style External Links
+
+One of the most common uses for attribute selectors is to style links. The `style-external-links` mixin is here to help! This mixing takes two optional input variables, `$base-url` which is a protocol neutral URL (so 'twitter.com' instead of 'http://www.twitter.com'), and `$scheme` with available options of 'plain' for plain URLS (http://), 'secure' for secure URLs (https://), and 'all' for all urls (http:// and https://) which defaults to 'all'. If you choose not to pass in a `$base-url`, you will style all external links. If you do pass in a `$base-url`, you will only style links to that site.
+
+**Please Note:** The method for doing styling external links in general relies upon the assumption that your internal links do not have absolute paths (*i.e.* they are something like `/about.html` instead of `http://foo.com/about.html`). If your internal links have absolute paths, they will pick up styling meant for only external URLs. If this is potentially an issue you use this mixin with your site's protocol relative URL (`foo.com` instead of `http://foo.com`) to override this behavior.
+
+As an example, let's say we wanted all Twitter links to be blue and have a little Twitter bird next to them. We can write the following:
+
+```scss
+@include style-external-links('twitter.com) {
+  color: blue;
+  
+  &:before {
+    content: '';
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    background-image: image-url('twitter.svg');
+    background-size: 100%;
+  }
+}
+```
+
+This would wind up becoming:
+
+```css
+a[href^="http://twitter.com"],
+a[href^="http://www.twitter.com"],
+a[href^="https://twitter.com"],
+a[href^="https://www.twitter.com"] {
+  color: blue;
+}
+
+a[href^="http://twitter.com"]:before,
+a[href^="http://www.twitter.com"]:before,
+a[href^="https://twitter.com"]:before,
+a[href^="https://www.twitter.com"]:before {
+  content: '';
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  background-image: image-url('twitter.svg');
+  background-size: 100%;
+}
+```
+
+### Style Internal Links
+
+Sometimes, you want to style all of your internal links differently than your external links a certain way. That's where `style-internal-links` comes in! The selector it uses to determine internal links will only work with relative URLs and requires CSS3 (with a fallback for just `a` tags of Legacy IE support is needed), but it will work wonders for them. If you need to style internal links with absolute paths, see the note in [Style External Links](#style-external-links). Usage is super simple:
+
+```scss
+@mixin style-internal-links {
+  color: red;
+}
+```
+
+```css
+/* If $legacy-support-for-ie: true; */
+a {
+  color: red;
+}
+/* Always */
+a:not([href^='http://']),
+a:not([href^='https://']) {
+  color: red;
+}
+```
 
 ## Odds and Ends
 
