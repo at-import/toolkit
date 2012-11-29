@@ -1,0 +1,92 @@
+//////////////////////////////
+// Attribute Selector
+//////////////////////////////
+
+@mixin style-attribute($attribute, $selector, $value, $sibling: '') {
+  $select: false;
+
+  @if $selector == 'equals' {
+    $select: '=';
+  }
+  @else if $selector == 'contains' {
+    $select: '*=';
+  }
+  @else if $selector == 'begins with' {
+    $select: '^=';
+  }
+  @else if $selector == 'ends with' {
+    $select: '$=';
+  }
+  @else if $selector == 'within spaced list' {
+    $select: '~=';
+  }
+  @else if $selector == 'within dashed list' {
+    $select: '|=';
+  }
+
+  @if $select {
+    #{$sibling}[#{$attribute}#{$select}"#{$value}"] {
+      @content;
+    }
+  }
+  @else {
+    @warn '"#{$selector}" is not a valid use of CSS Attribute Selectors';
+  }
+}
+
+@mixin style-external-links($base-url: false, $scheme: 'all') {
+  @if $base-url {
+    @if $scheme == 'plain' {
+      a[href^="http://#{$base-url}"],
+      a[href^="http://www.#{$base-url}"] {
+        @content;
+      }
+    }
+    @else if $scheme == 'secure' {
+      a[href^="https://#{$base-url}"],
+      a[href^="https://www.#{$base-url}"] {
+        @content;
+      }
+    }
+    @else if $scheme == 'all' {
+      a[href^="http://#{$base-url}"],
+      a[href^="http://www.#{$base-url}"],
+      a[href^="https://#{$base-url}"],
+      a[href^="https://www.#{$base-url}"] {
+        @content;
+      }
+    }
+  }
+  @else {
+    @if $scheme == 'all' {
+      a[href^="http://"],
+      a[href^="https://"] {
+        @content;
+      }
+    }
+    @else if $scheme == 'plain' {
+      a[href^="http://"] {
+        @content;
+      }
+    }
+    @else if $scheme == 'secure' {
+      a[href^="https://"] {
+        @content;
+      }
+    }
+  }
+}
+
+$legacy-support-for-ie: true !default;
+
+@mixin style-internal-links {
+  @if $legacy-support-for-ie {
+    a {
+      @content;
+    }
+  }
+  a:not([href^='http://']),
+  a:not([href^='https://']) {
+    @content;
+  }
+}
