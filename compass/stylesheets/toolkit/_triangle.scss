@@ -1,0 +1,46 @@
+//////////////////////////////
+// Draw triangles
+//////////////////////////////
+
+@mixin triangle($color: #000, $height: 1em, $width: 1em, $angle: 0) {
+  
+  // offset 45deg to make each side start at 0
+  $deg: $angle + 45;
+  // if units, remove units
+  @if unit($deg) == deg {
+    $deg: $deg / 1deg;
+  }
+  // shift to be on a scale from 0 to 90.
+  @while $deg > 90 {
+    $deg: $deg - 90;
+  }
+  @while $deg < 0 {
+    $deg: $deg + 90;
+  }
+  // Get a ratio of 90 to multiply by.
+  $deg: $deg / 90;
+
+  // make sure metrics are reset
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+
+  // run through sides
+  @if $angle <= 45 or $angle > 315 {
+    border-bottom-color: $color;
+    border-width: 0 ($width * abs($deg - 1)) $height ($width * $deg);
+  }
+  @if $angle > 45 and $angle <= 135 {
+    border-left-color: $color;
+    border-width: ($height * $deg) 0 ($height * abs($deg - 1)) $width;
+  }
+  @if $angle > 135 and $angle <= 225 {
+    border-top-color: $color;
+    border-width: $height ($width * $deg) 0 ($width * abs($deg - 1));
+  }
+  @if $angle > 225 and $angle <= 315 {
+    border-right-color: $color;
+    border-width: ($height * abs($deg - 1)) $width ($height * $deg) 0;
+  }
+}
