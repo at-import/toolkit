@@ -16,10 +16,24 @@ $intrinsic-ratio-width: 100% !default;
 $intrinsic-ratio-elements: '*' !default;
 $intrinsic-ratio-extend: true !default;
 
-@mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend) {
-  @if not $extend {
+@mixin intrinsic-ratio-parent {
     position: relative;
     height: 0;
+}
+
+@mixin intrinsic-ratio-child {
+  display: block;
+  position: absolute;
+  width: 100% !important; // Nuke the external styles
+  height: 100% !important; // Nuke the external styles
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend) {
+  @if not $extend {
+    @include intrinsic-ratio-parent;
   }
   @else {
     @extend %intrinsic-ratio-parent;
@@ -29,13 +43,7 @@ $intrinsic-ratio-extend: true !default;
   @each $element in $elements {
     > #{$element} {
       @if not $extend {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        margin: 0;
-        padding: 0;
+        @include intrinsic-ratio-child;
       }
       @else {
         @extend %intrinsic-ratio-child;
@@ -45,16 +53,9 @@ $intrinsic-ratio-extend: true !default;
 }
 
 %intrinsic-ratio-parent {
-  position: relative;
-  height: 0;
+  @include intrinsic-ratio-parent;
 }
 
 %intrinsic-ratio-child {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  margin: 0;
-  padding: 0;
+  @include intrinsic-ratio-child;
 }
