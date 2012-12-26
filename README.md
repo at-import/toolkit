@@ -747,7 +747,7 @@ Width and height just stretch the triangle to match a width or height. You can u
 
 Angle is where the  point of the triangle is drawn opposing one side. This is a little diffucult to explain, so here is a gif.
 
-![triangle](http://img.pgdn.us/triangle.gif)
+![triangle](http://img.pgdn.us/triangle2.gif)
 
 If the width and height are not uniform, then the angle will be stretched to match the triangles proportions.
 
