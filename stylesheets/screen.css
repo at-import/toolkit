@@ -1,4 +1,6 @@
-* {
+*,
+*:after,
+*:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -9,59 +11,20 @@ img, video {
   height: auto;
 }
 
-#flag, #code {
-  text-indent: 110%;
-  white-space: nowrap;
-  overflow: hidden;
+.equilateral-triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-color: black;
+  border-width: 0 0.5em 1em 0.5em;
 }
 
-.ie6 #flag, .ie7 #flag, .ie8 #flag, .ie6 #code, .ie7 #code, .ie8 #code {
-  background-image: url('/images/social-sbba688537b.png');
-  background-repeat: no-repeat;
-}
-
-#flag {
-  width: 72px;
-  height: 72px;
-}
-.ie6 #flag, .ie7 #flag, .ie8 #flag {
-  background-position: 0 -144px;
-}
-@media (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (-o-max-device-pixel-ratio: 7 / 5), (min-resolution: 1.4dppx), (min-resolution: 134.4dpi) {
-  #flag {
-    background-image: url('/images/social-sbba688537b.png');
-    background-repeat: no-repeat;
-    background-position: 0 -144px;
-  }
-}
-@media (-webkit-max-device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio: 1.5), (-o-max-device-pixel-ratio: 3 / 2), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
-  #flag {
-    background-image: url('/images/social_2x-s2b6e61b993.png');
-    background-repeat: no-repeat;
-    background-size: 72px 72px;
-    background-position: 0 -288px;
-  }
-}
-
-#code {
-  width: 72px;
-  height: 72px;
-}
-.ie6 #code, .ie7 #code, .ie8 #code {
-  background-position: 0 0;
-}
-@media (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (-o-max-device-pixel-ratio: 7 / 5), (min-resolution: 1.4dppx), (min-resolution: 134.4dpi) {
-  #code {
-    background-image: url('/images/social-sbba688537b.png');
-    background-repeat: no-repeat;
-    background-position: 0 0;
-  }
-}
-@media (-webkit-max-device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio: 1.5), (-o-max-device-pixel-ratio: 3 / 2), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
-  #code {
-    background-image: url('/images/social_2x-s2b6e61b993.png');
-    background-repeat: no-repeat;
-    background-size: 72px 72px;
-    background-position: 0 -144px;
-  }
+.isosceles-triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-color: black;
+  border-width: 0 0.5em 1.5em 0.5em;
 }
