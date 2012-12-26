@@ -11,4 +11,11 @@ module Sass::Script::Functions
     result = haystack.value.gsub(needle.value, replace.value)
     Sass::Script::String.new(result)
   end
+
+  def children_of_ie_nth(input)
+    n = "n"
+    b = ""
+    result = input.value.gsub(n, b)
+    Sass::Script::Number.new(result.to_i)
+  end
 end

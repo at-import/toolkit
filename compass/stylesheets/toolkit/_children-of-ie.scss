@@ -1,0 +1,26 @@
+////////////////////////
+// nth-child() support for IE 7 and 8
+////////////////////////
+
+@function nth-child($n) {
+
+  // If a single number for nth.
+  @if type-of($n) == number {
+    $nth-child: first-child;
+    @for $i from 2 through $n {
+      $nth-child: append($nth-child, #{"+*"});
+    }
+    @return #{":"}$nth-child;
+  }
+
+  // If a nth-child string, need to parse the string.
+  @else {
+    $n: nth(children-of-ie-nth($n), 1);
+    $nth-child: first-child;
+    @for $i from 2 through $n {
+      $nth-child: append($nth-child, #{"~*"});
+    }
+    @return #{":"}$nth-child;
+  }
+}
+
