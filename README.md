@@ -735,7 +735,7 @@ http://abouthalf.com/2011/07/06/poor-mans-nth-child-selector-for-ie-7-and-8/
 
 ## Triangles
 
-You love em! Triangles! Now create them using just CSS! Turn any element or pseudo element into a triangle but just using thr `@include triangle;` mixin Perfect for flags, speech bubbles, and arrows.
+You love em! Triangles! Now create them using just CSS! Turn any element or pseudo element into a triangle buy just using the `@include triangle;`. It’s perfect for flags, speech bubbles, and arrows.
 
 You can pass through arguments like color, height, and width as well as set the offset angle from 0° to 360°.
 
