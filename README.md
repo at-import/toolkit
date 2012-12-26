@@ -636,7 +636,7 @@ One of the most common uses for attribute selectors is to style links. The `styl
 As an example, let's say we wanted all Twitter links to be blue and have a little Twitter bird next to them. We can write the following:
 
 ```scss
-@include style-external-links('twitter.com) {
+@include style-external-links('twitter.com') {
   color: blue;
   
   &:before {
