@@ -23,7 +23,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 	* [Style Attribute](#style-attribute)
 	* [Style External Links](#style-external-links)
 	* [Style Internal Links](#style-internal-links)
-	* [nth-child for IE7/8]
+	* [nth-child for IE78]
 8. [Triangles](#triangles)
 9. [Odds and Ends](#odds-and-ends)
 10. [Templates](#templates)
