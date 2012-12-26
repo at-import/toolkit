@@ -1,17 +1,36 @@
 @import "../compass/stylesheets/toolkit";
 
-$replace-text-pe-method: 'retina';
-
-$social: 'social';
-@include sprite-map-generator($social, 'retina');
-
-#flag {
-  @include replace-text-pe($social, 'flag');
+.equilateral-triangle {
+  @include triangle;
+}
+.isosceles-triangle {
+  @include triangle($height: 1.5em, $width: 1em);
 }
 
-#code {
-  @include replace-text-pe($social, 'code');
-}
+// .ratio-16-9 {
+//   @include intrinsic-ratio;
+// }
+
+// .ratio-4-3-75 {
+//   @include intrinsic-ratio(4/3, 75%);
+// }
+
+// .ratio-7-8-75-iframe-no-extend {
+//   @include intrinsic-ratio(7/8, 75%, 'iframe', false);
+// }
+
+// $replace-text-pe-method: 'retina';
+
+// $social: 'social';
+// @include sprite-map-generator($social, 'retina');
+
+// #flag {
+//   @include replace-text-pe($social, 'flag');
+// }
+
+// #code {
+//   @include replace-text-pe($social, 'code');
+// }
 
 //$clearfix-extend: true;
 //$legacy-support-for-mozilla: false;
@@ -79,7 +98,7 @@ $social: 'social';
 //  height: 0;
 //  padding-top: 1/(16/9) * 100%;
 //  width: 100%;
-//  
+//
 //  > * {
 //    display: block;
 //    position: absolute;
