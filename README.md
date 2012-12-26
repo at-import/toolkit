@@ -24,7 +24,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 	* [Style External Links](#style-external-links)
 	* [Style Internal Links](#style-internal-links)
 	* [nth-child for IE7/8]
-8. [Triangles] (#triangles)
+8. [Triangles](#triangles)
 9. [Odds and Ends](#odds-and-ends)
 10. [Templates](#templates)
 
@@ -697,39 +697,81 @@ a:not([href^='https://']) {
 
 ### nth-child for IE7/8
 
-## Triangles
+Nth-child is annoyingly not supported by Internet Explorer 8 and below. But Internet Explorer 7 and 8 support *other* selecors that can be used to the same effect as nth-child. Children of IE is intended to mimic as much nth-child functionality as possible in IE 7 and 8.
 
-You love em! Triangles! Now create them using just CSS!
+Use :nth-child() functions as you normall would but instead wrap nth-child() in escaping characters like so:
 
 ```scss
-.equilateral-triangle {
-  @include triangle;
-}
+p:nth-child(3)      {} // normal nth-child
+p#{nth-child(3)}    {} // children-of-ie nth-child
+```
 
-.isosceles-triangle {
-  @include triangle($height: 1.5em, $width: 1em);
+n+ strings are supported as well.
+
+```scss
+p:nth-child(n+3)    {} // normal nth-child
+p#{nth-child(n+3)}  {} // children-of-ie nth-child
+```
+
+Works just fine without a selector.
+
+```scss
+:nth-child(2)       {} // normal nth-child
+#{nth-child(2)}     {} // children-of-ie nth-child
+```
+
+Other strings are NOT supported.
+
+```scss
+p#{nth-child(3n)}   {} // STRING NOT SUPPORTED
+p#{nth-child(odd)}  {} // STRING NOT SUPPORTED
+p#{nth-child(6n+4)} {} // STRING NOT SUPPORTED
+```
+
+
+###### This funciton was inspired by:
+
+http://abouthalf.com/2011/07/06/poor-mans-nth-child-selector-for-ie-7-and-8/
+
+## Triangles
+
+You love em! Triangles! Now create them using just CSS! Turn any element or pseudo element into a triangle but just using thr `@include triangle;` mixin Perfect for flags, speech bubbles, and arrows.
+
+You can pass through arguments like color, height, and width as well as set the offset angle from 0° to 360°.
+
+```scss
+triangle($color, $height, $width, $angle)
+```
+
+Width and height just stretch the triangle to match a width or height. You can use any units you want although percentages don’t work so well.
+
+Angle is where the  point of the triangle is drawn opposing one side. This is a little diffucult to explain, so here is a gif.
+
+![triangle](http://img.pgdn.us/triangle.gif)
+
+If the width and height are not uniform, then the angle will be stretched to match the triangles proportions.
+
+#### Output example:
+
+```scss
+.triangle {
+  @include triangle(#09f, 40px, 100px, 150);
 }
 ```
 
 ```css
-.equilateral-triangle {
+.triangle {
   display: block;
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-bottom-color: black;
-  border-width: 0 0.5em 1em 0.5em;
-}
-
-.isosceles-triangle {
-  display: block;
-  width: 0;
-  height: 0;
-  border: 0 solid transparent;
-  border-bottom-color: black;
-  border-width: 0 0.5em 1.5em 0.5em;
+  border-bottom-color: #0099ff;
+  border-width: 40px 16.66667px 0 83.33333px;
 }
 ```
+
+![triangle example](http://img.pgdn.us/triangle-ex.png)
+
 
 ## Odds and Ends
 
