@@ -20,8 +20,13 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 	* [Tint and Shade](#tint-and-shade)
 	* [Colour Stacks](#colour-stacks)
 7. [Selectors](#selectors)
-8. [Odds and Ends](#odds-and-ends)
-9. [Templates](#templates)
+	* [Style Attribute](#style-attribute)
+	* [Style External Links](#style-external-links)
+	* [Style Internal Links](#style-internal-links)
+	* [nth-child for IE7/8]
+8. [Triangles] (#triangles)
+9. [Odds and Ends](#odds-and-ends)
+10. [Templates](#templates)
 
 ## Requirements
 
@@ -89,8 +94,8 @@ What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A L
   @include intrinsic-ratio(4/3, 75%);
 }
 
-.ratio-7-8-75-iframe-inline {
-  @include intrinsic-ratio(7/8, 75%, 'iframe', true);
+.ratio-7-8-75-iframe-no-extend {
+  @include intrinsic-ratio(7/8, 75%, 'iframe', false);
 }
 ```
 ```css
@@ -102,8 +107,8 @@ What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A L
 .ratio-16-9 > *, .ratio-4-3-75 > * {
   display: block;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   top: 0;
   margin: 0;
   padding: 0;
@@ -119,18 +124,17 @@ What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A L
   width: 75%;
 }
 
-.ratio-7-8-75-iframe-inline {
+.ratio-7-8-75-iframe-no-extend {
   position: relative;
   height: 0;
   padding-top: 85.71429%;
   width: 75%;
 }
-
-.ratio-7-8-75-iframe-inline > iframe {
+.ratio-7-8-75-iframe-no-extend > iframe {
   display: block;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   top: 0;
   margin: 0;
   padding: 0;
@@ -691,6 +695,42 @@ a:not([href^='https://']) {
 }
 ```
 
+### nth-child for IE7/8
+
+## Triangles
+
+You love em! Triangles! Now create them using just CSS!
+
+```scss
+.equilateral-triangle {
+  @include triangle;
+}
+
+.isosceles-triangle {
+  @include triangle($height: 1.5em, $width: 1em);
+}
+```
+
+```css
+.equilateral-triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-color: black;
+  border-width: 0 0.5em 1em 0.5em;
+}
+
+.isosceles-triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-color: black;
+  border-width: 0 0.5em 1.5em 0.5em;
+}
+```
+
 ## Odds and Ends
 
 There are few odds and ends that Toolkit comes with as well, because they are needed, were needed at some point, or because they improve life for everyone.
@@ -736,6 +776,6 @@ compass install toolkit
 
 ## License
 
-(c) Sam Richard, 2012
+(c) Sam Richard, Scott Kellum 2012
 
 Toolkit is dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl.html) Licenses.
