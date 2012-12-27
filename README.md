@@ -46,7 +46,7 @@ This will install Sass 3.2. If you are compiling with CodeKit, [Chris Coyier has
 `compass create <my_project> -r toolkit`
 
 #### If adding to existing project, in config.rb
-`require 'toolkit`
+`require 'toolkit'`
 
 #### Import the toolkit partial at the top of your working file
 `@import "toolkit";`
