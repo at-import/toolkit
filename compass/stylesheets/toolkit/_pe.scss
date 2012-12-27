@@ -39,6 +39,8 @@
 // - $with-dimensions: Switches between including dimensions (height/width for all and background-size for SVG) or not. Defaults to true.
 // - $inline: Whether or not the containing selector is an inline element. Defaults to false.
 ////////////////////////
+@import "compass/utilities/sprites";
+
 $replace-text-pe-method: 'svg' !default;
 $replace-text-pe-inline-svg: true !default;
 $replace-text-pe-with-dimensions: true !default;
