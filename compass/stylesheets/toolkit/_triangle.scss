@@ -4,6 +4,14 @@
 
 @mixin triangle($color: #000, $height: 1em, $width: 1em, $angle: 0) {
   
+  @if unit($height) == "" or unit($height) == "%" {
+    @debug "in triangle #{$height} is not a compatable unit for height."
+  }
+
+  @if unit($width) == "" or unit($width) == "%" {
+    @debug "in triangle #{$width} is not a compatable unit for width."
+  }
+
   // offset 45deg to make each side start at 0
   $deg: $angle + 45;
   // if units, remove units
