@@ -8,7 +8,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 
 1. [Border Box](#border-box)
 2. [Fluid Media](#fluid-media)
-   * [Fluid Images](#fluid-images)
+   * [Fluid Images and HTML5 Video](#fluid-images-and-html5-video)
    * [Intrinsic Ratios](#intrinsic-ratios)
 3. [Progressive Enhancement](#progressive-enhancement)
    * [Enhance and Degrade](#enhance-and-degrade)
@@ -66,7 +66,7 @@ Well look no further! Now there is! Introducing the Natural Box Layout Model, al
 
 Before I go any further, I must say the following.
 
-Sass will not magically give you responsive media. Neither will Compass, Modernizr, or any CSS or JavaScript Framework. For responsive media to be a reality, we need a new browser based standard. There currently is a [proposed solution for images](http://www.w3.org/community/respimg/) to the World Wide Web Consortium, and Apple may be forging ahead in iOS 6 with a [solution one of their developers proposed](http://www.whatwg.org/specs/web-apps/current-work/multipage/embedded-content-1.html) to the Web Hypertext Application Technology Working Group, but until there is a standard, everything is a hack.
+Sass will not magically give you responsive media. Neither will Compass, Modernizr, or any CSS or JavaScript Framework. For responsive media to be a reality, we need a new browser based standard. There currently is the [proposed `<picture>` element](https://dvcs.w3.org/hg/html-proposals/raw-file/9443de7ff65f/responsive-images/responsive-images.html) over at the World Wide Web Consortium, and there's  [a proposed `srcset` attribute on current image elements](http://www.whatwg.org/specs/web-apps/current-work/multipage/embedded-content-1.html#attr-img-srcset) over at the Web Hypertext Application Technology Working Group, but until there is a standard, everything is a hack.
 
 With that being said, there are some tricks you can do in CSS to make media fluid, and Sass rocks at this.
 
