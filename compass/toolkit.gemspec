@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'susy',                ">= 1.0.5"
   s.add_dependency 'respond-to',          ">= 2.6"
   s.add_dependency 'singularitygs',       ">= 0.0.17"
+  s.add_dependency 'sassy-strings',       ">= 0.1"
 end
