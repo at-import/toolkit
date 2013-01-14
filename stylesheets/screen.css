@@ -11,20 +11,22 @@ img, video {
   height: auto;
 }
 
-.equilateral-triangle {
-  display: block;
-  width: 0;
+.ratio-16-9 {
+  position: relative;
   height: 0;
-  border: 0 solid transparent;
-  border-bottom-color: black;
-  border-width: 0 0.5em 1em 0.5em;
 }
 
-.isosceles-triangle {
+.ratio-16-9 iframe, .ratio-16-9 .video {
   display: block;
-  width: 0;
-  height: 0;
-  border: 0 solid transparent;
-  border-bottom-color: black;
-  border-width: 0 0.5em 1.5em 0.5em;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.ratio-16-9 {
+  padding-top: 56.25%;
+  width: 100%;
 }

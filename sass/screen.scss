@@ -1,15 +1,17 @@
 @import "../compass/stylesheets/toolkit";
 
-.equilateral-triangle {
-  @include triangle;
-}
-.isosceles-triangle {
-  @include triangle($height: 1.5em, $width: 1em);
-}
-
-// .ratio-16-9 {
-//   @include intrinsic-ratio;
+// .equilateral-triangle {
+//   @include triangle;
 // }
+// .isosceles-triangle {
+//   @include triangle($height: 1.5em, $width: 1em);
+// }
+
+
+
+.ratio-16-9 {
+  @include intrinsic-ratio($elements: "iframe" ".video");
+}
 
 // .ratio-4-3-75 {
 //   @include intrinsic-ratio(4/3, 75%);
