@@ -25,6 +25,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 	* [Style Internal Links](#style-internal-links)
 	* [nth-child for IE7/8](#nth-child-for-ie78)
 8. [Triangles](#triangles)
+9. [Equal Height Columns](#equal-height-columns)
 9. [Odds and Ends](#odds-and-ends)
 10. [Templates](#templates)
 
@@ -772,6 +773,60 @@ If the width and height are not uniform, then the angle will be stretched to mat
 
 ![triangle example](http://img.pgdn.us/triangle-ex.png)
 
+## Equal Height Columns
+
+Remember the good-old-fashioned [Faux Columns Hack](http://alistapart.com/article/fauxcolumns) for creating equal height columns? If not, it's pretty ingenious; you create a horizontal strip of your background, then have it `repeat-y` on a wrapper of your columns. The issue with this method, of course, is it doesn't work well for fluid designs. Worry not thought! Using the magic of CSS Gradients, you can now do the same thing fluidly and in pure CSS! The `equal-height-columns` mixin is here to save the day! Simply pass a list of widths and a list of colors and it'll build out your equal height columns for you!
+
+```scss
+.col-1 {
+  width: 25%;
+  float: left;
+ }
+ .col-2 {
+   width: 50%;
+   float: left;
+ }
+ .col-3 {
+   width: 25%;
+   float: right
+ }
+ 
+ .col-wrapper {
+   // Widths are where each color band should end, so with the above columns, they're going to end at 25%, 75%, then 100%.
+   // The 100% can be omitted if you'd like.
+   $widths: 25%, 75%, 100%;
+   $colors: red, white, blue;
+
+   @include equal-height-columns($widths, $colors);
+ }
+ ```
+ 
+ ``css
+ .col-1 {
+  width: 25%;
+  float: left;
+}
+
+.col-2 {
+  width: 50%;
+  float: left;
+}
+
+.col-3 {
+  width: 25%;
+  float: right;
+}
+
+.col-wrapper {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff0000), color-stop(25%, #ff0000), color-stop(25%, #ffffff), color-stop(75%, #ffffff), color-stop(75%, #0000ff), color-stop(100%, #0000ff));
+  background-image: -webkit-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+  background-image: -moz-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+  background-image: -o-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+  background-image: linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+}
+```
+
+By default, the built gradient will go from left to right, but you can pass in a direction parameter to `equal-height-columns()`, or sets `$equal-height-columns-direction`, to change the direction. Valid directions are valid directions for CSS Gradients. Because of this, there are some interesting things you can do with this mixin, including reversing it for `[dir="rtl"]` by setting the direction to `right`, making horizontal stripes by setting the direction to `top` or `bottom`, or making diagonal stripes by setting direction to `top left`, `bottom right`, or something similar. Additionally, you can pass in fixed values for widths, and can even combine fixed and fluid measurements (but be careful doing that).
 
 ## Odds and Ends
 
