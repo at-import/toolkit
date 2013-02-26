@@ -11,22 +11,25 @@ img, video {
   height: auto;
 }
 
-.ratio-16-9 {
-  position: relative;
-  height: 0;
+.col-1 {
+  width: 25%;
+  float: left;
 }
 
-.ratio-16-9 iframe, .ratio-16-9 .video {
-  display: block;
-  position: absolute;
-  width: 100% !important;
-  height: 100% !important;
-  top: 0;
-  margin: 0;
-  padding: 0;
+.col-2 {
+  width: 50%;
+  float: left;
 }
 
-.ratio-16-9 {
-  padding-top: 56.25%;
-  width: 100%;
+.col-3 {
+  width: 25%;
+  float: right;
+}
+
+.col-wrapper {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff0000), color-stop(25%, #ff0000), color-stop(25%, #ffffff), color-stop(75%, #ffffff), color-stop(75%, #0000ff), color-stop(100%, #0000ff));
+  background-image: -webkit-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+  background-image: -moz-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+  background-image: -o-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+  background-image: linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
 }

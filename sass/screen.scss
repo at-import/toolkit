@@ -9,9 +9,9 @@
 
 
 
-.ratio-16-9 {
-  @include intrinsic-ratio($elements: "iframe" ".video");
-}
+// .ratio-16-9 {
+//   @include intrinsic-ratio($elements: "iframe" ".video");
+// }
 
 // .ratio-4-3-75 {
 //   @include intrinsic-ratio(4/3, 75%);
@@ -111,3 +111,25 @@
 //    padding: 0;
 //  }
 //}
+
+
+.col-1 {
+  width: 25%;
+  float: left;
+}
+
+.col-2 {
+  width: 50%;
+  float: left;
+}
+.col-3 {
+  width: 25%;
+  float: right;
+}
+
+.col-wrapper {
+  $widths: 25%, 75%, 100%;
+  $colors: red, white, blue;
+
+  @include equal-height-columns($widths, $colors);
+}
