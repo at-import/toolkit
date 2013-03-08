@@ -5,6 +5,7 @@ $intrinsic-ratio: 16/9 !default;
 $intrinsic-ratio-width: 100% !default;
 $intrinsic-ratio-elements: '> *' !default;
 $intrinsic-ratio-extend: true !default;
+$intrinsic-ratio-direction: top !default;
 
 @mixin intrinsic-ratio-parent {
     position: relative;
@@ -21,14 +22,14 @@ $intrinsic-ratio-extend: true !default;
   padding: 0;
 }
 
-@mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend) {
+@mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
   @if not $extend {
     @include intrinsic-ratio-parent;
   }
   @else {
     @extend %intrinsic-ratio-parent;
   }
-  padding-top: (1 / $ratio) * $width;
+  padding-#{$direction}: (1 / $ratio) * $width;
   width: $width;
   @each $element in $elements {
     #{$element} {
