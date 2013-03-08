@@ -17,9 +17,9 @@
 //   @include intrinsic-ratio(4/3, 75%);
 // }
 
-// .ratio-7-8-75-iframe-no-extend {
-//   @include intrinsic-ratio(7/8, 75%, 'iframe', false);
-// }
+.ratio-7-8-75-iframe-no-extend {
+  @include intrinsic-ratio(7/8, 75%, 'iframe', false, bottom);
+}
 
 // $replace-text-pe-method: 'retina';
 

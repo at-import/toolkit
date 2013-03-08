@@ -11,6 +11,22 @@ img, video {
   height: auto;
 }
 
+.ratio-7-8-75-iframe-no-extend {
+  position: relative;
+  height: 0;
+  padding-bottom: 85.71429%;
+  width: 75%;
+}
+.ratio-7-8-75-iframe-no-extend iframe {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .col-1 {
   width: 25%;
   float: left;
