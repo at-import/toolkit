@@ -802,7 +802,7 @@ Remember the good-old-fashioned [Faux Columns Hack](http://alistapart.com/articl
  }
  ```
  
- ``css
+ ```css
  .col-1 {
   width: 25%;
   float: left;
