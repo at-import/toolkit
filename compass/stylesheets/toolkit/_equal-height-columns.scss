@@ -37,10 +37,6 @@ $equal-height-columns-direction: left !default;
       $i: $i + 1;
     }
 
-    @debug $stops;
-
-
-
     @include background-image(
       linear-gradient($direction, $stops)
     );
