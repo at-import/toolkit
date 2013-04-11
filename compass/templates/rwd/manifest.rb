@@ -33,7 +33,7 @@ welcome_message %Q{
 
   Responsive Web Design Kickstart
 
-  Welcome to the Responsive Web Design Kickstart gem! Provided are the basic tools needed to kickstart a custom Responsive Web Design solution tailor made to your needs! Remember, tools and best practices are always changing, so keep up to date!
+  Welcome to Responsive Web Design Kickstart! Provided are the basic tools needed to kickstart a new Responsive Web Design project tailor made to your needs! Remember, tools and best practices are always changing, so keep up to date!
 
 The following is included in this build:
   Compass Extensions:
