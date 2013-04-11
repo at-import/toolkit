@@ -838,38 +838,20 @@ There are few odds and ends that Toolkit comes with as well, because they are ne
 
 ## Templates
 
-Templates are awesome little things designed to get you up and moving with all of the awesomeness that Toolkit has to offer, and then some. The templates Toolkit comes with include an array of options to kickstart your responsive web design projects in a matter of a single line in your terminal. They bring in the best that the Compass community has to offer in terms of Responsive Web Design tools and let you run free.
+Toolkit comes with two templates to get you up and running building projects with Toolkit very quickly. The first one is a basic project template that includes Toolkit. The second is a toolkit to jumpstart your Responsive Web Design projects, and it comes with both [Singularity 1.0](https://github.com/Team-Sass/Singularity) and [Breakpoint 2.0](https://github.com/team-sass/breakpoint).
 
-Templates should be used when first starting a project. Each template comes with Toolkit, a grid system, and a media query system, as well as a custom development build of Modernizr that includes yep nope, a JavaScript file to hold yep nope loads, and [Hammer.js](http://eightmedia.github.com/hammer.js/) for awesome touch interactions. The two grids you have to choose from are [Singularity](http://singularity.gs), a super advanced semantic grid system designed from the ground up to be Responsive, Mobile First, and [Susy](http://susy.oddbird.net), an easy to use fluid semantic grid system. The two media query systems you have to choose from are vanilla [Breakpoint](http://github.com/canarymason/breakpoint) and Breakpoint with the [Respond-to](http://github.com/snugug/respond-to) syntax. Using them is very easy:
+To install either template, enter the following from your command line.
 
-**Singularity with Breakpoint**
+**Basic Toolkit**
 
 ```bash
-compass create <my_project> -r toolkit --using toolkit/singularity
+compass create <my_project> -r toolkit --using toolkit
 ```
 
-**Singularity with Respond-to**
+**Responsive Web Design Kickstart**
 
 ```bash
-compass create <my_project> -r toolkit --using toolkit/singularity-respond-to
-```
-
-**Susy with Breakpoint**
-
-```bash
-compass create <my_project> -r toolkit --using toolkit/susy
-```
-
-**Susy with Respond-to**
-
-```bash
-compass create <my_project> -r toolkit --using toolkit/susy-respond-to
-```
-
-If you would like to install the full Toolkit into an existing project, make sure you require Toolkit in your config.rb file, then put the following into your command line:
-
-```bash
-compass install toolkit
+compass create <my_project> -r toolkit --using toolkit/rwd
 ```
 
 ## License
