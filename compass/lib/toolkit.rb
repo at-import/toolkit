@@ -1,6 +1,4 @@
 require 'compass'
-require 'susy'
-require 'respond-to'
 require 'singularitygs'
 require 'sassy-strings'
 
