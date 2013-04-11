@@ -3,8 +3,12 @@
 //
 // This file gets turned into style.css. This file should really
 //  hold nothing except for imports of your base, layout, and design
-//  partials, plus the mixins required to kickstart Aura and Style Guide.
+//  partials.
 ////////////////////////
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+$legacy-support-for-mozilla: false;
 
 ////////////////////////
 // Base Import
