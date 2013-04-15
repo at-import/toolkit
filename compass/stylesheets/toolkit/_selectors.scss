@@ -40,30 +40,24 @@
 @mixin style-external-links($base-url: false, $scheme: 'all') {
   @if $base-url {
     @if $scheme == 'plain' {
-      a[href^="http://#{$base-url}"],
-      a[href^="http://www.#{$base-url}"] {
+      a[href^="http://"][href*="#{$base-url}"] {
         @content;
       }
     }
     @else if $scheme == 'secure' {
-      a[href^="https://#{$base-url}"],
-      a[href^="https://www.#{$base-url}"] {
+      a[href^="https://"][href*="#{$base-url}"] {
         @content;
       }
     }
     @else if $scheme == 'all' {
-      a[href^="http://#{$base-url}"],
-      a[href^="http://www.#{$base-url}"],
-      a[href^="https://#{$base-url}"],
-      a[href^="https://www.#{$base-url}"] {
+      a[href^="http"][href*="#{$base-url}"] {
         @content;
       }
     }
   }
   @else {
     @if $scheme == 'all' {
-      a[href^="http://"],
-      a[href^="https://"] {
+      a[href^="http"] {
         @content;
       }
     }
@@ -80,7 +74,7 @@
   }
 }
 
-$legacy-support-for-ie: true !default;
+$legacy-support-for-ie: $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 !default;
 
 //////////////////////////////
 // Syle Internal Links
