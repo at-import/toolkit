@@ -1,10 +1,6 @@
-////////////////////////
-// Cheat at CSS
-//
-// Applies a natural box layout model to all elements.
-//  From http://paulirish.com/2012/box-sizing-border-box-ftw/
-////////////////////////
-@import "compass/css3/box-sizing";
-*,
-*:after,
-*:before { @include box-sizing('border-box'); }
+//////////////////////////////
+// Box Sizing anda wesome Border Box!
+//////////////////////////////
+@import "box-sizing";
+
+*, *:after, *:before { @include box-sizing('border-box'); }
