@@ -146,14 +146,14 @@ $replace-text-inline-element: false !default;
   //   like I would like to or you would do by hand. This sucks, but it's the
   //   only way to get it to work for now.
   //////////////////////////////
-  @media (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (-o-max-device-pixel-ratio: 7/5), (min-resolution: 1.4dppx), (min-resolution: 134.4dpi) {
+  @media (max-resolution: 1.4dppx), (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (max-resolution: 134.4dpi) {
     background: {
       image: $sprite-map;
       repeat: no-repeat;
     }
     @include sprite($sprite-map, $sprite);
   }
-  @media (-webkit-max-device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio: 1.5), (-o-max-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
+  @media (min-resolution: 1.5dppx), (-webkit-max-device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     background: {
       image: $retina-map;
       repeat: no-repeat;
