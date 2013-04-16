@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "toolkit"
-  s.version = "0.3.1"
+  s.version = "1.0.0"
   s.date = "2013-04-11"
   s.rubyforge_project = "toolkit"
   s.rubygems_version = "1.7.2"
@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'singularitygs',       ">= 1.0.7"
   s.add_dependency 'breakpoint',          ">=2.0.2"
   s.add_dependency 'sassy-strings',       ">= 0.1"
+  s.add_dependency 'color-schemer',       ">=0.2.3"
 end
