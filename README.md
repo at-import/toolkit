@@ -33,7 +33,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 
 Toolkit is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use its awesomeness!
 
-Toolkit also requires Sass 3.2. Breakpoint should install Sass 3.2 for you when you install it, but in case you are getting errors, open up your terminal and type the following in:
+Toolkit also requires Sass 3.2. Toolkit should install Sass 3.2 for you when you install it, but in case you are getting errors, open up your terminal and type the following in:
 
 `gem install sass`
 
