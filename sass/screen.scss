@@ -133,3 +133,8 @@
 
   @include equal-height-columns($widths, $colors);
 }
+
+#pixel-to-rem {
+  @include pixel-to-rem(font-size, 18px);
+}
+
