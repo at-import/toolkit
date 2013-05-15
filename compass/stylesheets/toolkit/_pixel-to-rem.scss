@@ -1,0 +1,46 @@
+//////////////////////////////
+// Pixel to rem functions.
+//////////////////////////////
+
+$legacy-support-for-ie8 : true   !default;
+$base-font-size         : 16px   !default;
+
+
+@mixin pixel-to-rem($item: 'font-size', $value: 16px, $base-size: $base-font-size) {
+  @if $legacy-support-for-ie8 {
+    #{$item}: $value;
+  }
+
+  @if (type-of($value) == 'number') {
+    #{$item}: pixel-to-rem-calc($value, $base-size);
+  }
+  @else if (type-of($value) == 'list') {
+    $values: null;
+
+    @each $num in $value {
+      $new: pixel-to-rem-calc($num, $base-size);
+      @if $values == null {
+        $values: $new;
+      }
+      @else {
+        $values: append($values, $new);
+      }
+    }
+    #{$item}: $values;
+  }
+}
+
+@function pixel-to-rem-calc($value, $base-size: $base-font-size) {
+  @if $value == 0 {
+    @return 0;
+  }
+
+  $rem-value: ($value / $base-size);
+
+  @if unit($rem-value) == "px" {
+    @return ($rem-value / (1px)) + rem;
+  }
+  @else {
+    @return $rem-value + rem;
+  }
+}

@@ -1,9 +1,8 @@
-*,
-*:after,
-*:before {
+*, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  *behavior: url('/stylesheets/../behaviors/box-sizing/boxsizing.php');
 }
 
 img, video {
@@ -47,5 +46,11 @@ img, video {
   background-image: -webkit-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
   background-image: -moz-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
   background-image: -o-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+  background-image: -ms-linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
   background-image: linear-gradient(left, #ff0000, #ff0000 25%, #ffffff 25%, #ffffff 75%, #0000ff 75%, #0000ff 100%);
+}
+
+#pixel-to-rem {
+  font-size: 18px;
+  font-size: 1.125rem;
 }
