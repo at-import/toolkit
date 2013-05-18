@@ -26,8 +26,11 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 	* [nth-child for IE7/8](#nth-child-for-ie78)
 8. [Triangles](#triangles)
 9. [Equal Height Columns](#equal-height-columns)
-9. [Odds and Ends](#odds-and-ends)
-10. [Templates](#templates)
+10. [Webfont Helpers](#webfont-helpers)
+	* [Enable Ligatures](#enable-ligatures)
+	* [Content Fade In](#content-fade-in)
+10. [Odds and Ends](#odds-and-ends)
+11. [Templates](#templates)
 
 ## Requirements
 
@@ -84,7 +87,7 @@ img, video {
 
 ### Intrinsic Ratios
 
-What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A List Apart article](http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/) explaining it all in great detail; go read it. In a nutshell, however, it's a way to force any child elements to fluidly scale at a given ratio, including videos and frames, making awesome responsive happiness. Provided is a `intrinsic-ratio` mixin that takes three inputs: `$ratio` which defaults to `16/9` for the ratio you want to use, `$width` which defaults to `100%` for what percentage of the parent width you want the scaled elements to take up, and `$elements` which defaults to `*` for what child elements you want this to apply to. By default, the mixin will try and optimize your output as much as possible and group pieces of the output together to provide smaller CSS output, but if you set `$extend: false` as a parameter of the mixin call, it won't. You can also choose whether or not you'd like your confined element to be at the top or bottom of their parent element by setting `$direction: top` or `$direction: bottom`. An example of how you can use intrinsic ratios:
+What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A List Apart article](http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/) explaining it all in great detail; go read it. In a nutshell, however, it's a way to force any child elements to fluidly scale at a given ratio, including videos and frames, making awesome responsive happiness. Provided is a `intrinsic-ratio` mixin (or, the shorter `ir` mixin) that takes three inputs: `$ratio` which defaults to `16/9` for the ratio you want to use, `$width` which defaults to `100%` for what percentage of the parent width you want the scaled elements to take up, and `$elements` which defaults to `*` for what child elements you want this to apply to. By default, the mixin will try and optimize your output as much as possible and group pieces of the output together to provide smaller CSS output, but if you set `$extend: false` as a parameter of the mixin call, it won't. You can also choose whether or not you'd like your confined element to be at the top or bottom of their parent element by setting `$direction: top` or `$direction: bottom`. An example of how you can use intrinsic ratios:
 
 ```scss
 .ratio-16-9 {
@@ -828,6 +831,70 @@ Remember the good-old-fashioned [Faux Columns Hack](http://alistapart.com/articl
 ```
 
 By default, the built gradient will go from left to right, but you can pass in a direction parameter to `equal-height-columns()`, or sets `$equal-height-columns-direction`, to change the direction. Valid directions are valid directions for CSS Gradients. Because of this, there are some interesting things you can do with this mixin, including reversing it for `[dir="rtl"]` by setting the direction to `right`, making horizontal stripes by setting the direction to `top` or `bottom`, or making diagonal stripes by setting direction to `top left`, `bottom right`, or something similar. Additionally, you can pass in fixed values for widths, and can even combine fixed and fluid measurements (but be careful doing that).
+
+## Webfont Helpers
+
+Webfonts are absolutely awesome, but working with them can be a bit tricky. Ligatures are super powerful and make fonts that that support them even more beautiful, but aren't on by default. Webfonts are awesome, but you need to wait for them to download and that can cause a Flash of Unstyled Text, which can be jarring and unpleasant. Toolkit provides some tools to ease this.
+
+### Enable Ligatures
+
+A simple mixin or silent extendable called `enable-ligatures`. Including either will enable ligatures in supported browsers.
+
+```scss
+h1 {
+  @include enable-ligatures;
+}
+
+h2 {
+  @extend %enable-ligatures;
+}
+
+h3 {
+  @extend %enable-ligatures;
+}
+```
+```css
+h1 {
+  -webkit-font-feature-settings:"liga","dlig";
+  -moz-font-feature-settings:"liga=1, dlig=1";
+  -moz-font-feature-settings:"liga","dlig";
+  -ms-font-feature-settings:"liga","dlig";
+  -o-font-feature-settings:"liga","dlig";
+  font-feature-settings: "liga","dlig";
+}
+
+h2, h3 {
+  -webkit-font-feature-settings:"liga","dlig";
+  -moz-font-feature-settings:"liga=1, dlig=1";
+  -moz-font-feature-settings:"liga","dlig";
+  -ms-font-feature-settings:"liga","dlig";
+  -o-font-feature-settings:"liga","dlig";
+  font-feature-settings: "liga","dlig";
+}
+```
+
+### Content Fade In
+
+One of the big challenges of working with webfonts is the Flash of Unstyled Text. It happens when webfonts get applied after content is already rendered on the page, usually causing a jarring jump when they are. To help combat this, Google and Typekit teamed up to create [WebFont Loader](https://developers.google.com/fonts/docs/webfont_loader), a JavaScript library to add Font Events that you can hook in to using CSS and JavaScript to know whether your webfonts are loading, have successfully loaded, or have failed to load. As [Typekit](http://help.typekit.com/customer/portal/articles/6852) suggests, these can be utilized to more effectively take control over your staying and prevent FOUT. The `content-fade-in` mixin will set your content to a 0 opacity (allowing the page to paint correctly even while it's not visible) and when a loading class has been removed, will fade your content in to an opacity of 1. You have three options for the mixin, `$duration` to control how long the fadein should happen (defaults to 1s), `$loading` for the loading class (defaults to `'.wf-loading'`), and `$selector` for what selector to apply the the effect to (if not included, will apply it to the current selector you've used it in).
+
+```scss
+#main {
+  @include content-fade-in;
+}
+```
+```css
+#main {
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.wf-loading #main {
+  opacity: 0;
+}
+```
 
 ## Odds and Ends
 
