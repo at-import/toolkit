@@ -1,6 +1,7 @@
 require 'susy'
 require 'breakpoint'
 require 'respond-to'
+require 'color-schemer'
 # Require any additional compass plugins here.
 
 
