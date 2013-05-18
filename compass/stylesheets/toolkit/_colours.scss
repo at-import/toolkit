@@ -1,3 +1,8 @@
+//////////////////////////////
+// Compass Extension Imports
+//////////////////////////////
+@import 'color-schemer';
+
 /// Tint and Shade
 @function tint($colour, $amount) {
   @return mix(#fff, $colour, $amount);
