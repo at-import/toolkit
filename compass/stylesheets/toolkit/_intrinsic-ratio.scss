@@ -43,6 +43,10 @@ $intrinsic-ratio-direction: top !default;
   }
 }
 
+@mixin ir($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
+  @include intrinsic-ratio($ratio, $width, $elements, $extend, $direction);
+}
+
 %intrinsic-ratio-parent {
   @include intrinsic-ratio-parent;
 }
