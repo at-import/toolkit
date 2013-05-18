@@ -1,0 +1,36 @@
+//////////////////////////////
+// Enable ligatures
+//////////////////////////////
+@mixin enable-ligatures {
+  -webkit-font-feature-settings:"liga","dlig";
+  -moz-font-feature-settings:"liga=1, dlig=1";
+  -moz-font-feature-settings:"liga","dlig";
+  -ms-font-feature-settings:"liga","dlig";
+  -o-font-feature-settings:"liga","dlig";
+  font-feature-settings: "liga","dlig";
+}
+
+//////////////////////////////
+// Font Fade In
+//////////////////////////////
+@mixin content-fade-in($duration: 1s, $loading: '.wf-loading', $selector: false) {
+
+  @if $selector != false {
+    #{$selector} {
+      opacity: 1;
+      @include single-transition(opacity, $duration);
+
+      #{$loading} & {
+	opacity: 0;
+      }
+    }
+  }
+  @else {
+    opacity: 1;
+    @include single-transition(opacity, $duration);
+
+    #{$loading} & {
+      opacity: 0;
+    }
+  }
+}
