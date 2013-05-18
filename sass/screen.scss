@@ -1,135 +1,139 @@
 @import "../compass/stylesheets/toolkit";
 
-// .equilateral-triangle {
-//   @include triangle;
-// }
-// .isosceles-triangle {
-//   @include triangle($height: 1.5em, $width: 1em);
-// }
-
-
-
-// .ratio-16-9 {
-//   @include intrinsic-ratio($elements: "iframe" ".video");
-// }
-
-// .ratio-4-3-75 {
-//   @include intrinsic-ratio(4/3, 75%);
-// }
-
-.ratio-7-8-75-iframe-no-extend {
-  @include intrinsic-ratio(7/8, 75%, 'iframe', false, bottom);
+#main {
+  @include content-fade-in;
 }
 
-// $replace-text-pe-method: 'retina';
+// // .equilateral-triangle {
+// //   @include triangle;
+// // }
+// // .isosceles-triangle {
+// //   @include triangle($height: 1.5em, $width: 1em);
+// // }
 
-// $social: 'social';
-// @include sprite-map-generator($social, 'retina');
 
-// #flag {
-//   @include replace-text-pe($social, 'flag');
+
+// // .ratio-16-9 {
+// //   @include intrinsic-ratio($elements: "iframe" ".video");
+// // }
+
+// // .ratio-4-3-75 {
+// //   @include intrinsic-ratio(4/3, 75%);
+// // }
+
+// .ratio-7-8-75-iframe-no-extend {
+//   @include intrinsic-ratio(7/8, 75%, 'iframe', false, bottom);
 // }
 
-// #code {
-//   @include replace-text-pe($social, 'code');
+// // $replace-text-pe-method: 'retina';
+
+// // $social: 'social';
+// // @include sprite-map-generator($social, 'retina');
+
+// // #flag {
+// //   @include replace-text-pe($social, 'flag');
+// // }
+
+// // #code {
+// //   @include replace-text-pe($social, 'code');
+// // }
+
+// //$clearfix-extend: true;
+// //$legacy-support-for-mozilla: false;
+
+// //#foo {
+// //  @include clearfix;
+// //}
+// //
+// //#bar {
+// //  @include clearfix;
+// //}
+// //
+// //#baz {
+// //  @include clearfix(false);
+// //}
+
+// //.ratio-16-9 {
+// //  @include scale-elements;
+// //}
+// //
+// //.ratio-4-3-75 {
+// //  @include scale-elements(4/3, 75%);
+// //}
+// //
+// //.ratio-7-8-75-iframe-inline {
+// //  @include scale-elements(7/8, 75%, 'iframe', true);
+// //}
+
+// //#foo {
+// //  @include enhance-with(touch) {
+// //    height: 44px;
+// //    width: 44px;
+// //  }
+// //  @include degrade-from(touch) {
+// //    height: 20px;
+// //    width: 50px;
+// //  }
+// //}
+
+// //#legacy {
+// //  @extend %clearfix-legacy;
+// //}
+// //
+// //#micro {
+// //  @extend %clearfix-micro;
+// //}
+// //
+// //#modern {
+// //  @extend %clearfix;
+// //}
+
+// //#vertical {
+// //  @include vertical-center;
+// //}
+
+// //#box {
+// //  background: green;
+// //  height: 90px;
+// //  width: 160px;
+// //}
+// //
+// //
+// //#ratio {
+// //  position: relative;
+// //  height: 0;
+// //  padding-top: 1/(16/9) * 100%;
+// //  width: 100%;
+// //
+// //  > * {
+// //    display: block;
+// //    position: absolute;
+// //    width: 100% !important;
+// //    height: 100% !important;
+// //    top: 0;
+// //    margin: 0;
+// //    padding: 0;
+// //  }
+// //}
+
+
+// .col-1 {
+//   width: 25%;
+//   float: left;
 // }
 
-//$clearfix-extend: true;
-//$legacy-support-for-mozilla: false;
+// .col-2 {
+//   width: 50%;
+//   float: left;
+// }
+// .col-3 {
+//   width: 25%;
+//   float: right;
+// }
 
-//#foo {
-//  @include clearfix;
-//}
-//
-//#bar {
-//  @include clearfix;
-//}
-//
-//#baz {
-//  @include clearfix(false);
-//}
+// .col-wrapper {
+//   $widths: 25%, 75%, 100%;
+//   $colors: red, white, blue;
 
-//.ratio-16-9 {
-//  @include scale-elements;
-//}
-//
-//.ratio-4-3-75 {
-//  @include scale-elements(4/3, 75%);
-//}
-//
-//.ratio-7-8-75-iframe-inline {
-//  @include scale-elements(7/8, 75%, 'iframe', true);
-//}
-
-//#foo {
-//  @include enhance-with(touch) {
-//    height: 44px;
-//    width: 44px;
-//  }
-//  @include degrade-from(touch) {
-//    height: 20px;
-//    width: 50px;
-//  }
-//}
-
-//#legacy {
-//  @extend %clearfix-legacy;
-//}
-//
-//#micro {
-//  @extend %clearfix-micro;
-//}
-//
-//#modern {
-//  @extend %clearfix;
-//}
-
-//#vertical {
-//  @include vertical-center;
-//}
-
-//#box {
-//  background: green;
-//  height: 90px;
-//  width: 160px;
-//}
-//
-//
-//#ratio {
-//  position: relative;
-//  height: 0;
-//  padding-top: 1/(16/9) * 100%;
-//  width: 100%;
-//
-//  > * {
-//    display: block;
-//    position: absolute;
-//    width: 100% !important;
-//    height: 100% !important;
-//    top: 0;
-//    margin: 0;
-//    padding: 0;
-//  }
-//}
-
-
-.col-1 {
-  width: 25%;
-  float: left;
-}
-
-.col-2 {
-  width: 50%;
-  float: left;
-}
-.col-3 {
-  width: 25%;
-  float: right;
-}
-
-.col-wrapper {
-  $widths: 25%, 75%, 100%;
-  $colors: red, white, blue;
-
-  @include equal-height-columns($widths, $colors);
-}
+//   @include equal-height-columns($widths, $colors);
+// }
