@@ -902,7 +902,8 @@ There are few odds and ends that Toolkit comes with as well, because they are ne
 
 * All of Compass gets imported if you import all of Toolkit! Convenient!
 * A new String Replace function is available! Simply call `str-replace($find, $replace, $input)` and you'll get input passed back to you with the string replaced.
-* * Toolkit comes with a Box Sizing mixin that takes int account your level of legacy support. If you need support for IE<8 and `box-sizing: border-box;`, run `compass install toolkit/box-sizing` from your command line. This will place a `behaviors` folder with the relevant behavior in your project. Make sure it's 1 step back from your CSS Directory, move it if it's not.
+* Importing `toolkit/colours` or either of the full Toolkit imports includes [Color Schemer](https://github.com/Team-Sass/color-schemer)!
+* Toolkit comes with a Box Sizing mixin that takes int account your level of legacy support. If you need support for IE<8 and `box-sizing: border-box;`, run `compass install toolkit/box-sizing` from your command line. This will place a `behaviors` folder with the relevant behavior in your project. Make sure it's 1 step back from your CSS Directory, move it if it's not.
 
 ## Templates
 
