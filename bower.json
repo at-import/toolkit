@@ -1,0 +1,19 @@
+{
+  "name": "toolkit",
+  "version": "1.1.1",
+  "main": "compass/stylesheets/_toolkit.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "sass",
+    "stylesheets",
+    "config.rb",
+    "index.html"
+  ],
+  "dependencies": {
+    "compass-breakpoint": ">=2.0.2",
+    "sassy-strings": "git://github.com/Snugug/Sassy-Strings.git",
+    "color-schemer": ">=0.2.3"
+  }
+}
