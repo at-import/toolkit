@@ -29,8 +29,10 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 10. [Webfont Helpers](#webfont-helpers)
 	* [Enable Ligatures](#enable-ligatures)
 	* [Content Fade In](#content-fade-in)
-10. [Odds and Ends](#odds-and-ends)
-11. [Templates](#templates)
+10. [Viewport](#viewport)
+11. [Element Queries](#element-queries)
+11. [Odds and Ends](#odds-and-ends)
+12. [Templates](#templates)
 
 ## Requirements
 
@@ -895,6 +897,62 @@ One of the big challenges of working with webfonts is the Flash of Unstyled Text
   opacity: 0;
 }
 ```
+
+## Viewport
+
+Currently in the Draft stage, but being implemented by Microsoft is the CSS directive [`@viewport`](http://dev.w3.org/csswg/css-device-adapt/#the-atviewport-rule). This mixin simply provides prefixing for the directive:
+
+```scss
+@include viewport {
+	width: auto;
+}
+```
+
+```css
+@-webkit-viewport {
+  width: auto;
+}
+
+@-moz-viewport {
+  width: auto;
+}
+
+@-ms-viewport {
+  width: auto;
+}
+
+@viewport {
+  width: auto;
+}
+```
+
+## Element Queries
+
+This title is a little bit of a misnomer; the following mixin won't provide true element query support, but rather is a solution to a question [proposed by Filament Group](http://filamentgroup.com/lab/element_query_workarounds/) as to how to work around not having element queries. Because this deals with Media Queries, this module pulls in [Breakpoint](https://github.com/Team-Sass/breakpoint) (Example is the example they use in their post).
+
+```scss
+.schedule-component {
+  @include element-query('.content' 32.5em, 'aside' 90em) {
+    ...styles here...
+  }
+}
+```
+
+```css
+@media (min-width: 32.5em) {
+  .content .schedule-component {
+    ...styles here...
+  }
+}
+
+@media (min-width: 90em) {
+  aside .schedule-component {
+    ...styles here...
+  }
+}
+```
+
+Because the media query portion is working through Breakpoint, you have access to the entire range of media query possibilities that Breakpoint provides.
 
 ## Odds and Ends
 
