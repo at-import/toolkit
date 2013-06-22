@@ -3,11 +3,12 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "toolkit"
-  s.version = "1.1.1"
+  s.version = "1.2.1"
   s.date = "2013-05-18"
   s.rubyforge_project = "toolkit"
   s.rubygems_version = "1.7.2"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
+  s.licenses = ['MIT', 'GPL']
 
   # Author Information
   s.authors = ["Sam Richard", "Scott Kellum", "Mason Wendell"]
