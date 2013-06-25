@@ -4,6 +4,35 @@
 
 @mixin triangle($color: #000, $height: 1em, $width: 1em, $angle: 0) {
   
+  @if nth($angle, 1) == "top" or nth($angle, 1) == "bottom" {
+    $angle: "#{$angle}";
+  }
+
+  @if $angle == "top" {
+    $angle: 0;
+  }
+  @if $angle == "top right" {
+    $angle: 45 * 7;
+  }
+  @if $angle == "right" {
+    $angle: 45 * 2;
+  }
+  @if $angle == "bottom right" {
+    $angle: 45 * 1;
+  }
+  @if $angle == "bottom" {
+    $angle: 45 * 4;
+  }
+  @if $angle == "bottom left" {
+    $angle: 45 * 3;
+  }
+  @if $angle == "left" {
+    $angle: 45 * 6;
+  }
+  @if $angle == "top left" {
+    $angle: 45 * 5;
+  }
+
   @if unit($height) == "" or unit($height) == "%" {
     @debug "in triangle #{$height} is not a compatable unit for height."
   }
