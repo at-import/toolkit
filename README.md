@@ -779,6 +779,14 @@ If the width and height are not uniform, then the angle will be stretched to mat
 
 ![triangle example](http://img.pgdn.us/triangle-ex.png)
 
+#### But this angle thing is confusing!
+
+Yeah, it is hard to visualize so the mixin also supports keywords like `top`, `top right`, `right` and so on. The triangle will point in the direction you give it.
+
+```scss
+@include triangle($angle: top right);
+```
+
 ## Equal Height Columns
 
 Remember the good-old-fashioned [Faux Columns Hack](http://alistapart.com/article/fauxcolumns) for creating equal height columns? If not, it's pretty ingenious; you create a horizontal strip of your background, then have it `repeat-y` on a wrapper of your columns. The issue with this method, of course, is it doesn't work well for fluid designs. Worry not thought! Using the magic of CSS Gradients, you can now do the same thing fluidly and in pure CSS! The `equal-height-columns` mixin is here to save the day! Simply pass a list of widths and a list of colors and it'll build out your equal height columns for you!
