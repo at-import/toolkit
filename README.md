@@ -781,7 +781,7 @@ If the width and height are not uniform, then the angle will be stretched to mat
 
 #### But this angle thing is confusing!
 
-###### *new in 1.2.2*
+*new in 1.2.2*
 
 Yeah, it is hard to visualize so the mixin also supports keywords like `top`, `top right`, `right` and so on. The triangle will point in the direction you give it.
 
