@@ -20,3 +20,12 @@ img, video {
 .wf-loading #main {
   opacity: 0;
 }
+
+.triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-color: black;
+  border-width: 0em 1em 1em 0;
+}

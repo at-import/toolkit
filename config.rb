@@ -1,8 +1,11 @@
+# Uncomment when working:
 require 'susy'
 require 'breakpoint'
 require 'respond-to'
 require 'color-schemer'
-# Require any additional compass plugins here.
+
+# Uncomment when testing release gem:
+# require 'toolkit'
 
 
 # Set this to the root of your project when deployed:

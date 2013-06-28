@@ -1,4 +1,8 @@
+// Uncomment when working:
 @import "../compass/stylesheets/toolkit";
+
+// Uncomment when testing release gem:
+// @import "toolkit";
 
 #main {
   @include content-fade-in;
