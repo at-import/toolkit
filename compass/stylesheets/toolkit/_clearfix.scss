@@ -70,7 +70,7 @@ $clearfix-extend: false !default;
 $legacy-support-for-mozilla: true !default;
 
 @mixin clearfix($extend: $clearfix-extend) {
-  @if $legacy-support-for-ie6 and $legacy-support-for-ie7 and not $legacy-support-for-mozilla {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 and not $legacy-support-for-mozilla {
     @if $extend {
       @extend %clearfix-micro;
     }
@@ -91,7 +91,7 @@ $legacy-support-for-mozilla: true !default;
       }
     }
   }
-  @else if $legacy-support-for-ie6 and $legacy-support-for-ie7 and $legacy-support-for-mozilla {
+  @else if $legacy-support-for-ie6 or $legacy-support-for-ie7 and $legacy-support-for-mozilla {
     @if $extend {
       @extend %clearfix-legacy;
     }
