@@ -56,3 +56,41 @@
     @return colour-stack($colour, #000);
   }
 }
+
+//////////////////////////////
+// Creates an even scale from one color to another
+//////////////////////////////
+@function colour-scale($colour1, $colour2, $number: 6) {
+  @include color-scale($colour1, $colour2, $number);
+}
+
+@function color-scale($color1, $color2, $number: 6) {
+  $list: $color1;
+
+
+  $red1: red($color1);
+  $red2: red($color2);
+  $red-diff: (($red1 - $red2) / (($number - 1)));
+
+  $grn1: green($color1);
+  $grn2: green($color2);
+  $grn-diff: (($grn1 - $grn2) / (($number - 1)));
+
+  $blu1: blue($color1);
+  $blu2: blue($color2);
+  $blu-diff: (($blu1 - $blu2) / (($number - 1)));
+
+  $red-hold: $red1;
+  $grn-hold: $grn1;
+  $blu-hold: $blu1;
+
+  @for $i from 2 through $number {
+    $red-hold: $red-hold - ($red-diff);
+    $grn-hold: $grn-hold - ($grn-diff);
+    $blu-hold: $blu-hold - ($blu-diff);
+    $color-hold: rgb($red-hold, $grn-hold, $blu-hold);
+    $list: append($list, $color-hold);
+  }
+
+  @return $list;
+}
