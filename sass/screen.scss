@@ -8,6 +8,27 @@
   @include content-fade-in;
 }
 
+.micro {
+  $legacy-support-for-ie6: false;
+  $legacy-support-for-ie7: true;
+  $legacy-support-for-mozilla: false;
+  @include clearfix;
+}
+
+.legacy {
+  $legacy-support-for-ie6: false;
+  $legacy-support-for-ie7: true;
+  $legacy-support-for-mozilla: true;
+  @include clearfix;
+}
+
+.modern {
+  $legacy-support-for-ie6: false;
+  $legacy-support-for-ie7: false;
+  $legacy-support-for-mozilla: false;
+  @include clearfix;
+}
+
 // // .equilateral-triangle {
 // //   @include triangle;
 // // }

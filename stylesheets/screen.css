@@ -21,11 +21,38 @@ img, video {
   opacity: 0;
 }
 
-.triangle {
+.micro {
+  /* for IE 6/7 */
+  *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+  /* non-JS fallback */
+  *zoom: 1;
+}
+.micro:before, .micro:after {
+  content: "";
+  display: table;
+}
+.micro:after {
+  clear: both;
+}
+
+.legacy {
+  /* for IE 6/7 */
+  *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+  /* non-JS fallback */
+  *zoom: 1;
+}
+.legacy:before, .legacy:after {
+  content: ".";
   display: block;
-  width: 0;
   height: 0;
-  border: 0 solid transparent;
-  border-right-color: black;
-  border-width: 0em 1em 1em 0;
+  overflow: hidden;
+}
+.legacy:after {
+  clear: both;
+}
+
+.modern:after {
+  content: "";
+  display: table;
+  clear: both;
 }
