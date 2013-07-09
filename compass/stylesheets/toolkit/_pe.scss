@@ -153,7 +153,7 @@ $replace-text-inline-element: false !default;
     }
     @include sprite($sprite-map, $sprite);
   }
-  @media (min-resolution: 1.5dppx), (-webkit-max-device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     background: {
       image: $retina-map;
       repeat: no-repeat;
@@ -206,7 +206,7 @@ $replace-text-inline-element: false !default;
       }
     }
 
-    @media (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (-o-max-device-pixel-ratio: 7/5), (min-resolution: 1.4dppx), (min-resolution: 134.4dpi) {
+    @media (max-resolution: 1.4dppx), (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (max-resolution: 134.4dpi) {
       %#{sprite-map-name($png-path)}-image-map {
         background: {
           image: $png-path;
@@ -214,7 +214,7 @@ $replace-text-inline-element: false !default;
         }
       }
     }
-    @media (-webkit-max-device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio: 1.5), (-o-max-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
+    @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       %#{sprite-map-name($png2x-path)}-image-map {
         background: {
           image: $png2x-path;
