@@ -1,0 +1,137 @@
+//////////////////////////////
+// Import Compass CSS3 Animation
+//////////////////////////////
+@import "compass/css3/animation";
+
+//////////////////////////////
+// Carousel Default Variables
+//////////////////////////////
+$carousel-items: 5;
+$carousel-list: '> ul';
+$carousel-animation: 'carousel';
+$carousel-duration: 30s;
+$carousel-extend: true;
+
+$carousel-action: 'reverse';
+$carousel-speed: 5;
+
+//////////////////////////////
+// Carousel Component
+//////////////////////////////
+// Carousel Extend
+%css-carousel-basics {
+  overflow: hidden;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+%css-carousel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+
+  > li {
+    position:relative;
+    float:left;
+  }
+}
+
+// Carousel Component
+@mixin css-carousel-component($items: $carousel-items, $list: $carousel-list, $animation: $carousel-animation, $duration: $carousel-duration, $extend: $carousel-extend) {
+  @if $extend {
+    @extend %css-carousel-basics;
+  }
+  @else {
+    overflow: hidden;
+    width: 100%;
+  }
+
+
+  #{$list} {
+    @if $extend {
+      @extend %css-carousel-list;
+    }
+    @else {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    width: 100% * $items;
+
+    @include animation($animation $duration infinite);
+
+    > li {
+      @if not $extend {
+	position:relative;
+	float:left;
+      }
+      width: 100% / $items;
+    }
+  }
+
+  @if not $extend {
+    img{
+      display:block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+//////////////////////////////
+// Carousel Animation
+//////////////////////////////
+@mixin css-carousel-animation($items: $carousel-items, $action: $carousel-action, $speed: $carousel-speed, $name: $carousel-animation) {
+  $increment: 0;
+
+  @if $action == 'reverse' {
+    $increment: 100 / (2 * ($items - 1)) * 1%;
+  }
+  @else if $action == 'start' {
+    $increment: 100 / (($items)) * 1%;
+  }
+
+  $speed: $increment - ($speed * 1%);
+
+  @debug $increment;
+
+  $counter: 0%;
+  $offset: 0;
+
+  @include keyframes($name) {
+    @for $i from 0 through $items - 1 {
+      $counter: $increment * $i;
+      $offset: -100% * $i;
+
+      #{$counter} {left: $offset}
+      #{$counter + $speed} {left: $offset};
+    }
+    @if $action == 'reverse' {
+      @for $i from -1 * ($items - 2) through 0 {
+	$counter: $counter + $increment;
+	$offset: -100% * abs($i);
+
+	#{$counter} {left: $offset}
+
+	@if $i != 0 {
+	  #{$counter + $speed} {left: $offset};
+	}
+      }
+    }
+    @else if $action == 'start' {
+      100% {left: 0};
+    }
+  }
+}
