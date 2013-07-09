@@ -61,7 +61,7 @@
 // Creates an even scale from one color to another
 //////////////////////////////
 @function colour-scale($colour1, $colour2, $number: 6) {
-  @include color-scale($colour1, $colour2, $number);
+  @return color-scale($colour1, $colour2, $number);
 }
 
 @function color-scale($color1, $color2, $number: 6) {
