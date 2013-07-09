@@ -7,7 +7,7 @@
 $clearfix-extend: false !default;
 
 @mixin clearfix($extend: $clearfix-extend, $direct: false) {
-  @if ($legacy-support-for-ie6 and $legacy-support-for-ie7 and not $legacy-support-for-mozilla and $direct != 'legacy' and $direct != 'modern') or ($direct == 'micro') {
+  @if (($legacy-support-for-ie6 or $legacy-support-for-ie7) and not $legacy-support-for-mozilla and $direct != 'legacy' and $direct != 'modern') or ($direct == 'micro') {
     @if $extend {
       @extend %clearfix-micro;
     }
@@ -28,7 +28,7 @@ $clearfix-extend: false !default;
       }
     }
   }
-  @else if ($legacy-support-for-ie6 and $legacy-support-for-ie7 and $legacy-support-for-mozilla and $direct != 'micro' and $direct != 'modern') or ($direct == 'legacy') {
+  @else if (($legacy-support-for-ie6 or $legacy-support-for-ie7) and $legacy-support-for-mozilla and $direct != 'micro' and $direct != 'modern') or ($direct == 'legacy') {
     @if $extend {
       @extend %clearfix-legacy;
     }
