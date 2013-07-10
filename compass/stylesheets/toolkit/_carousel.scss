@@ -6,83 +6,28 @@
 //////////////////////////////
 // Carousel Default Variables
 //////////////////////////////
-$carousel-items: 5;
-$carousel-list: '> ul';
-$carousel-animation: 'carousel';
-$carousel-duration: 30s;
-$carousel-extend: true;
+$css-carousel-list: '> ul';
+$css-carousel-animation: 'carousel';
+$css-carousel-duration: 30s;
+$css-carousel-extend: true;
 
-$carousel-action: 'reverse';
-$carousel-speed: 5;
+$css-carousel-action: 'reverse';
+$css-carousel-speed: 5;
 
 //////////////////////////////
 // Carousel Component
 //////////////////////////////
-// Carousel Extend
-%css-carousel-basics {
-  overflow: hidden;
-  width: 100%;
-
-  img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-%css-carousel-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-
-  > li {
-    position:relative;
-    float:left;
-  }
-}
-
-// Carousel Component
-@mixin css-carousel-component($items: $carousel-items, $list: $carousel-list, $animation: $carousel-animation, $duration: $carousel-duration, $extend: $carousel-extend) {
+// Carousel Basics
+@mixin css-carousel-basics($extend: $css-carousel-extend) {
   @if $extend {
     @extend %css-carousel-basics;
   }
   @else {
     overflow: hidden;
     width: 100%;
-  }
 
-
-  #{$list} {
-    @if $extend {
-      @extend %css-carousel-list;
-    }
-    @else {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    width: 100% * $items;
-
-    @include animation($animation $duration infinite);
-
-    > li {
-      @if not $extend {
-	position:relative;
-	float:left;
-      }
-      width: 100% / $items;
-    }
-  }
-
-  @if not $extend {
-    img{
-      display:block;
+    img {
+      display: block;
       width: 100%;
       max-width: 100%;
       height: auto;
@@ -90,10 +35,70 @@ $carousel-speed: 5;
   }
 }
 
+// Carousel List
+@mixin css-carousel-list($extend: $css-carousel-extend) {
+  @if $extend {
+    @extend %css-carousel-list;
+  }
+  @else {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    > li {
+      position:relative;
+      float:left;
+    }
+  }
+}
+
+// List sizing, for changing only the size of the carousel
+@mixin css-carousel-size($items, $list: $css-carousel-list) {
+  #{$list} {
+    width: 100% * $items;
+
+    > li {
+      width: 100% / $items;
+    }
+  }
+}
+
+// Animation wrapped in list
+@mixin css-carousel-list-animation($animation: $css-carousel-animation, $duration: $css-carousel-duration, $list: $css-carousel-list) {
+  #{$list} {
+    @include animation($animation $duration infinite);
+  }
+}
+
+// Carousel Component
+@mixin css-carousel-component($items, $list: $css-carousel-list, $animation: $css-carousel-animation, $duration: $css-carousel-duration, $extend: $css-carousel-extend) {
+
+  @include css-carousel-basics($extend);
+
+  @include css-carousel-size($items, $list);
+
+  #{$list} {
+    @include css-carousel-list($extend);
+  }
+
+  @include css-carousel-list-animation($animation, $duration, $list);
+}
+
+// Carousel Extends
+%css-carousel-basics {
+  @include css-carousel-basics(false);
+}
+
+%css-carousel-list {
+  @include css-carousel-list(false);
+}
+
 //////////////////////////////
 // Carousel Animation
 //////////////////////////////
-@mixin css-carousel-animation($items: $carousel-items, $action: $carousel-action, $speed: $carousel-speed, $name: $carousel-animation) {
+@mixin css-carousel-animation($items, $action: $css-carousel-action, $speed: $css-carousel-speed, $name: $css-carousel-animation) {
   $increment: 0;
 
   @if $action == 'reverse' {
