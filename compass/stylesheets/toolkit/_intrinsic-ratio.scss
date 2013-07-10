@@ -7,19 +7,29 @@ $intrinsic-ratio-elements: '> *' !default;
 $intrinsic-ratio-extend: true !default;
 $intrinsic-ratio-direction: top !default;
 
-@mixin intrinsic-ratio-parent {
-    position: relative;
-    height: 0;
+@mixin intrinsic-ratio-parent($extend: $intrinsic-ratio-extend) {
+    @if $extend {
+      @extend %intrinsic-ratio-parent;
+    }
+    @else {
+      position: relative;
+      height: 0;
+    }
 }
 
-@mixin intrinsic-ratio-child {
-  display: block;
-  position: absolute;
-  width: 100% !important; // Nuke the external styles
-  height: 100% !important; // Nuke the external styles
-  top: 0;
-  margin: 0;
-  padding: 0;
+@mixin intrinsic-ratio-child($extend: $intrinsic-ratio-extend) {
+  @if $extend {
+    @extend %intrinsic-ratio-child;
+  }
+  @else {
+    display: block;
+    position: absolute;
+    width: 100% !important; // Nuke the external styles
+    height: 100% !important; // Nuke the external styles
+    top: 0;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @mixin intrinsic-ratio-padding($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $direction: $intrinsic-ratio-direction) {
@@ -27,12 +37,8 @@ $intrinsic-ratio-direction: top !default;
 }
 
 @mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
-  @if not $extend {
-    @include intrinsic-ratio-parent;
-  }
-  @else {
-    @extend %intrinsic-ratio-parent;
-  }
+
+  @include intrinsic-ratio-parent($extend);
 
   @include intrinsic-ratio-padding($ratio, $width, $direction);
   width: $width;
@@ -40,12 +46,7 @@ $intrinsic-ratio-direction: top !default;
 
   @each $element in $elements {
     #{$element} {
-      @if not $extend {
-	@include intrinsic-ratio-child;
-      }
-      @else {
-	@extend %intrinsic-ratio-child;
-      }
+    	@include intrinsic-ratio-child($extend);
     }
   }
 }
@@ -55,9 +56,9 @@ $intrinsic-ratio-direction: top !default;
 }
 
 %intrinsic-ratio-parent {
-  @include intrinsic-ratio-parent;
+  @include intrinsic-ratio-parent(false);
 }
 
 %intrinsic-ratio-child {
-  @include intrinsic-ratio-child;
+  @include intrinsic-ratio-child(false);
 }
