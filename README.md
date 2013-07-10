@@ -29,10 +29,13 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 10. [Webfont Helpers](#webfont-helpers)
 	* [Enable Ligatures](#enable-ligatures)
 	* [Content Fade In](#content-fade-in)
-10. [Viewport](#viewport)
-11. [Element Queries](#element-queries)
-11. [Odds and Ends](#odds-and-ends)
-12. [Templates](#templates)
+11. [Viewport](#viewport)
+12. [Element Queries](#element-queries)
+13. [Carousels](#carousels)
+	* [CSS Carousel Component](#css-carousel-component)
+	* [CSS Carousel Animation](#css-carousel-animation)
+14. [Odds and Ends](#odds-and-ends)
+15. [Templates](#templates)
 
 ## Requirements
 
@@ -156,6 +159,8 @@ $intrinsic-ratio-elements: '*';
 $intrinsic-ratio-extend: true;
 $intrinsic-ratio-direction: top;
 ```
+
+If you are looking to just change the ratio or the width of an item you've already used the `intrinsic-ratio` mixin with, you can call the `intrinsic-ratio-ratio` mixin with arguments `$ratio`, `$width`, and `$direction` on the element you've already applied the `intrinsic-ratio` mixin to. This will change the ratio the previously defined child elements adhere to.
 
 ## Progressive Enhancement
 
@@ -612,13 +617,17 @@ The equivalent hand written stack would be:
 ```scss
 $red-blue: red, #bf003f, #7f007f, #3f00bf, blue;
 ```
-While main colour and secondary colour are always required, the amounts are not. The default mixing percentages are `25%, 50%, 75%, 85%, 90%`. Also, if you prefer the American spelling of colour to the English way, `color-stack` is an identical function.
+While main colour and secondary colour are always required, the amounts are not. The default mixing percentages are `25%, 50%, 75%, 85%, 90%` which can be changed by setting the global `$colour-stack-amounts`.
+
+If you are looking to mix two colours together in equal amount, you can instead use the the `colour-scale` function which also takes a main and secondary colour as well as a total number of shades you would like. This will return a colour stack going evenly from the main colour to the secondary colour over the given number of shades.
 
 Finally, because the two most common use cases I've found for colour stacks are stacks of tints or shades, there are the `tint-stack` and `shade-stack` functions. They take in your primary colour and an optional set of amounts (just like the `colour-stack` function) and will return the tint or shade equivalents for `colour-stack`. So, if we take our original example of a colour stack, that can now be rewritten as:
 
 ```scss
 $red: tint-stack(red);
 ```
+
+All colour functions and variables are available in both the English spelling (colour) and the American spelling (color).
 
 ## Selectors
 
@@ -961,6 +970,162 @@ This title is a little bit of a misnomer; the following mixin won't provide true
 ```
 
 Because the media query portion is working through Breakpoint, you have access to the entire range of media query possibilities that Breakpoint provides.
+
+## Carousels
+
+Carousels provides a pure CSS3 rotating carousel. Currently, it does not provide fallbacks to non-CSS3 compatible browsers. It's also not user-controllable, they simply rotate through. That all being said, they're fun. An example of a carousel built using Toolkit's carousel component is available on [Snugug's](http://github.com/snugug) [Responsive Training Site](http://snugug.github.io/responsive-training-site/) demo.
+
+Carousels are Toolkit's first foray into User Interface components, and as such, may wind up being moved to [UI Kit](https://github.com/Team-Sass/uikit) when it is ready to be used. The Carousel mixins provide a way to create a CSS Only slider based on an HTML list with a wrapper around it. **Carousels require functionality in Compass 0.13 and as such is not imported by default!** As of this writing, Compass 0.13 can be installed by running `gem install compass --pre`. Once you have Compass 0.13 installed, you need to import Carousels separately using `@import "compass/carousel";`.
+
+### CSS Carousel Component
+
+The first part of the carousel is the carousel itself, provided by the `css-carousel-component` mixin. It expects HTML that looks like the following:
+
+```markup
+<wrapper>
+  <list>
+    <li>
+      Slide
+    </li>
+  </list>
+</wrapper>
+```
+
+You can use any wrapper/list you would like, and select them however you'd like, with the only qualifications being that `<list>` should be either an `<ol>` or a `<ul>` (but you can still select them however you'd like). By default, the `css-carousel-component` mixin is going to select your list using `> ul`, but this can be changed by changing `$css-carousel-list`.
+
+When using the carousel component, there is one thing that is must be known, and that's how many items there are in your carousel. Applying the carousel to your wrapper is as easy as follows (using `5` for the number of items and `.carousel` as a wrapper, for the example):
+
+```scss
+.carousel {
+  @include css-carousel-compnent(5);
+}
+```
+
+This will produce the following CSS:
+
+```css
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+.carousel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.carousel > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.carousel > ul > li {
+  position: relative;
+  float: left;
+}
+
+.carousel > ul {
+  width: 500%;
+}
+.carousel > ul > li {
+  width: 20%;
+}
+.carousel > ul {
+  -webkit-animation: "carousel" 30s infinite;
+  -moz-animation: "carousel" 30s infinite;
+  -o-animation: "carousel" 30s infinite;
+  animation: "carousel" 30s infinite;
+}
+```
+
+By default, it will use an animation named `'carousel'` (which can be changed globally by changing `$css-carousel-animation` or on a per-carousel basis by passing in an animation name to `$animation`) and a duration of `30s` (which can be changed globally by changing `$css-carousel-duration` or on a per-carousel basis by passing in a time duration to `$duration`). It will also attempt to optimize your the output by utilizing `@extend`; if you would prefer it did not, you can change that globally by setting `$css-carousel-extend` or on a per-carousel basis by passing in a boolean to `$extend`.
+
+### CSS Carousel Animation
+
+The second part of the carousel is the actual CSS animation to make the carousel slide around! This is provided by the `css-carousel-animation` mixin. When writing the animation, like the component, there is one thing that must be known, and that's how many items there are in your carousel. Creating the animation is as easy as follows (using `5` for the number of items):
+
+```scss
+@include css-carousel-animation(5);
+```
+
+This will produce the following CSS (cross-browser prefixes removed for clarity):
+
+```css
+@keyframes carousel {
+  0% {
+    left: 0%;
+  }
+
+  7.5% {
+    left: 0%;
+  }
+
+  12.5% {
+    left: -100%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  25% {
+    left: -200%;
+  }
+
+  32.5% {
+    left: -200%;
+  }
+
+  37.5% {
+    left: -300%;
+  }
+
+  45% {
+    left: -300%;
+  }
+
+  50% {
+    left: -400%;
+  }
+
+  57.5% {
+    left: -400%;
+  }
+
+  62.5% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  75% {
+    left: -200%;
+  }
+
+  82.5% {
+    left: -200%;
+  }
+
+  87.5% {
+    left: -100%;
+  }
+
+  95% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+```
+
+By default, it will create an animation that will reverse direction when it reaches the end (using `'reverse'`) but can be changed to go to the beginning of the carousel by changing it to `'start'` (which can be changed globally by changing `$css-carousel-action` or on a per-carousel basis by passing in an action name to `$action`) and a transition speed of `5` (which can be changed globally by changing `$css-carousel-speed` or on a per-carousel basis by passing in a number to `$speed`, the smaller the number the faster the transition). It will create the animation based on the value of the global `$css-carousel-animation`, but can be changed by passing in an animation name to `$name`.
 
 ## Odds and Ends
 
