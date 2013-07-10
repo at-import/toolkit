@@ -5,8 +5,9 @@
 // Can choose whether to extend or to write.
 //////////////////////////////
 $clearfix-extend: false !default;
+$clearfix-direct: false !default;
 
-@mixin clearfix($extend: $clearfix-extend, $direct: false) {
+@mixin clearfix($extend: $clearfix-extend, $direct: $clearfix-direct) {
   @if (($legacy-support-for-ie6 or $legacy-support-for-ie7) and not $legacy-support-for-mozilla and $direct != 'legacy' and $direct != 'modern') or ($direct == 'micro') {
     @if $extend {
       @extend %clearfix-micro;
