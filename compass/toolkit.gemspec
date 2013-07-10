@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.files += Dir.glob("LICENSE.txt")
 
   # Dependent Gems
-  s.add_dependency 'compass',             ">= 0.13.alpha.4"
+  s.add_dependency 'compass',             ">= 0.12.2"
   s.add_dependency 'singularitygs',       ">= 1.0.7"
   s.add_dependency 'breakpoint',          ">=2.0.2"
   s.add_dependency 'sassy-strings',       ">= 0.1"
