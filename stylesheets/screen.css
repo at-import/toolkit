@@ -10,49 +10,318 @@ img, video {
   height: auto;
 }
 
-#main {
-  opacity: 1;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  transition: opacity 1s;
+.carousel {
+  overflow: hidden;
+  width: 100%;
 }
-.wf-loading #main {
-  opacity: 0;
-}
-
-.micro {
-  /* for IE 6/7 */
-  *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
-  /* non-JS fallback */
-  *zoom: 1;
-}
-.micro:before, .micro:after {
-  content: "";
-  display: table;
-}
-.micro:after {
-  clear: both;
-}
-
-.legacy {
-  /* for IE 6/7 */
-  *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
-  /* non-JS fallback */
-  *zoom: 1;
-}
-.legacy:before, .legacy:after {
-  content: ".";
+.carousel img {
   display: block;
-  height: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.carousel > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
   overflow: hidden;
 }
-.legacy:after {
-  clear: both;
+.carousel > ul > li {
+  position: relative;
+  float: left;
 }
 
-.modern:after {
-  content: "";
-  display: table;
-  clear: both;
+.carousel > ul {
+  width: 500%;
+}
+.carousel > ul > li {
+  width: 20%;
+}
+.carousel > ul {
+  -webkit-animation: "carousel" 30s infinite;
+  -moz-animation: "carousel" 30s infinite;
+  -o-animation: "carousel" 30s infinite;
+  animation: "carousel" 30s infinite;
+}
+
+@-moz-keyframes carousel {
+  0% {
+    left: 0%;
+  }
+
+  7.5% {
+    left: 0%;
+  }
+
+  12.5% {
+    left: -100%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  25% {
+    left: -200%;
+  }
+
+  32.5% {
+    left: -200%;
+  }
+
+  37.5% {
+    left: -300%;
+  }
+
+  45% {
+    left: -300%;
+  }
+
+  50% {
+    left: -400%;
+  }
+
+  57.5% {
+    left: -400%;
+  }
+
+  62.5% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  75% {
+    left: -200%;
+  }
+
+  82.5% {
+    left: -200%;
+  }
+
+  87.5% {
+    left: -100%;
+  }
+
+  95% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+
+@-webkit-keyframes carousel {
+  0% {
+    left: 0%;
+  }
+
+  7.5% {
+    left: 0%;
+  }
+
+  12.5% {
+    left: -100%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  25% {
+    left: -200%;
+  }
+
+  32.5% {
+    left: -200%;
+  }
+
+  37.5% {
+    left: -300%;
+  }
+
+  45% {
+    left: -300%;
+  }
+
+  50% {
+    left: -400%;
+  }
+
+  57.5% {
+    left: -400%;
+  }
+
+  62.5% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  75% {
+    left: -200%;
+  }
+
+  82.5% {
+    left: -200%;
+  }
+
+  87.5% {
+    left: -100%;
+  }
+
+  95% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+
+@-o-keyframes carousel {
+  0% {
+    left: 0%;
+  }
+
+  7.5% {
+    left: 0%;
+  }
+
+  12.5% {
+    left: -100%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  25% {
+    left: -200%;
+  }
+
+  32.5% {
+    left: -200%;
+  }
+
+  37.5% {
+    left: -300%;
+  }
+
+  45% {
+    left: -300%;
+  }
+
+  50% {
+    left: -400%;
+  }
+
+  57.5% {
+    left: -400%;
+  }
+
+  62.5% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  75% {
+    left: -200%;
+  }
+
+  82.5% {
+    left: -200%;
+  }
+
+  87.5% {
+    left: -100%;
+  }
+
+  95% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes carousel {
+  0% {
+    left: 0%;
+  }
+
+  7.5% {
+    left: 0%;
+  }
+
+  12.5% {
+    left: -100%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  25% {
+    left: -200%;
+  }
+
+  32.5% {
+    left: -200%;
+  }
+
+  37.5% {
+    left: -300%;
+  }
+
+  45% {
+    left: -300%;
+  }
+
+  50% {
+    left: -400%;
+  }
+
+  57.5% {
+    left: -400%;
+  }
+
+  62.5% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  75% {
+    left: -200%;
+  }
+
+  82.5% {
+    left: -200%;
+  }
+
+  87.5% {
+    left: -100%;
+  }
+
+  95% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0%;
+  }
 }

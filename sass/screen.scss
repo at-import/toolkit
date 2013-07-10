@@ -1,33 +1,15 @@
 // Uncomment when working:
 @import "../compass/stylesheets/toolkit";
+@import "../compass/stylesheets/toolkit/carousel";
 
 // Uncomment when testing release gem:
 // @import "toolkit";
 
-#main {
-  @include content-fade-in;
+.carousel {
+  @include css-carousel-component(5);
 }
 
-.micro {
-  $legacy-support-for-ie6: false;
-  $legacy-support-for-ie7: true;
-  $legacy-support-for-mozilla: false;
-  @include clearfix;
-}
-
-.legacy {
-  $legacy-support-for-ie6: false;
-  $legacy-support-for-ie7: true;
-  $legacy-support-for-mozilla: true;
-  @include clearfix;
-}
-
-.modern {
-  $legacy-support-for-ie6: false;
-  $legacy-support-for-ie7: false;
-  $legacy-support-for-mozilla: false;
-  @include clearfix;
-}
+@include css-carousel-animation(5);
 
 // // .equilateral-triangle {
 // //   @include triangle;
