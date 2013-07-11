@@ -1,0 +1,9 @@
+@mixin rtl($property, $size) {
+  #{$property}: $size;
+
+  @if length($size) == 4 {
+    [dir="rtl"] & {
+      #{$property}: nth($size, 1) nth($size, 4) nth($size, 3) nth($size, 2);
+    }
+  }
+}
