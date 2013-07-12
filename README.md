@@ -997,7 +997,7 @@ When using the carousel component, there is one thing that is must be known, and
 
 ```scss
 .carousel {
-  @include css-carousel-compnent(5);
+  @include css-carousel-component(5);
 }
 ```
 
