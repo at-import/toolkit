@@ -975,7 +975,7 @@ Because the media query portion is working through Breakpoint, you have access t
 
 Carousels provides a pure CSS3 rotating carousel. Currently, it does not provide fallbacks to non-CSS3 compatible browsers. It's also not user-controllable, they simply rotate through. That all being said, they're fun. An example of a carousel built using Toolkit's carousel component is available on [Snugug's](http://github.com/snugug) [Responsive Training Site](http://snugug.github.io/responsive-training-site/) demo.
 
-Carousels are Toolkit's first foray into User Interface components, and as such, may wind up being moved to [UI Kit](https://github.com/Team-Sass/uikit) when it is ready to be used. The Carousel mixins provide a way to create a CSS Only slider based on an HTML list with a wrapper around it. **Carousels require functionality in Compass 0.13 and as such is not imported by default!** As of this writing, Compass 0.13 can be installed by running `gem install compass --pre`. Once you have Compass 0.13 installed, you need to import Carousels separately using `@import "compass/carousel";`.
+Carousels are Toolkit's first foray into User Interface components, and as such, may wind up being moved to [UI Kit](https://github.com/Team-Sass/uikit) when it is ready to be used. The Carousel mixins provide a way to create a CSS Only sliding carousel. **Carousels require functionality in Compass 0.13 and as such is not imported by default!** As of this writing, Compass 0.13 can be installed by running `gem install compass --pre`. Once you have Compass 0.13 installed, you need to import Carousels separately using `@import "compass/carousel";`.
 
 ### CSS Carousel Component
 
@@ -983,17 +983,20 @@ The first part of the carousel is the carousel itself, provided by the `css-caro
 
 ```markup
 <wrapper>
-  <list>
-    <li>
-      Slide
-    </li>
-  </list>
+  <slider>
+    <slide>
+      Slide Content
+    </slide>
+    <slide>
+      Slide Content
+    </slide>
+  </slider>
 </wrapper>
 ```
 
-You can use any wrapper/list you would like, and select them however you'd like, with the only qualifications being that `<list>` should be either an `<ol>` or a `<ul>` (but you can still select them however you'd like). By default, the `css-carousel-component` mixin is going to select your list using `> ul`, but this can be changed by changing `$css-carousel-list`.
+You can use any markup for wrapper/slider/slide you would like, and select them however you'd like. By default, the `css-carousel-component` mixin is going to use `> ul` for the slider and `> li` for the slides, but this can be changed globally by changing `$css-carousel-slider` or `$css-carousel-slide` respectively and on a per-carousel basis by passing in `$slider` or `$slide` respectively.
 
-When using the carousel component, there is one thing that is must be known, and that's how many items there are in your carousel. Applying the carousel to your wrapper is as easy as follows (using `5` for the number of items and `.carousel` as a wrapper, for the example):
+When using the carousel component, there is one thing that is must be known, and that's how many items there are in your carousel. Applying the carousel to your wrapper is as easy as follows (using `5` for the number of items and `.carousel` as a wrapper, using all of the defaults for the example):
 
 ```scss
 .carousel {
@@ -1022,6 +1025,7 @@ This will produce the following CSS:
   position: relative;
   overflow: hidden;
 }
+
 .carousel > ul > li {
   position: relative;
   float: left;
@@ -1034,10 +1038,10 @@ This will produce the following CSS:
   width: 20%;
 }
 .carousel > ul {
-  -webkit-animation: "carousel" 30s infinite;
-  -moz-animation: "carousel" 30s infinite;
-  -o-animation: "carousel" 30s infinite;
-  animation: "carousel" 30s infinite;
+  -webkit-animation: carousel 30s infinite;
+  -moz-animation: carousel 30s infinite;
+  -o-animation: carousel 30s infinite;
+  animation: carousel 30s infinite;
 }
 ```
 
