@@ -6,7 +6,8 @@
 //////////////////////////////
 // Carousel Default Variables
 //////////////////////////////
-$css-carousel-list: '> ul';
+$css-carousel-slider: '> ul';
+$css-carousel-slide: '> li';
 $css-carousel-animation: 'carousel';
 $css-carousel-duration: 30s;
 $css-carousel-extend: true;
@@ -36,9 +37,9 @@ $css-carousel-speed: 5;
 }
 
 // Carousel List
-@mixin css-carousel-list($extend: $css-carousel-extend) {
+@mixin css-carousel-slider($extend: $css-carousel-extend) {
   @if $extend {
-    @extend %css-carousel-list;
+    @extend %css-carousel-slider;
   }
   @else {
     list-style: none;
@@ -46,44 +47,54 @@ $css-carousel-speed: 5;
     padding: 0;
     position: relative;
     overflow: hidden;
+  }
+}
 
-    > li {
-      position:relative;
-      float:left;
-    }
+// Carousel Slide
+@mixin css-carousel-slide($extend: $css-carousel-extend) {
+  @if $extend {
+    @extend %css-carousel-slide;
+  }
+  @else {
+    position: relative;
+    float: left;
   }
 }
 
 // List sizing, for changing only the size of the carousel
-@mixin css-carousel-size($items, $list: $css-carousel-list) {
-  #{$list} {
+@mixin css-carousel-size($items, $slider: $css-carousel-slider, $slide: $css-carousel-slide) {
+  #{$slider} {
     width: 100% * $items;
 
-    > li {
+    #{$slide} {
       width: 100% / $items;
     }
   }
 }
 
-// Animation wrapped in list
-@mixin css-carousel-list-animation($animation: $css-carousel-animation, $duration: $css-carousel-duration, $list: $css-carousel-list) {
-  #{$list} {
-    @include animation($animation $duration infinite);
+// Animation wrapped in slider
+@mixin css-carousel-slider-animation($animation: $css-carousel-animation, $duration: $css-carousel-duration, $slider: $css-carousel-slider) {
+  #{$slider} {
+    @include animation(unquote($animation) $duration infinite);
   }
 }
 
 // Carousel Component
-@mixin css-carousel-component($items, $list: $css-carousel-list, $animation: $css-carousel-animation, $duration: $css-carousel-duration, $extend: $css-carousel-extend) {
+@mixin css-carousel-component($items, $slider: $css-carousel-slider, $slide: $css-carousel-slide, $animation: $css-carousel-animation, $duration: $css-carousel-duration, $extend: $css-carousel-extend) {
 
   @include css-carousel-basics($extend);
 
-  @include css-carousel-size($items, $list);
+  @include css-carousel-size($items, $slider, $slide);
 
-  #{$list} {
-    @include css-carousel-list($extend);
+  #{$slider} {
+    @include css-carousel-slider($extend);
+
+    #{$slide} {
+      @include css-carousel-slide($extend);
+    }
   }
 
-  @include css-carousel-list-animation($animation, $duration, $list);
+  @include css-carousel-slider-animation($animation, $duration, $slider);
 }
 
 // Carousel Extends
@@ -91,8 +102,12 @@ $css-carousel-speed: 5;
   @include css-carousel-basics(false);
 }
 
-%css-carousel-list {
-  @include css-carousel-list(false);
+%css-carousel-slider {
+  @include css-carousel-slider(false);
+}
+
+%css-carousel-slide {
+  @include css-carousel-slide(false);
 }
 
 //////////////////////////////
