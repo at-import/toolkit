@@ -28,6 +28,7 @@ img, video {
   position: relative;
   overflow: hidden;
 }
+
 .carousel > ul > li {
   position: relative;
   float: left;
@@ -40,10 +41,10 @@ img, video {
   width: 20%;
 }
 .carousel > ul {
-  -webkit-animation: "carousel" 30s infinite;
-  -moz-animation: "carousel" 30s infinite;
-  -o-animation: "carousel" 30s infinite;
-  animation: "carousel" 30s infinite;
+  -webkit-animation: carousel 30s infinite;
+  -moz-animation: carousel 30s infinite;
+  -o-animation: carousel 30s infinite;
+  animation: carousel 30s infinite;
 }
 
 @-moz-keyframes carousel {
