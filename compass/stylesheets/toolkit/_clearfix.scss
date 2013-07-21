@@ -6,6 +6,7 @@
 //////////////////////////////
 $clearfix-extend: false !default;
 $clearfix-direct: false !default;
+$toolkit-clearfix: true;
 
 @mixin clearfix($extend: $clearfix-extend, $direct: $clearfix-direct) {
   @if (($legacy-support-for-ie6 or $legacy-support-for-ie7) and not $legacy-support-for-mozilla and $direct != 'legacy' and $direct != 'modern') or ($direct == 'micro') {
@@ -94,6 +95,6 @@ $clearfix-direct: false !default;
 //
 // From http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
 //////////////////////////////
-%clearfix:after {
+%clearfix {
   @include clearfix(false, 'modern');
 }
