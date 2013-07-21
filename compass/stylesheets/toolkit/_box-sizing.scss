@@ -3,29 +3,40 @@
 $legacy-support-for-ie6: true !default;
 $legacy-support-for-ie7: true !default;
 
+$box-sizing-extend: true !default;
+$toolkit-box-sizing: true;
+
 //////////////////////////////
 // Updated Box Sizing mixin, allowing for behavior support
 //////////////////////////////
-@mixin box-sizing($bs) {
-  $bs: unquote($bs);
-  @include experimental(box-sizing, $bs,
-    -moz, -webkit, not -o, not -ms, not -khtml, official
-  );
-
-  @if $bs == 'border-box' {
-    @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-      *behavior: stylesheet-url("../behaviors/box-sizing/boxsizing.php");
-    }
+@mixin box-sizing($bs, $extend: $box-sizing-extend) {
+  @if $extend and $bs == 'border-box' {
+    @extend %border-box;
+  }
+  @else if $extend and $bs == 'content-box' {
+    @extend %content-box;
   }
   @else {
-    *behavior: none;
+    $bs: unquote($bs);
+    @include experimental(box-sizing, $bs,
+      -moz, -webkit, not -o, not -ms, not -khtml, official
+    );
+
+    @if $bs == 'border-box' {
+      @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+        *behavior: stylesheet-url("../behaviors/box-sizing/boxsizing.php");
+      }
+    }
+    @else {
+      *behavior: none;
+    }
   }
 }
 
 %border-box {
-  @include box-sizing('border-box');
+  @include box-sizing('border-box', false);
 }
 
 %content-box {
-  @include box-sizing('content-box');
+  @include box-sizing('content-box', false);
 }
