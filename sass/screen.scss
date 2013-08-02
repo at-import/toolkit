@@ -1,15 +1,19 @@
 // Uncomment when working:
-@import "../compass/stylesheets/toolkit";
-@import "../compass/stylesheets/toolkit/carousel";
+// @import "../compass/stylesheets/toolkit";
+// @import "../compass/stylesheets/toolkit/carousel";
 
 // Uncomment when testing release gem:
-// @import "toolkit";
+@import "toolkit";
 
-.carousel {
-  @include css-carousel-component(5);
+.nested-context {
+	@include nested-context(33%);
 }
 
-@include css-carousel-animation(5);
+// .carousel {
+//   @include css-carousel-component(5);
+// }
+
+// @include css-carousel-animation(5);
 
 // // .equilateral-triangle {
 // //   @include triangle;

@@ -1,11 +1,11 @@
 # Uncomment when working:
-require 'susy'
-require 'breakpoint'
-require 'respond-to'
-require 'color-schemer'
+# require 'susy'
+# require 'breakpoint'
+# require 'respond-to'
+# require 'color-schemer'
 
 # Uncomment when testing release gem:
-# require 'toolkit'
+require 'toolkit'
 
 
 # Set this to the root of your project when deployed:
