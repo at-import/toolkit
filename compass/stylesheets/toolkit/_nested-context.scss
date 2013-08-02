@@ -1,6 +1,3 @@
-// default direction of text
-$direction: rtl !default;
-
 // simple function to find the context of a nested percentage.
 @function nested-context($contexts) {
   
