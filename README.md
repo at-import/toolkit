@@ -7,35 +7,36 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 ## Table of Contents
 
 1. [Border Box](#border-box)
-2. [Fluid Media](#fluid-media)
+1. [Fluid Media](#fluid-media)
    * [Fluid Images and HTML5 Video](#fluid-images-and-html5-video)
    * [Intrinsic Ratios](#intrinsic-ratios)
-3. [Progressive Enhancement](#progressive-enhancement)
+1. [Progressive Enhancement](#progressive-enhancement)
    * [Enhance and Degrade](#enhance-and-degrade)
    * [Progressively Enhanced Background Images](#progressively-enhanced-background-images)
    * [Progressively Enhanced Text Replacement](#progressively-enhanced-text-replacement)
-4. [Clearfix](#clearfix)
-5. [Vertical Center](#vertical-center)
-6. [Colour Functions](#colour-functions)
+1. [Clearfix](#clearfix)
+1. [Vertical Center](#vertical-center)
+1. [Nested Context](#nested-context)
+1. [Colour Functions](#colour-functions)
 	* [Tint and Shade](#tint-and-shade)
 	* [Colour Stacks](#colour-stacks)
-7. [Selectors](#selectors)
+1. [Selectors](#selectors)
 	* [Style Attribute](#style-attribute)
 	* [Style External Links](#style-external-links)
 	* [Style Internal Links](#style-internal-links)
 	* [nth-child for IE7/8](#nth-child-for-ie78)
-8. [Triangles](#triangles)
-9. [Equal Height Columns](#equal-height-columns)
-10. [Webfont Helpers](#webfont-helpers)
+1. [Triangles](#triangles)
+1. [Equal Height Columns](#equal-height-columns)
+1. [Webfont Helpers](#webfont-helpers)
 	* [Enable Ligatures](#enable-ligatures)
 	* [Content Fade In](#content-fade-in)
-11. [Viewport](#viewport)
-12. [Element Queries](#element-queries)
-13. [Carousels](#carousels)
+1. [Viewport](#viewport)
+1. [Element Queries](#element-queries)
+1. [Carousels](#carousels)
 	* [CSS Carousel Component](#css-carousel-component)
 	* [CSS Carousel Animation](#css-carousel-animation)
-14. [Odds and Ends](#odds-and-ends)
-15. [Templates](#templates)
+1. [Odds and Ends](#odds-and-ends)
+1. [Templates](#templates)
 
 ## Requirements
 
@@ -583,6 +584,47 @@ Vertical centering doesn't exist in CSS. If your designers do it, they're mean. 
   *clear: expression(style.marginTop = "" + (offsetHeight < parentNode.offsetHeight ? parseInt((parentNode.offsetHeight - offsetHeight) / 2) + "px" : "0"),     style.clear = "none", 0     );
 }
 ```
+
+## Nested Context
+
+Sometimes we may be inside of an element but need somthing the width of its parent.
+
+![Basic nested context](http://img.pgdn.us/nested-context.png)
+
+This is easy with fixed widths because then we can just make the child the width we want it but percentages change with each new context. With just a little bit of math we can pretty easily figure out what context we are in and it is condensed in the `nested-context()` function. Simply write how wide your current container is and it will figure out how wide it’s parent is like `nested-context(30%)` will give you a percentage to match the parent. Sometimes you are multiple levels deep and in that case, you can just list the levels `nested-context(80% 60% 33%)` and result in a percentage matching that of the 3rd parent up.
+
+To make things a little easier, there is also a mixin that writes the width for you:
+
+<div data-height="239" data-theme-id="0" data-slug-hash="vGuaI" data-user="scottkellum" data-default-tab="css" class='codepen'><pre><code>.container {
+  width: 33%;
+  background-color: red;
+  height: 1em; padding: 1em 0;
+}
+
+.child {
+  @include nested-context(33%);
+  background-color: blue;
+  height: 1em;
+}</code></pre>
+<p>See the Pen <a href='http://codepen.io/scottkellum/pen/vGuaI'>%= penName %></a> by Scott Kellum (<a href='http://codepen.io/scottkellum'>@scottkellum</a>) on <a href='http://codepen.io'>CodePen</a></p>
+</div><script async src="http://codepen.io/assets/embed/ei.js"></script>
+
+If what you are nesting is centered or left aligned, it has key words like `center` and `left` that help position the child so that it matches the parent:
+
+<div data-height="268" data-theme-id="330" data-slug-hash="mwlGe" data-user="scottkellum" data-default-tab="css" class='codepen'><pre><code>.container {
+  width: 33%;
+  margin: 0 auto;
+  background-color: red;
+  height: 1em; padding: 1em 0;
+}
+
+.child {
+  @include nested-context(33%, center);
+  background-color: blue;
+  height: 1em;
+}</code></pre>
+<p>See the Pen <a href='http://codepen.io/scottkellum/pen/mwlGe'>%= penName %></a> by Scott Kellum (<a href='http://codepen.io/scottkellum'>@scottkellum</a>) on <a href='http://codepen.io'>CodePen</a></p>
+</div><script async src="http://codepen.io/assets/embed/ei.js"></script>
 
 ## Colour Functions
 
