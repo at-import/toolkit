@@ -606,7 +606,7 @@ To make things a little easier, there is also a mixin that writes the width for 
   background-color: blue;
   height: 1em;
 }</code></pre>
-<p>See the Pen <a href='http://codepen.io/scottkellum/pen/vGuaI'>%= penName %></a> by Scott Kellum (<a href='http://codepen.io/scottkellum'>@scottkellum</a>) on <a href='http://codepen.io'>CodePen</a></p>
+<p>See the Pen <a href='http://codepen.io/scottkellum/pen/vGuaI'>Nested Context</a> on <a href='http://codepen.io'>CodePen</a></p>
 </div><script async src="http://codepen.io/assets/embed/ei.js"></script>
 
 If what you are nesting is centered or left aligned, it has key words like `center` and `left` that help position the child so that it matches the parent:
@@ -623,7 +623,7 @@ If what you are nesting is centered or left aligned, it has key words like `cent
   background-color: blue;
   height: 1em;
 }</code></pre>
-<p>See the Pen <a href='http://codepen.io/scottkellum/pen/mwlGe'>%= penName %></a> by Scott Kellum (<a href='http://codepen.io/scottkellum'>@scottkellum</a>) on <a href='http://codepen.io'>CodePen</a></p>
+<p>See the Pen <a href='http://codepen.io/scottkellum/pen/mwlGe'>Centered nested context</a> on <a href='http://codepen.io'>CodePen</a></p>
 </div><script async src="http://codepen.io/assets/embed/ei.js"></script>
 
 ## Colour Functions
