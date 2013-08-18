@@ -74,8 +74,12 @@ $toolkit-clearfix: true;
 //
 // From http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
 //////////////////////////////
-%clearfix-legacy {
+@mixin clearfix-legacy {
   @include clearfix(false, 'legacy');
+}
+
+%clearfix-legacy {
+  @include clearfix-legacy;
 }
 
 //////////////////////////////
@@ -84,8 +88,12 @@ $toolkit-clearfix: true;
 // For when you need old IE support, but not concerned with old Firefox
 // From http://nicolasgallagher.com/better-float-containment-in-ie/
 //////////////////////////////
-%clearfix-micro {
+@mixin clearfix-micro {
   @include clearfix(false, 'micro');
+}
+
+%clearfix-micro {
+  @include clearfix-micro;
 }
 
 //////////////////////////////
@@ -95,6 +103,10 @@ $toolkit-clearfix: true;
 //
 // From http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
 //////////////////////////////
-%clearfix {
+@mixin clearfix-modern {
   @include clearfix(false, 'modern');
+}
+
+%clearfix, %clearfix-modern {
+  @include clearfix-modern;
 }
