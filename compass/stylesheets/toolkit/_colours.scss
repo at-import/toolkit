@@ -60,6 +60,33 @@ $colour-stack-amounts: $color-stack-amounts !default;
   }
 }
 
+@function conjoin($lists, $separator: auto) {
+  $return: ();
+  @each $list in $lists {
+    $return: join($return, $list, $separator);
+  }
+  @return $return;
+}
+
+@function tint-shade-stack($colour, $amounts...) {
+  @if length($amounts) > 0 {
+    $shaded: colour-stack($colour, black, $amounts);
+    $shaded-short: conjoin(nth($shaded, 2) nth($shaded, 3));
+    $tinted: colour-stack($colour, white, $amounts);
+    $tinted-short: conjoin(nth($tinted, 2) nth($shaded, 3) nth($tinted, 4));
+    $tint-shade-stack: join($shaded-short, $tinted-short);
+    @return join($colour, $tint-shade-stack);
+  }
+  @else {
+    $shaded: colour-stack($colour, black);
+    $shaded-short: conjoin(nth($shaded, 2) nth($shaded, 3));
+    $tinted: colour-stack($colour, white);
+    $tinted-short: conjoin(nth($tinted, 2) nth($tinted, 3) nth($tinted, 4));
+    $tint-shade-stack: join($shaded-short, $tinted-short);
+    @return join($colour, $tint-shade-stack);
+  }
+}
+
 //////////////////////////////
 // Creates an even scale from one color to another
 //////////////////////////////
