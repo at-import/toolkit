@@ -35,6 +35,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Carousels](#carousels)
 	* [CSS Carousel Component](#css-carousel-component)
 	* [CSS Carousel Animation](#css-carousel-animation)
+1. [Debugging](#debug)
 1. [Odds and Ends](#odds-and-ends)
 1. [Templates](#templates)
 
@@ -1172,6 +1173,50 @@ This will produce the following CSS (cross-browser prefixes removed for clarity)
 ```
 
 By default, it will create an animation that will reverse direction when it reaches the end (using `'reverse'`) but can be changed to go to the beginning of the carousel by changing it to `'start'` (which can be changed globally by changing `$css-carousel-action` or on a per-carousel basis by passing in an action name to `$action`) and a transition speed of `5` (which can be changed globally by changing `$css-carousel-speed` or on a per-carousel basis by passing in a number to `$speed`, the smaller the number the faster the transition). It will create the animation based on the value of the global `$css-carousel-animation`, but can be changed by passing in an animation name to `$name`.
+
+## Debugging
+
+Sometimes you need to draw a big dumb box around stuff to see where it is. Just be sure to remove it before showing the client, capisce?
+
+### Defaults
+
+```scss
+$debug-extend: true !default;
+$debug-color-default: red !default;
+$debug-bkg-color-default: false !default;
+```
+
+### Use
+```scss
+#where-is-this-thing {
+  @extend %debug-extend;
+}
+// or
+#where-is-this-other-thing {
+  // change the outline color
+  @include debug(blue);
+}
+// or
+#where-is-still-other-thing {
+  // change the outline color and add a background
+  @include debug($color: blue, $bkg-color: yellow);
+}
+```
+
+```css
+#where-is-this-thing {
+  outline: 1px solid red;
+}
+// or
+#where-is-this-other-thing {
+  outline: 1px solid blue;
+}
+// or
+#where-is-still-other-thing {
+  outline: 1px solid blue;
+  background-color: yellow;
+}
+```
 
 ## Odds and Ends
 
