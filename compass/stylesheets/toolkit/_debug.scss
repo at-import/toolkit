@@ -1,0 +1,25 @@
+//////////////////////////////
+// Debugging
+//////////////////////////////
+$debug-extend: true !default;
+$debug-color-default: red !default;
+$debug-bkg-color-default: false !default;
+
+@mixin debug($color: $debug-color, $bkg-color: false, $extend: $debug-extend) {
+  @if ($color != $debug-color-default) or ($bkg-color != $debug-bkg-color-default) {
+    $extend: false;
+  }
+  @if $extend {
+    @extend %debug-extend;
+  }
+  @else {
+    outline: 1px solid $color;
+    @if $bkg-color != false {
+      background-color: $bkg-color;
+    }
+  }
+}
+
+%debug-extend {
+  @include debug($extend: true);
+}
