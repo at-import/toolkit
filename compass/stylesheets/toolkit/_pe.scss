@@ -114,7 +114,7 @@ $replace-text-inline-element: false !default;
 //////////////////////////////
 // Retina Background Image with Fallback
 //////////////////////////////
-@mixin retina-background($img-path, $sprite, $with-dimensions: $replace-text-pe-with-dimensions) {
+@mixin retina-background($img-path, $sprite, $with-dimensions: $replace-text-pe-with-dimensions, $extend: true) {
   $png-path: $img-path + '/*.png';
   $sprite-map: sprite-map($png-path);
 
@@ -132,11 +132,13 @@ $replace-text-inline-element: false !default;
     height: image-height($sprite-file);
   }
 
-  .ie6 &,
-  .ie7 &,
-  .ie8 & {
-    @extend %#{sprite-map-name($sprite-map)}-image-map-fallback;
-    @include sprite($sprite-map, $sprite);
+  @if $extend{
+    .ie6 &,
+    .ie7 &,
+    .ie8 & {
+      @extend %#{sprite-map-name($sprite-map)}-image-map-fallback;
+      @include sprite($sprite-map, $sprite);
+    }
   }
 
   //////////////////////////////
