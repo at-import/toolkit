@@ -1,4 +1,4 @@
-# Toolkit
+# Toolkit [![Gem Version](https://badge.fury.io/rb/toolkit.png)](http://badge.fury.io/rb/toolkit)
 
 **Progressive Enhancement? Simple. Responsive Web Design? Done. Design in Browser? Beautiful.**
 
