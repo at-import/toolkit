@@ -14,9 +14,11 @@ $clearfix-direct: false !default;
     }
     @else {
       /* for IE 6/7 */
-      *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
-      /* non-JS fallback */
-      *zoom: 1;
+      @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+         *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+         /* non-JS fallback */
+         *zoom: 1;
+      }
 
       &:before,
       &:after {
@@ -35,9 +37,11 @@ $clearfix-direct: false !default;
     }
     @else {
       /* for IE 6/7 */
-      *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
-      /* non-JS fallback */
-      *zoom: 1;
+      @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+         *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+         /* non-JS fallback */
+         *zoom: 1;
+      }
 
       &:before,
       &:after {
