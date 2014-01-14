@@ -1,23 +1,41 @@
 //////////////////////////////
 // Enable ligatures
 //////////////////////////////
-@mixin enable-ligatures {
-  -webkit-font-feature-settings:"liga","dlig";
-  -moz-font-feature-settings:"liga=1, dlig=1";
-  -moz-font-feature-settings:"liga","dlig";
-  -ms-font-feature-settings:"liga","dlig";
-  -o-font-feature-settings:"liga","dlig";
-  font-feature-settings: "liga","dlig";
+@mixin enable-ligatures($extend: null) {
+  $extend: if($extend !== null, $extend, toolkit-get('extend ligatures'));
+
+  @if $extend {
+    @extend %enable-ligatures;
+  }
+  @else {
+    -webkit-font-feature-settings:"liga","dlig";
+    -moz-font-feature-settings:"liga=1, dlig=1";
+    -moz-font-feature-settings:"liga","dlig";
+    -ms-font-feature-settings:"liga","dlig";
+    -o-font-feature-settings:"liga","dlig";
+    font-feature-settings: "liga","dlig";
+  }
 }
 
 %enable-ligatures {
   @include enable-ligatures;
 }
 
+@if not mixin-exists('single-transition') {
+  @mixin single-transition($feature, $duration) {
+    -webkit-transition: $feature $duration;
+    transition: $feature, $duration;
+  }
+}
+
 //////////////////////////////
 // Font Fade In
 //////////////////////////////
-@mixin content-fade-in($duration: 1s, $loading: '.wf-loading', $selector: false) {
+@mixin content-fade-in($duration: null, $loading: null) {
+
+  $duration: if($duration !== null, $duration, toolkit-get('fade in duration'));
+  $loading: if($loading !== null, $loading, toolkit-get('fade in loading class'));
+  $selector: if('#{&}' != '', true, false);
 
   @if $selector != false {
     #{$selector} {

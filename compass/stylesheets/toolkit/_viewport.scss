@@ -2,25 +2,15 @@
 // CSS level 4 Viewport
 // http://dev.w3.org/csswg/css-device-adapt/#the-atviewport-rule
 //////////////////////////////
-$experimental-suport-for-webkit: true !default;
-$experimental-support-for-mozilla: true !default;
-$experimental-support-for-microsoft: true !default;
-
 @mixin viewport {
-  @if $experimental-suport-for-webkit {
-    @-webkit-viewport {
-      @content;
-    }
+  @-webkit-viewport {
+    @content;
   }
-  @if $experimental-support-for-mozilla {
-    @-moz-viewport {
-      @content;
-    }
+  @-moz-viewport {
+    @content;
   }
-  @if $experimental-support-for-microsoft {
-    @-ms-viewport {
-      @content;
-    }
+  @-ms-viewport {
+    @content;
   }
   @viewport {
     @content;

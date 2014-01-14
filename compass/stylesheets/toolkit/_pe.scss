@@ -3,10 +3,15 @@
 //
 // - $feature: Modernizr feature (base CSS class name)
 ////////////////////////
-@import "compass/typography/text/replacement";
+@mixin enhance-with($features) {
+  $ft: '';
+  @each $feature in $features {
+    $ft: $ft + '.#{$feature}, '
+  }
 
-@mixin enhance-with($feature) {
-  .#{$feature} & {
+  $ft: str-slice($ft, -2);
+
+  .#{$ft} & {
     @content;
   }
 }
@@ -16,235 +21,23 @@
 //
 // - $feature: Modernizr feature (base CSS class name)
 ////////////////////////
-@mixin degrade-from($feature, $no-js: true) {
+@mixin degrade-from($features, $no-js: null) {
+  $ft: '';
+  @each $feature in $features {
+    $ft: $ft + '.no-#{$feature}, '
+  }
+
+  $no-js: if($no-js !== null, $no-js, toolkit-get('degrade from javascript'));
+
   @if $feature == 'js' or not $no-js {
-    .no-#{$feature} & {
+    #{$ft} & {
       @content;
     }
   }
   @else {
-    .no-#{$feature} &,
+    #{$ft} &,
     .no-js & {
       @content;
     }
   }
-}
-
-////////////////////////
-// Progressive Enhancement Text Replace Mixin
-//
-// - $png-path: The path to the pngs for the image sprite, including the *.png (just like normal image sprites)
-// - $sprite: The name of the sprite you want to use (this is the file name without extension)
-// - $inline-svg: Switches between a Base64 encoded SVG or a normal url() for the SVG. Default to true
-// - $with-dimensions: Switches between including dimensions (height/width for all and background-size for SVG) or not. Defaults to true.
-// - $inline: Whether or not the containing selector is an inline element. Defaults to false.
-////////////////////////
-@import "compass/utilities/sprites";
-
-$replace-text-pe-method: 'svg' !default;
-$replace-text-pe-inline-svg: true !default;
-$replace-text-pe-with-dimensions: true !default;
-$replace-text-inline-element: false !default;
-
-@mixin replace-text-pe($img-path, $sprite, $method: $replace-text-pe-method, $inline-svg: $replace-text-pe-inline-svg, $with-dimensions: $replace-text-pe-with-dimensions, $inline-element: $replace-text-inline-element) {
-  // Hide text. Use squish-text() if the element is inline
-  @if $inline-element {
-    @extend %replace-text-pe-squish;
-  }
-  @else {
-    @extend %replace-text-pe-hide;
-  }
-
-  @if $method == 'svg' {
-    @include svg-background($img-path, $sprite, $inline-svg, $with-dimensions);
-  }
-  @else if $method == 'retina' {
-    @include retina-background($img-path, $sprite, $with-dimensions);
-  }
-
-}
-
-//////////////////////////////
-// SVG Background Image with Fallback
-//////////////////////////////
-@mixin svg-background($img-path, $sprite, $inline-svg: $replace-text-pe-inline-svg, $with-dimensions: $replace-text-pe-with-dimensions) {
-  $png-path: $img-path + '/*.png';
-  $sprite-map: sprite-map($png-path);
-
-  // Build SVG file name
-  $svg-file: $img-path + '/#{$sprite}.svg';
-
-  // Default Sprite File
-  $sprite-file: '' !default;
-
-  @if $with-dimensions {
-    // Get Sprite File for Height/Width
-    $sprite-file: sprite-file($sprite-map, $sprite);
-
-    // Put the height/width of the image in
-    width: image-width($sprite-file);
-    height: image-height($sprite-file);
-  }
-
-  @include enhance-with('svg') {
-    // Inline the SVG so that advanced browsers and future tech doesn't need the extra HTTP requests for the SVG
-    @if $inline-svg {
-      background-image: inline-image($svg-file);
-    }
-    @else {
-      background-image: image-url($svg-file);
-    }
-    // No repeating backgrounds, please
-    background-repeat: no-repeat;
-    // Set background size to ensure that our SVG is the right size.
-    @if $with-dimensions {
-      background-size: image-width($sprite-file) image-height($sprite-file);
-    }
-  }
-
-  // Degrade from SVG
-  @include degrade-from('svg') {
-    // Extend the Sprite Background
-    @extend %#{sprite-map-name($sprite-map)}-image-map;
-    // Call the Sprite'd image's position.
-    @include sprite($sprite-map, $sprite);
-  }
-}
-
-//////////////////////////////
-// Retina Background Image with Fallback
-//////////////////////////////
-@mixin retina-background($img-path, $sprite, $with-dimensions: $replace-text-pe-with-dimensions) {
-  $png-path: $img-path + '/*.png';
-  $sprite-map: sprite-map($png-path);
-
-  $png2x-path: $img-path + '_2x/*.png';
-  $retina-map: sprite-map($png2x-path);
-
-  // Default Sprite File
-  $sprite-file: '' !default;
-
-  @if $with-dimensions {
-    // Get Sprite File for Height/Width
-    $sprite-file: sprite-file($sprite-map, $sprite);
-
-    width: image-width($sprite-file);
-    height: image-height($sprite-file);
-  }
-
-  .ie6 &,
-  .ie7 &,
-  .ie8 & {
-    @extend %#{sprite-map-name($sprite-map)}-image-map-fallback;
-    @include sprite($sprite-map, $sprite);
-  }
-
-  //////////////////////////////
-  // Ugly Hack
-  //
-  // Due to a bug plus a design decision, I cannot extend the background image
-  //   like I would like to or you would do by hand. This sucks, but it's the
-  //   only way to get it to work for now.
-  //////////////////////////////
-  @media (max-resolution: 1.4dppx), (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (max-resolution: 134.4dpi) {
-    background: {
-      image: $sprite-map;
-      repeat: no-repeat;
-    }
-    @include sprite($sprite-map, $sprite);
-  }
-  @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-    background: {
-      image: $retina-map;
-      repeat: no-repeat;
-    }
-    @if $with-dimensions {
-      background-size: image-width($sprite-file) image-height($sprite-file);
-    }
-    @include sprite($retina-map, $sprite);
-  }
-
-    //////////////////////////////
-    // Actual Hotness
-    //
-    // Do to a bug plus a design decision, I cannot extend the background image
-    //   like I would like to or you would do by hand. This is how it'll work
-    //   when I can.
-    //////////////////////////////
-//  @media (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (-o-max-device-pixel-ratio: 7/5), (min-resolution: 1.4dppx), (min-resolution: 134.4dpi) {
-//      @extend %#{sprite-map-name($png-path)}-image-map;
-//      @include sprite($png-path, $sprite)
-//    }
-//    @media (-webkit-max-device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio: 1.5), (-o-max-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
-//      @extend %#{sprite-map-name($png2x-path)}-image-map;
-//      @include sprite($retina-map, $sprite);
-//      @if $with-dimensions {
-//        background-size: image-width($sprite-file) image-height($sprite-file);
-//      }
-//    }
-}
-
-//////////////////////////////
-// Sprite Map Generator
-//
-// Need a custom mixin to create extendable classes classes for background image for sprites because dynamic mixin names don't work.
-//
-// - $png-path: The path to the pngs for the image sprite, including the *.png (just like normal image sprites)
-//////////////////////////////
-@mixin sprite-map-generator($img-path, $method: $replace-text-pe-method) {
-  $png-path: $img-path + '/*.png';
-  $png-path: sprite-map($png-path);
-
-  @if $method == 'retina' {
-    $png2x-path: $img-path + '_2x/*.png';
-    $png2x-path: sprite-map($png2x-path);
-
-    %#{sprite-map-name($png-path)}-image-map-fallback {
-      background: {
-        image: $png-path;
-        repeat: no-repeat;
-      }
-    }
-
-    @media (max-resolution: 1.4dppx), (-webkit-max-device-pixel-ratio: 1.4), (max--moz-device-pixel-ratio: 1.4), (max-resolution: 134.4dpi) {
-      %#{sprite-map-name($png-path)}-image-map {
-        background: {
-          image: $png-path;
-          repeat: no-repeat;
-        }
-      }
-    }
-    @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-      %#{sprite-map-name($png2x-path)}-image-map {
-        background: {
-          image: $png2x-path;
-          repeat: no-repeat;
-        }
-      }
-    }
-  }
-  @else {
-    %#{sprite-map-name($png-path)}-image-map {
-      background: {
-        image: $png-path;
-        repeat: no-repeat;
-      }
-    }
-  }
-
-
-}
-
-//////////////////////////////
-// Extendable Class for Squish Text mixin
-//////////////////////////////
-%replace-text-pe-squish {
-  @include squish-text();
-}
-
-//////////////////////////////
-// Extendable Class for Hide Text mixin
-//////////////////////////////
-%replace-text-pe-hide {
-  @include hide-text();
 }

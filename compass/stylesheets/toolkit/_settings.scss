@@ -1,0 +1,90 @@
+//////////////////////////////
+// Default Settings
+//////////////////////////////
+$Toolkit-Settings: (
+  'clearfix extend': false,
+  'color stack amounts': 25% 50% 75% 85% 90%,
+  'tint color': #fff,
+  'shade color': #000,
+  'color scale shades': 6,
+  'extend ligatures': false,
+  'fade in duration': 1s,
+  'fade in loading class': '.wf-loading',
+  'intrinsic ratio': 16/9,
+  'intrinsic ratio width': 100%,
+  'intrinsic ratio elements': '> *',
+  'intrinsic ratio direction': top,
+  'intrinsic ratio extend': false,
+  'nested context contexts': 100%,
+  'nested context position': left,
+  'degrade from javascript': false,
+  'triangle color': #000,
+  'triangle height': 1em,
+  'triangle width': 1em,
+  'triangle angle': 0
+);
+
+//////////////////////////////
+// User Settings
+//////////////////////////////
+$toolkit: () !default;
+
+//////////////////////////////
+// Has Setting
+//////////////////////////////
+//////////////////////////////
+// Has Setting
+//////////////////////////////
+@function toolkit-has($setting) {
+  @if map-has-key($toolkit, $setting) {
+    @return true;
+  }
+  @else {
+    @return false;
+  }
+}
+
+//////////////////////////////
+// Get Settings
+//////////////////////////////
+@function toolkit-get($setting) {
+  @if toolkit-has($setting) {
+    @return map-get($toolkit, $setting);
+  }
+  @else {
+    @return map-get($Toolkit-Settings, $setting);
+  }
+}
+
+//////////////////////////////
+// Set Settings
+//////////////////////////////
+@function toolkit-set($setting, $value) {
+  @if str-index($setting, '-') > 0 {
+    @warn "Toolkit settings should contain spaces, not dashes. Please replace dashes with spaces. Settings will not work as expected until changed.";
+  }
+  $toolkit: map-merge($toolkit, ($setting: $value)) !global;
+  @return true;
+}
+
+@mixin toolkit-change($setting, $value) {
+  $toolkit-change: toolkit-set($setting, $value);
+}
+
+//////////////////////////////
+// Remove Setting
+//////////////////////////////
+@function toolkit-reset($setting) {
+  $Return: ();
+
+  @each $Key, $Value in $toolkit {
+    $Return: if($setting == $Key, $Return, map-merge($Return, ($Key: $Value)));
+  }
+
+  $toolkit: $Return !global;
+  @return true;
+}
+
+@mixin toolkit-reset($setting) {
+  $toolkit-reset: toolkit-reset($setting);
+}

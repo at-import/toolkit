@@ -1,13 +1,10 @@
 ////////////////////////
 // Fluid Embeds and whatever WITH NO JAVASCIPT!
 ////////////////////////
-$intrinsic-ratio: 16/9 !default;
-$intrinsic-ratio-width: 100% !default;
-$intrinsic-ratio-elements: '> *' !default;
-$intrinsic-ratio-extend: true !default;
-$intrinsic-ratio-direction: top !default;
+@mixin intrinsic-ratio-parent($extend: null) {
+  $extend: if($extend !== null, $extend, toolkit-get('intrinsic ratio extend'));
 
-@mixin intrinsic-ratio-parent($extend: $intrinsic-ratio-extend) {
+
     @if $extend {
       @extend %intrinsic-ratio-parent;
     }
@@ -17,7 +14,8 @@ $intrinsic-ratio-direction: top !default;
     }
 }
 
-@mixin intrinsic-ratio-child($extend: $intrinsic-ratio-extend) {
+@mixin intrinsic-ratio-child($extend: null) {
+  $extend: if($extend !== null, $extend, toolkit-get('intrinsic ratio extend'));
   @if $extend {
     @extend %intrinsic-ratio-child;
   }
@@ -32,12 +30,19 @@ $intrinsic-ratio-direction: top !default;
   }
 }
 
-@mixin intrinsic-ratio-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $direction: $intrinsic-ratio-direction) {
+@mixin intrinsic-ratio-ratio($ratio: null, $width: null, $direction: null) {
+  $ratio: if($ration !== null, $ratio, toolkit-get('intrinsic ratio'));
+  $width: if($width !== null, $width, toolkit-get('intrinsic ratio width'));
+  $direction: if($direction !== null, $direction, toolkit-get('intrinsic ratio direction'));
   padding-#{$direction}: (1 / $ratio) * $width;
   width: $width;
 }
 
-@mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
+@mixin intrinsic-ratio($ratio: null, $width: null, $elements: null, $direction: null, $extend: null) {
+  $ratio: if($ration !== null, $ratio, toolkit-get('intrinsic ratio'));
+  $width: if($width !== null, $width, toolkit-get('intrinsic ratio width'));
+  $direction: if($direction !== null, $direction, toolkit-get('intrinsic ratio direction'));
+  $extend: if($extend !== null, $extend, toolkit-get('intrinsic ratio extend'));
   @include intrinsic-ratio-parent($extend);
 
   @include intrinsic-ratio-ratio($ratio, $width, $direction);
@@ -49,7 +54,7 @@ $intrinsic-ratio-direction: top !default;
   }
 }
 
-@mixin ir($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
+@mixin ir($ratio: null, $width: null, $elements: null, $direction: null, $extend: null) {
   @include intrinsic-ratio($ratio, $width, $elements, $extend, $direction);
 }
 

@@ -4,13 +4,21 @@
 // Mixin as described by Filament Group
 // http://filamentgroup.com/lab/element_query_workarounds/
 //////////////////////////////
-@import "breakpoint";
 
 @mixin element-query($sizes...) {
-  @each $size in $sizes {
-    @include breakpoint(nth($size, 2)) {
-      #{nth($size, 1)} & {
-        @content;
+  @each $selector, $query in $sizes {
+    @if mixin-exists(breakpoint) {
+      @include breakpoint($query) {
+        #{$selector} & {
+          @content;
+        }
+      }
+    }
+    @else {
+      @media #{$query} {
+        #{$selector} & {
+          @content;
+        }
       }
     }
   }
