@@ -16,7 +16,7 @@
 * **Change** Clearfix mixin no longer chooses the correct clearfix, only modern clearfix
 * **Change** No English spelling of `colour`, only `color`
 * **New** **Change** `enable-ligatures` mixin now takes parameter `$extend` to use extend using the `%enable-ligatures` selector
-* **New** **Change** If `single-transition` mixin doesn't exist, will add one providing standard and `-webkit` based on [Can I Use](http://caniuse.com/css-transitions) current versions
+* **New** **Change** If `single-transition` mixin doesn't exist, will write the standard and `-webkit` properties based on [Can I Use](http://caniuse.com/css-transitions) current versions
 * **Change** Parameter order for `intrinsic-ratio` and `ir` mixins changed from `$ratio, $width, $elements, $extend, $direction` to `$ratio, $width, $elements, $direction, $extend`
 * **New** **Change** `enhance-with` and `degrade-from` mixins now take lists for the `$features` (changed from `$feature`) to allow for multiple selectors. Lists should be space separated, or wrapped in `()` for comma separated
 * **Deprecation** `replace-text-pe`, `svg-background`, `retina-background`, `sprite-map-generator`, and support classes have been removed.
@@ -53,3 +53,4 @@
 * **Deprecation** Removed Equal Height Columns
 * **Deprecation** Removed Fluid Media
 * **Deprecation** Removed Vertical Center
+* **Deprecation** Removed Progressive Enhancement Text Replace, Retina Background, and SVG Background
