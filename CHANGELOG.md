@@ -1,5 +1,10 @@
 # Toolkit
 
+## v2.0.0.alpha.3
+### January 14, 2014
+
+* **Fix** Was calling `colour` mixins instead of `color` mixins. Fixed.
+
 ## v2.0.0.alpha.2
 ### January 14, 2014
 
