@@ -1,0 +1,2 @@
+source 'http://rubygems.org'
+gem 'compass', '~>1.0.0.alpha.17'
