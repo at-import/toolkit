@@ -27,7 +27,7 @@
     $ft: $ft + '.no-#{$feature}, '
   }
 
-  $no-js: if($no-js !== null, $no-js, toolkit-get('degrade from javascript'));
+  $no-js: if($no-js != null, $no-js, toolkit-get('degrade from javascript'));
 
   @if $feature == 'js' or not $no-js {
     #{$ft} & {

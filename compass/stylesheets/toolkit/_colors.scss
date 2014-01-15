@@ -57,7 +57,7 @@
 // Color Scales
 //////////////////////////////
 @function color-scale($main, $secondary, $shades: null) {
-  $shades: if($shades !== null, $shades, toolkit-get('color scale shades'));
+  $shades: if($shades != null, $shades, toolkit-get('color scale shades'));
 
   $list: $main;
 

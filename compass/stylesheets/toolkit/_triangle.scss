@@ -4,10 +4,10 @@
 
 @mixin triangle($color: null, $height: null, $width: null, $angle: null) {
 
-  $color: if($color !== null, $color, toolkit-get('triangle color'));
-  $height: if($height !== null, $height, toolkit-get('triangle height'));
-  $width: if($width !== null, $width, toolkit-get('triangle width'));
-  $angle: if($angle !== null, $angle, toolkit-get('triangle angle'));
+  $color: if($color != null, $color, toolkit-get('triangle color'));
+  $height: if($height != null, $height, toolkit-get('triangle height'));
+  $width: if($width != null, $width, toolkit-get('triangle width'));
+  $angle: if($angle != null, $angle, toolkit-get('triangle angle'));
 
   @if nth($angle, 1) == "top" or nth($angle, 1) == "bottom" {
     $angle: "#{$angle}";

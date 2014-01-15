@@ -2,7 +2,7 @@
 // Enable ligatures
 //////////////////////////////
 @mixin enable-ligatures($extend: null) {
-  $extend: if($extend !== null, $extend, toolkit-get('extend ligatures'));
+  $extend: if($extend != null, $extend, toolkit-get('extend ligatures'));
 
   @if $extend {
     @extend %enable-ligatures;
@@ -21,26 +21,22 @@
   @include enable-ligatures;
 }
 
-@if not mixin-exists('single-transition') {
-  @mixin single-transition($feature, $duration) {
-    -webkit-transition: $feature $duration;
-    transition: $feature, $duration;
-  }
-}
-
 //////////////////////////////
 // Font Fade In
 //////////////////////////////
 @mixin content-fade-in($duration: null, $loading: null) {
 
-  $duration: if($duration !== null, $duration, toolkit-get('fade in duration'));
-  $loading: if($loading !== null, $loading, toolkit-get('fade in loading class'));
+  $duration: if($duration != null, $duration, toolkit-get('fade in duration'));
+  $loading: if($loading != null, $loading, toolkit-get('fade in loading class'));
   $selector: if('#{&}' != '', true, false);
 
   @if $selector != false {
     #{$selector} {
       opacity: 1;
-      @include single-transition(opacity, $duration);
+      @if not mixin-exists('single-transition') {
+        -webkit-transition: opacity $duration;
+        transition: opacity $duration;
+      }
 
       #{$loading} & {
 	opacity: 0;
@@ -49,7 +45,10 @@
   }
   @else {
     opacity: 1;
-    @include single-transition(opacity, $duration);
+    @if not mixin-exists('single-transition') {
+      -webkit-transition: opacity $duration;
+      transition: opacity $duration;
+    }
 
     #{$loading} & {
       opacity: 0;

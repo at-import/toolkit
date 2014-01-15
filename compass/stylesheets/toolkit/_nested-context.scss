@@ -1,6 +1,6 @@
 // simple function to find the context of a nested percentage.
 @function nested-context($contexts: null) {
-  $contexts: if($contexts !== null, $contexts, toolkit-get('nested context contexts'));
+  $contexts: if($contexts != null, $contexts, toolkit-get('nested context contexts'));
 
   // First level deep is always 100%
   $percentage: 100%;
@@ -16,8 +16,8 @@
 
 // mixin to make things easier
 @mixin nested-context($contexts: null, $position: null) {
-  $contexts: if($contexts !== null, $contexts, toolkit-get('nested context contexts'));
-  $position: if($position !== null, $position, toolkit-get('nestex context position'));
+  $contexts: if($contexts != null, $contexts, toolkit-get('nested context contexts'));
+  $position: if($position != null, $position, toolkit-get('nestex context position'));
 
   width: nested-context($contexts);
   @if $position == "center" {

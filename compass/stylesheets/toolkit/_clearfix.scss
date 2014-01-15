@@ -2,7 +2,7 @@
 // Modern Clearfix Mixin
 //////////////////////////////
 @mixin clearfix($extend: null) {
-  $extend: if($extend !== null, $extend, toolkit-get('clearfix extend'));
+  $extend: if($extend != null, $extend, toolkit-get('clearfix extend'));
   @if $extend {
     @extend %toolkit-clearfix;
   }
@@ -16,5 +16,5 @@
 }
 
 %toolkit-clearfix {
-  @include clearfix(true);
+  @include clearfix(false);
 }
