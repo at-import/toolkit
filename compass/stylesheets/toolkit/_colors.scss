@@ -36,20 +36,20 @@
 // Tint Stack
 @function tint-stack($color, $amounts...) {
   @if length($amounts) > 0 {
-    @return colour-stack($color, toolkit-get('tint color'), $amounts);
+    @return color-stack($color, toolkit-get('tint color'), $amounts);
   }
   @else {
-    @return colour-stack($color, toolkit-get('tint color'));
+    @return color-stack($color, toolkit-get('tint color'));
   }
 }
 
 // Shade Stack
 @function shade-stack($color, $amounts...) {
   @if length($amounts) > 0 {
-    @return colour-stack($color, toolkit-get('shade color'), $amounts);
+    @return color-stack($color, toolkit-get('shade color'), $amounts);
   }
   @else {
-    @return colour-stack($color, toolkit-get('shade color'));
+    @return color-stack($color, toolkit-get('shade color'));
   }
 }
 
