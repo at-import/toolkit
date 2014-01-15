@@ -1,5 +1,11 @@
 # Toolkit
 
+## v2.0.0.alpha.2
+### January 14, 2014
+
+* **Change** No dynamic mixin (turns out you can't do that)
+* **Fix** All of the setting stuff
+
 ## v2.0.0.alpha.1
 ### January 14, 2014
 
