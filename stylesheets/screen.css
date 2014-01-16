@@ -1,9 +1,3 @@
-.clearfix-extend:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -14,8 +8,18 @@ img, video {
   height: auto;
 }
 
-.clearfix-default:after {
-  content: "";
-  display: table;
-  clear: both;
+.foo {
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+  width: 100%;
+}
+.foo > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
 }

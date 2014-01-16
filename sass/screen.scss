@@ -1,10 +1,6 @@
 @import "../compass/stylesheets/toolkit";
 @import "../compass/stylesheets/toolkit/kickstart";
 
-.clearfix-default {
-  @include clearfix;
-}
-
-.clearfix-extend {
-  @include clearfix(true);
+.foo {
+  @include ir;
 }
