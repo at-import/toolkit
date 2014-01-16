@@ -41,6 +41,7 @@
 @mixin intrinsic-ratio($ratio: null, $width: null, $elements: null, $direction: null, $extend: null) {
   $ratio: if($ratio != null, $ratio, toolkit-get('intrinsic ratio'));
   $width: if($width != null, $width, toolkit-get('intrinsic ratio width'));
+  $elements: if($elements != null, $elements, toolkit-get('intrinsic ratio elements'));
   $direction: if($direction != null, $direction, toolkit-get('intrinsic ratio direction'));
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
   @include intrinsic-ratio-parent($extend);
