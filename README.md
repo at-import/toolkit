@@ -35,6 +35,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Carousels](#carousels)
 	* [CSS Carousel Component](#css-carousel-component)
 	* [CSS Carousel Animation](#css-carousel-animation)
+1. [Parallax](#parallax)
 1. [Odds and Ends](#odds-and-ends)
 1. [Templates](#templates)
 
@@ -1172,6 +1173,38 @@ This will produce the following CSS (cross-browser prefixes removed for clarity)
 ```
 
 By default, it will create an animation that will reverse direction when it reaches the end (using `'reverse'`) but can be changed to go to the beginning of the carousel by changing it to `'start'` (which can be changed globally by changing `$css-carousel-action` or on a per-carousel basis by passing in an action name to `$action`) and a transition speed of `5` (which can be changed globally by changing `$css-carousel-speed` or on a per-carousel basis by passing in a number to `$speed`, the smaller the number the faster the transition). It will create the animation based on the value of the global `$css-carousel-animation`, but can be changed by passing in an animation name to `$name`.
+
+## Parallax
+
+The concept of the parallax effect is simple, things closer to the viewer move faster while things furthur away move slower. Leveraging 3D transforms, this effect can be implemented without any JavaScript.
+
+You will first have to initialize parallax. By default it will initialize on your `body` element with a perspective of 1px.
+
+```scss
+@import parallax-init;
+```
+
+This mixin takes three optional arguments for perspective, element, and iOS compatability. By default iOS parallax is on but setting it to false will turn on smooth scrolling within that element and no parallax effect will be shown.
+
+```scss
+@import parallax-init($perspective: 1, $element: 'body', $parallax-ios: true);
+```
+
+To parallax various elements, simply use the parallax mixin with the distance (positive or negitive) you want the element to appear from the screen.
+
+```scss
+.close {
+  @include parallax(.5);
+}
+.far {
+  @include parallax(-.5);
+}
+.very-far {
+  @include parallax(-2);
+}
+```
+
+The parallax mixin puts elements into real perspective and scales them back down to 100% so images and text will not have any distortion. Items will shift both vertically and horizontally in layouts to achieve the appropriate perspective.
 
 ## Odds and Ends
 

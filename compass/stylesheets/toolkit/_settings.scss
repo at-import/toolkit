@@ -21,7 +21,11 @@ $Toolkit-Settings: (
   'triangle color': #000,
   'triangle height': 1em,
   'triangle width': 1em,
-  'triangle angle': 0
+  'triangle angle': 0,
+  'parallax perspective': 1,
+  'parallax element': 'body',
+  'parallax ios': true,
+  'parallax distance': 0,
 );
 
 //////////////////////////////
