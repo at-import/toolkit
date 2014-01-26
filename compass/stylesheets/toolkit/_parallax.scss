@@ -21,14 +21,17 @@
     -ms-perspective: $perspective * 1px;
     -o-perspective: $perspective * 1px;
     perspective: $perspective * 1px;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
     // Allows for smooth scrolling but disables parallax effects.
     @if $parallax-ios == false {
       -webkit-overflow-scrolling: touch;
+    }
+    // Make sure 3D perspective is preserved
+    &, & * {
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
   }
 }
