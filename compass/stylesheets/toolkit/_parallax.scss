@@ -1,0 +1,53 @@
+// Magic parallax mixins
+@mixin parallax-init($perspective: null, $element: null, $parallax-ios: null) {
+  
+  $perspective: if($perspective != null, $perspective, toolkit-get('parallax perspective'));
+  $element: if($element != null, $element, toolkit-get('parallax element'));
+  $parallax-ios: if($parallax-ios != null, $parallax-ios, toolkit-get('parallax ios'));
+
+  @if $element == 'body' {
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+  #{$element} {
+    overflow: auto;
+    -webkit-perspective: $perspective * 1px;
+    -moz-perspective: $perspective * 1px;
+    -ms-perspective: $perspective * 1px;
+    -o-perspective: $perspective * 1px;
+    perspective: $perspective * 1px;
+    // Allows for smooth scrolling but disables parallax effects.
+    @if $parallax-ios == false {
+      -webkit-overflow-scrolling: touch;
+    }
+    // Make sure 3D perspective is preserved
+    &, & * {
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+  }
+}
+
+@mixin parallax($distance: null, $perspective: null) {
+  
+  $distance: if($distance != null, $distance, toolkit-get('parallax distance'));
+  $perspective: if($perspective != null, $perspective, toolkit-get('parallax perspective'));
+  
+  $transform: translateZ($distance * $perspective * 1px)
+    scale(abs($distance - 1));
+
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+  z-index: $distance * 100;
+}
