@@ -1,0 +1,11 @@
+// Vertically center anything, literally anything.
+// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+@mixin vertical-center($midpoint: null) {
+
+  $midpoint: if($midpoint != null, $midpoint, toolkit-get('vertical midpoint'));
+
+  position: relative;
+  top: $midpoint;
+  // Transform back up (IE9+ only)
+  @include transform(translateY($midpoint * -1));
+}
