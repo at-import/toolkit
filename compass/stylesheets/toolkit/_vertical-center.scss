@@ -6,6 +6,9 @@
 
   position: relative;
   top: $midpoint;
-  // Transform back up (IE9+ only)
-  @include transform(translateY($midpoint * -1));
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
