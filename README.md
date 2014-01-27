@@ -30,6 +30,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Webfont Helpers](#webfont-helpers)
 	* [Enable Ligatures](#enable-ligatures)
 	* [Content Fade In](#content-fade-in)
+1. [Vertical center](#vertical-center)
 1. [Viewport](#viewport)
 1. [Element Queries](#element-queries)
 1. [Carousels](#carousels)
@@ -956,6 +957,20 @@ One of the big challenges of working with webfonts is the Flash of Unstyled Text
 .wf-loading #main {
   opacity: 0;
 }
+```
+
+## Vertical center
+
+Vertical center anything, literally anything, with the `vertical center` mixin. Based on [Sebastian Ekström’s vertical align technique](http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/).
+
+```Sass
+@include vertical-center;
+```
+
+You can also shift the midpoint to somthing other than 50% center.
+
+```Sass
+@include vertical-center(40%);
 ```
 
 ## Viewport
