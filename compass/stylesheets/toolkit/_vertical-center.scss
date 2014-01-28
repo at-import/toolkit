@@ -6,9 +6,11 @@
 
   position: relative;
   top: $midpoint;
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  @if mixin-exists(transform) {
+    @include transform(translateY(-50%));
+  } @else {
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
 }

@@ -16,22 +16,30 @@
   }
   #{$element} {
     overflow: auto;
-    -webkit-perspective: $perspective * 1px;
-    -moz-perspective: $perspective * 1px;
-    -ms-perspective: $perspective * 1px;
-    -o-perspective: $perspective * 1px;
-    perspective: $perspective * 1px;
+    @if mixin-exists(perspective) {
+      @include perspective($perspective * 1px);
+    } @else {
+      -webkit-perspective: $perspective * 1px;
+      -moz-perspective: $perspective * 1px;
+      -ms-perspective: $perspective * 1px;
+      -o-perspective: $perspective * 1px;
+      perspective: $perspective * 1px;
+    }
     // Allows for smooth scrolling but disables parallax effects.
     @if $parallax-ios == false {
       -webkit-overflow-scrolling: touch;
     }
     // Make sure 3D perspective is preserved
     &, & * {
-      -webkit-transform-style: preserve-3d;
-      -moz-transform-style: preserve-3d;
-      -ms-transform-style: preserve-3d;
-      -o-transform-style: preserve-3d;
-      transform-style: preserve-3d;
+      @if mixin-exists(transform-style) {
+        @include transform-style(preserve-3d);
+      } @else {
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
     }
   }
 }
@@ -44,10 +52,14 @@
   $transform: translateZ($distance * $perspective * 1px)
     scale(abs($distance - 1));
 
-  -webkit-transform: $transform;
-  -moz-transform: $transform;
-  -ms-transform: $transform;
-  -o-transform: $transform;
-  transform: $transform;
+  @if mixin-exists(transform) {
+    @include transform($transform);
+  } @else {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+  }
   z-index: $distance * 100;
 }
