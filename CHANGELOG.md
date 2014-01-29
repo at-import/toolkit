@@ -1,5 +1,11 @@
 # Toolkit
 
+## v2.0.0.alpha.7
+### January 29, 2014
+
+* **Fix** Intrinsic Ratio variable names, cause `$ration` !== `$ratio`
+* **New** Bulletproof Vertical Center based on [Sebastian Keström's `transform`](http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/) technique
+
 ## v2.0.0.alpha.3
 ### January 14, 2014
 
