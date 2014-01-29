@@ -1,6 +1,6 @@
 // Magic parallax mixins
 @mixin parallax-init($perspective: null, $element: null, $parallax-ios: null) {
-  
+
   $perspective: if($perspective != null, $perspective, toolkit-get('parallax perspective'));
   $element: if($element != null, $element, toolkit-get('parallax element'));
   $parallax-ios: if($parallax-ios != null, $parallax-ios, toolkit-get('parallax ios'));
@@ -18,11 +18,9 @@
     overflow: auto;
     @if mixin-exists(perspective) {
       @include perspective($perspective * 1px);
-    } @else {
+    }
+    @else {
       -webkit-perspective: $perspective * 1px;
-      -moz-perspective: $perspective * 1px;
-      -ms-perspective: $perspective * 1px;
-      -o-perspective: $perspective * 1px;
       perspective: $perspective * 1px;
     }
     // Allows for smooth scrolling but disables parallax effects.
@@ -32,34 +30,30 @@
     // Make sure 3D perspective is preserved
     &, & * {
       @if mixin-exists(transform-style) {
-        @include transform-style(preserve-3d);
-      } @else {
-        -webkit-transform-style: preserve-3d;
-        -moz-transform-style: preserve-3d;
-        -ms-transform-style: preserve-3d;
-        -o-transform-style: preserve-3d;
-        transform-style: preserve-3d;
+  @include transform-style(preserve-3d);
+      }
+      @else {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
       }
     }
   }
 }
 
 @mixin parallax($distance: null, $perspective: null) {
-  
+
   $distance: if($distance != null, $distance, toolkit-get('parallax distance'));
   $perspective: if($perspective != null, $perspective, toolkit-get('parallax perspective'));
-  
-  $transform: translateZ($distance * $perspective * 1px)
-    scale(abs($distance - 1));
+
+  $transform: translateZ($distance * $perspective * 1px) scale(abs($distance - 1));
 
   @if mixin-exists(transform) {
     @include transform($transform);
-  } @else {
+  }
+  @else {
     -webkit-transform: $transform;
-    -moz-transform: $transform;
-    -ms-transform: $transform;
-    -o-transform: $transform;
     transform: $transform;
   }
+
   z-index: $distance * 100;
 }
