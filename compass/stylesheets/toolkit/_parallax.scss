@@ -30,11 +30,11 @@
     // Make sure 3D perspective is preserved
     &, & * {
       @if mixin-exists(transform-style) {
-  @include transform-style(preserve-3d);
+      	@include transform-style(preserve-3d);
       }
       @else {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+      	-webkit-transform-style: preserve-3d;
+      	transform-style: preserve-3d;
       }
     }
   }

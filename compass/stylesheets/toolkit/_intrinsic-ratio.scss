@@ -30,22 +30,23 @@
   }
 }
 
-@mixin intrinsic-ratio-ratio($ratio: null, $width: null, $direction: null) {
-  $ratio: if($ration != null, $ratio, toolkit-get('intrinsic ratio'));
+@mixin intrinsic-ratio-ratio($ratio: null, $width: null, $position: null) {
+  $ratio: if($ratio != null, $ratio, toolkit-get('intrinsic ratio'));
   $width: if($width != null, $width, toolkit-get('intrinsic ratio width'));
-  $direction: if($direction != null, $direction, toolkit-get('intrinsic ratio direction'));
-  padding-#{$direction}: (1 / $ratio) * $width;
+  $position: if($position != null, $position, toolkit-get('intrinsic ratio direction'));
+  padding-#{$position}: (1 / $ratio) * $width;
   width: $width;
 }
 
-@mixin intrinsic-ratio($ratio: null, $width: null, $elements: null, $direction: null, $extend: null) {
-  $ratio: if($ration != null, $ratio, toolkit-get('intrinsic ratio'));
+@mixin intrinsic-ratio($ratio: null, $width: null, $elements: null, $position: null, $extend: null) {
+  $ratio: if($ratio != null, $ratio, toolkit-get('intrinsic ratio'));
   $width: if($width != null, $width, toolkit-get('intrinsic ratio width'));
-  $direction: if($direction != null, $direction, toolkit-get('intrinsic ratio direction'));
+  $elements: if($elements != null, $elements, toolkit-get('intrinsic ratio elements'));
+  $position: if($position != null, $position, toolkit-get('intrinsic ratio direction'));
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
   @include intrinsic-ratio-parent($extend);
 
-  @include intrinsic-ratio-ratio($ratio, $width, $direction);
+  @include intrinsic-ratio-ratio($ratio, $width, $position);
 
   @each $element in $elements {
     #{$element} {
@@ -54,8 +55,8 @@
   }
 }
 
-@mixin ir($ratio: null, $width: null, $elements: null, $direction: null, $extend: null) {
-  @include intrinsic-ratio($ratio, $width, $elements, $extend, $direction);
+@mixin ir($ratio: null, $width: null, $elements: null, $position: null, $extend: null) {
+  @include intrinsic-ratio($ratio, $width, $elements, $extend, $position);
 }
 
 %intrinsic-ratio-parent {
