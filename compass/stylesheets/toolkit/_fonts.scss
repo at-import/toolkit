@@ -24,24 +24,13 @@
 //////////////////////////////
 // Font Fade In
 //////////////////////////////
-@mixin content-fade-in($duration: null, $loading: null) {
-
+@mixin content-fade-in($duration: null, $loading: null, $extend: null) {
   $duration: if($duration != null, $duration, toolkit-get('fade in duration'));
   $loading: if($loading != null, $loading, toolkit-get('fade in loading class'));
-  $selector: if('#{&}' != '', true, false);
+  $extend: if($extend != null, $extend, toolkit-get('fade in extend'));
 
-  @if $selector != false {
-    #{$selector} {
-      opacity: 1;
-      @if not mixin-exists('single-transition') {
-        -webkit-transition: opacity $duration;
-        transition: opacity $duration;
-      }
-
-      #{$loading} & {
-	opacity: 0;
-      }
-    }
+  @if $extend == true and $duration == toolkit-get('fade in duration') and $loading == toolkit-get('fade in loading class') {
+    @extend %content-fade-in;
   }
   @else {
     opacity: 1;
@@ -49,9 +38,16 @@
       -webkit-transition: opacity $duration;
       transition: opacity $duration;
     }
+    @else {
+      @include single-transition(opacity $duration);
+    }
 
     #{$loading} & {
       opacity: 0;
     }
   }
+}
+
+%content-fade-in {
+  @include content-fade-in($extend: false);
 }
