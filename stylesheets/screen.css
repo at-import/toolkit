@@ -19,3 +19,19 @@ img, video {
   display: table;
   clear: both;
 }
+
+.css-calc .foo, .css-columns .foo {
+  width: calc(100%);
+}
+.no-js .foo {
+  content: 'no-js';
+}
+.no-css-calc .foo, .no-js .foo, .no-css-columns .foo {
+  content: 'still no-js';
+}
+.no-css-calc .foo {
+  content: 'still still no-js';
+}
+.no-css-calc .foo, .no-js .foo {
+  content: 'added no-js';
+}

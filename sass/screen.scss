@@ -8,3 +8,23 @@
 .clearfix-extend {
   @include clearfix(true);
 }
+
+.foo {
+  @include enhance-with(('css-calc', 'css-columns')) {
+    width: calc(100%);
+  }
+  @include degrade-from('js') {
+    content: 'no-js';
+  }
+  @include degrade-from(('css-calc', 'js', 'css-columns')) {
+    content: 'still no-js';
+  }
+  @include degrade-from('css-calc', true) {
+    content: 'still still no-js';
+  }
+  @include degrade-from('css-calc') {
+    content: 'added no-js';
+  }
+}
+
+// @debug unique-id();
