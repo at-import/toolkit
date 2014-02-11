@@ -3,16 +3,26 @@
 //
 // - $feature: Modernizr feature (base CSS class name)
 ////////////////////////
-@mixin enhance-with($features) {
-  $ft: '';
-  @each $feature in $features {
-    $ft: $ft + '.#{$feature}, '
+@mixin enhance-with($features, $extend: null) {
+  $extend: if($extend != null, $extend, toolkit-get('enhance with extend'));
+
+  @if $extend {
+    $uid: unique-id();
+    @at-root %#{$uid} {
+      @content;
+    }
+    @each $feature in $features {
+      .#{$feature} & {
+        @extend %#{$uid};
+      }
+    }
   }
-
-  $ft: str-slice($ft, -2);
-
-  .#{$ft} & {
-    @content;
+  @else {
+    @each $feature in $features {
+      .#{$feature} & {
+        @content;
+      }
+    }
   }
 }
 
@@ -21,23 +31,39 @@
 //
 // - $feature: Modernizr feature (base CSS class name)
 ////////////////////////
-@mixin degrade-from($features, $no-js: null) {
-  $ft: '';
-  @each $feature in $features {
-    $ft: $ft + '.no-#{$feature}, '
-  }
-
+@mixin degrade-from($features, $no-js: null, $extend: null) {
   $no-js: if($no-js != null, $no-js, toolkit-get('degrade from javascript'));
+  $extend: if($extend != null, $extend, toolkit-get('degrade from extend'));
 
-  @if $feature == 'js' or not $no-js {
-    #{$ft} & {
+  @if $extend {
+    $uid: unique-id();
+    @at-root %#{$uid} {
       @content;
+    }
+
+    @each $feature in $features {
+      .no-#{$feature} & {
+        @extend %#{$uid};
+      }
+    }
+
+    @if not index($features, 'js') and $no-js != true {
+      .no-js & {
+        @extend %#{$uid};
+      }
     }
   }
   @else {
-    #{$ft} &,
-    .no-js & {
-      @content;
+    @each $feature in $features {
+      .no-#{$feature} & {
+        @content;
+      }
+    }
+
+    @if not index($features, 'js') and $no-js != true {
+      .no-js & {
+        @content;
+      }
     }
   }
 }
