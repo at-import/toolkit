@@ -5,12 +5,12 @@
 //////////////////////////////
 // Tint and Shade
 //////////////////////////////
-@function tint($colour, $amount) {
-  @return mix(toolkit-get('tint color'), $colour, $amount);
+@function tint($color, $amount) {
+  @return mix(toolkit-get('tint color'), $color, $amount);
 }
 
-@function shade($colour, $amount) {
-  @return mix(toolkit-get('shade color'), $colour, $amount);
+@function shade($color, $amount) {
+  @return mix(toolkit-get('shade color'), $color, $amount);
 }
 
 //////////////////////////////
