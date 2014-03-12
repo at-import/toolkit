@@ -66,14 +66,18 @@ $toolkit: () !default;
 // Set Settings
 //////////////////////////////
 @function toolkit-set($setting, $value) {
-  @if str-index($setting, '-') > 0 {
-    @warn "Toolkit settings should contain spaces, not dashes. Please replace dashes with spaces. Settings will not work as expected until changed.";
+  @if (str-index($setting, '-') or str-index($setting, '_')) and str-index($setting, ' ') == null {
+    @warn "Words in Singularity settings should be spaces, not dashes or underscores. Please replace dashes and underscores between words with spaces. Settings will not work as expected until changed.";
   }
   $toolkit: map-merge($toolkit, ($setting: $value)) !global;
   @return true;
 }
 
 @mixin toolkit-change($setting, $value) {
+  $toolkit-change: toolkit-set($setting, $value);
+}
+
+@mixin toolkit-set($setting, $value) {
   $toolkit-change: toolkit-set($setting, $value);
 }
 
