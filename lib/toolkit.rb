@@ -1,4 +1,11 @@
-require 'compass'
+if (defined? Compass)
+  Compass::Frameworks.register(
+    "toolkit",
+    :path => "#{File.dirname(__FILE__)}/.."
+  )
+end
 
-extension_path = File.expand_path(File.join(File.dirname(__FILE__), ".."))
-Compass::Frameworks.register('toolkit', :path => extension_path)
+module Toolkit
+  VERSION = "2.0.0"
+  DATE = "2014-03-12"
+end
