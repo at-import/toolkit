@@ -1,0 +1,71 @@
+@import "toolkit";
+
+/**
+  * Colors Tints and Shades
+**/
+.color {
+  &--tint {
+    _setting--tint-color: toolkit-get('tint color');
+    _test: "tint(#b4d455, 25%)";
+    _result: tint(#b4d455, 25%);
+    /* Set New Tint Color */
+    @include toolkit-set('tint color', #eee);
+    _setting--tint-color: toolkit-get('tint color');
+    _test: "tint(#b4d455, 25%)";
+    _result: tint(#b4d455, 25%);
+  }
+  &--shade {
+    _setting--shade-color: toolkit-get('shade color');
+    _test: "shade(#b4d455, 25%)";
+    _result: shade(#b4d455, 25%);
+    /* Set New Shade Color */
+    @include toolkit-set('shade color', #111);
+    _setting--shade-color: toolkit-get('shade color');
+    _test: "shade(#b4d455, 25%)";
+    _result: shade(#b4d455, 25%);
+  }
+}
+
+/**
+  * Color Stacks
+**/
+.color {
+  &--stack {
+    _setting--color-stack-amounts: toolkit-get('color stack amounts');
+    _test: "color-stack(red, blue)";
+    _result: inspect(color-stack(red, blue));
+    _test: "color-stack(red, blue, 15%, 20%, 25%, 30%)";
+    _result: inspect(color-stack(red, blue, 15%, 20%, 25%, 30%));
+  }
+
+  &--tint-stack {
+    _setting--tint-color: toolkit-get('tint color');
+    _test: "tint-stack(red, 15%, 20%, 25%, 30%)";
+    _result: inspect(tint-stack(red, 15%, 20%, 25%, 30%));
+  }
+
+  &--tint-stack {
+    _setting--shade-color: toolkit-get('shade color');
+    _test: "shade-stack(red, 15%, 20%, 25%, 30%)";
+    _result: inspect(shade-stack(red, 15%, 20%, 25%, 30%));
+  }
+
+  &--tint-shade-stack {
+    _setting--tint-shade-stack-amounts: toolkit-get('tint shade amounts');
+    _test: "tint-shade-stack(red)";
+    _result: inspect(tint-shade-stack(red));
+    _test: "tint-shade-stack(red, blue, 15%, 20%, 25%, 30%)";
+    _result: inspect(tint-shade-stack(red, 15%, 20%, 25%, 30%));
+  }
+}
+
+/**
+  * Color Scales
+**/
+.color--scale {
+  _setting--color-scale-shades: toolkit-get('color scale shades');
+  _test: "color-scale(red, blue)";
+  _result: inspect(color-scale(red, blue));
+  _test: "color-scale(red, blue, 3)";
+  _result: inspect(color-scale(red, blue, 3));
+}

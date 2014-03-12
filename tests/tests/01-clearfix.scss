@@ -1,0 +1,17 @@
+@import "toolkit";
+
+/**
+  * Clearfix Mixin
+**/
+.clearfix {
+  _setting--clearfix-extend: toolkit-get('clearfix extend');
+  &--no-extend {
+    _test: "@include clearfix;";
+    @include clearfix;
+  }
+
+  &--extend {
+    _test: "@include clearfix(true)";
+    @include clearfix(true);
+  }
+}
