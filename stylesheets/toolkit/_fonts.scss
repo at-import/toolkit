@@ -22,6 +22,97 @@
 }
 
 //////////////////////////////
+// Font Face
+//////////////////////////////
+@mixin font-face($name, $files, $weight: null, $style: null, $inline-woff: null) {
+  $weight: if($weight != null, $weight, toolkit-get('font face weight'));
+  $style: if($style != null, $style, toolkit-get('font face style'));
+  $inline-woff: if($inline-woff != null, $inline-woff, toolkit-get('font face inline woff'));
+
+  $font-stack: ();
+  $font-src: '';
+  $eot: false;
+  $font-extensions: ('eot': 'embedded-opentype', 'woff': 'woff', 'ttf': 'truetype', 'svg': 'svg');
+
+  @each $ext, $format in $font-extensions {
+    @if map-has-key($files, $ext) {
+      @if function-exists(inline-font-files) and $inline-woff == true and $ext == 'woff' {
+        $font-src: inline-font-files(map-get($files, $ext));
+      }
+      @else if function-exists(font-url) {
+        $font-src: font-url(map-get($files, $ext)) format($format);
+        @if $ext == 'eot' {
+          $eot: $font-src;
+          $font-src: font-url(map-get($files, $ext) + '#iefix') format($format);
+        }
+      }
+      @else {
+        $font-src: url(map-get($files, $ext)) format($format);
+        @if $ext == 'eot' {
+          $eot: $font-src;
+          $font-src: url(map-get($files, $ext) + '#iefix') format($format);
+        }
+      }
+      $font-stack: append($font-stack, $font-src, 'comma');
+    }
+
+  }
+
+  @at-root {
+    @font-face {
+      font-family: $name;
+      font-weight: $weight;
+      font-style: $style;
+      @if $eot {
+        src: $eot;
+      }
+      @if length($font-stack) > 0 {
+        src: $font-stack;
+      }
+    }
+  }
+}
+
+//////////////////////////////
+// Icon Font
+// From http://icomoon.io
+//////////////////////////////
+@mixin icon-font($font, $speak: null, $extend: null) {
+  $speak: if($speak != null, $speak, toolkit-get('speak icon font'));
+  $extend: if($extend != null, $extend, toolkit-get('extend icon font'));
+
+  font-family: $font;
+  @if $speak == false {
+    speak: none;
+  }
+  @include icon-font--core($extend);
+}
+
+@mixin icon-font--core($extend: null) {
+  $extend: if($extend != null, $extend, toolkit-get('extend icon font'));
+
+  @if $extend  {
+    @extend %icon-font--core;
+  }
+  @else {
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    @include enable-ligatures($extend);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+%icon-font--core {
+  @include icon-font--core(false);
+}
+
+//////////////////////////////
 // Font Fade In
 //////////////////////////////
 @mixin content-fade-in($duration: null, $loading: null, $extend: null) {
