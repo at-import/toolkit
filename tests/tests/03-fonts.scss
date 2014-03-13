@@ -1,0 +1,86 @@
+@import "toolkit";
+
+/**
+  * Ligatures
+**/
+.ligatures {
+  &--no-extend {
+    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    _test: "@include enable-ligatures(false)";
+    @include enable-ligatures(false);
+  }
+  &--extend {
+    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    _test: "@include enable-ligatures(true)";
+    @include enable-ligatures(true);
+  }
+  &--default {
+    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    _test: "@include enable-ligatures";
+    @include enable-ligatures;
+  }
+  &--default-change {
+    @include toolkit-set('extend ligatures', true);
+    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    _test: "@include enable-ligatures";
+    @include enable-ligatures;
+  }
+}
+
+/**
+  * Font Face
+**/
+$fonts: (
+  'eot': 'north/north.eot',
+  'woff': 'north/north.woff',
+  'svg': 'north/north.svg'
+);
+.font-face {
+  _fonts: inspect($fonts);
+  _test: "@include font-face('north', $fonts, $inline-woff: true);";
+  @include font-face('north', $fonts, $inline-woff: true);
+}
+
+/**
+  * Icon Font
+**/
+.icon-font {
+  &--no-extend {
+    _setting-speak-icon-font: toolkit-get('speak icon font');
+    _setting-extend-icon-font: toolkit-get('extend icon font');
+    _test: "@include icon-font('north', $extend: false);";
+    @include icon-font('north', $extend: false);
+  }
+  &--speak {
+    _setting-speak-icon-font: toolkit-get('speak icon font');
+    _setting-extend-icon-font: toolkit-get('extend icon font');
+    _test: "@include icon-font('north', true);";
+    @include icon-font('north', true);
+  }
+  &--extend {
+    _setting-speak-icon-font: toolkit-get('speak icon font');
+    _setting-extend-icon-font: toolkit-get('extend icon font');
+    _test: "@include icon-font('north', $extend: true);";
+    @include icon-font('north', $extend: true);
+  }
+}
+
+/**
+  * Content Fade In
+**/
+.content-fade-in {
+  &--default {
+    _setting-fade-in-duration: toolkit-get('fade in duration');
+    _settin-fade-in-loading-class: toolkit-get('fade in loading class');
+    _setting-fade-in-extend: toolkit-get('fade in extend');
+    _test: "@include content-fade-in();";
+    @include content-fade-in();
+  }
+  &--extend {
+    _setting-fade-in-duration: toolkit-get('fade in duration');
+    _settin-fade-in-loading-class: toolkit-get('fade in loading class');
+    _setting-fade-in-extend: toolkit-get('fade in extend');
+    _test: "@include content-fade-in($extend: true);";
+    @include content-fade-in($extend: true);
+  }
+}

@@ -3,6 +3,7 @@
 # File system locations
 sass_dir              = 'tests'
 css_dir               = 'output'
+fonts_dir             = 'fonts'
 # Import latest breakpoint library
 add_import_path       '../stylesheets'
 
