@@ -1,0 +1,40 @@
+@import "toolkit";
+
+/**
+  * Nested Context
+**/
+.nested-context {
+  &--function {
+    _setting-nested-context-contexts: toolkit-get('nested context contexts');
+    _test: "nested-context()";
+    _result: nested-context();
+    _test: "nested-context(30%)";
+    _result: nested-context(30%);
+    _test: "nested-context(40% 30%)";
+    _result: nested-context(40% 30%);
+  }
+  &--mixin-default {
+    _setting-nested-context-contexts: toolkit-get('nested context contexts');
+    _setting-nested-context-contexts: toolkit-get('nested context position');
+    _test: "@include nested-context;";
+    @include nested-context;
+  }
+  &--mixin-contexts {
+    _setting-nested-context-contexts: toolkit-get('nested context contexts');
+    _setting-nested-context-contexts: toolkit-get('nested context position');
+    _test: "@include nested-context($contexts: 30%);";
+    @include nested-context($contexts: 30%);
+  }
+  &--mixin-right {
+    _setting-nested-context-contexts: toolkit-get('nested context contexts');
+    _setting-nested-context-contexts: toolkit-get('nested context position');
+    _test: "@include nested-context($position: right);";
+    @include nested-context($position: right);
+  }
+  &--mixin-center {
+    _setting-nested-context-contexts: toolkit-get('nested context contexts');
+    _setting-nested-context-contexts: toolkit-get('nested context position');
+    _test: "@include nested-context($position: center);";
+    @include nested-context($position: center);
+  }
+}

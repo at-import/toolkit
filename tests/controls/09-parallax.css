@@ -1,0 +1,120 @@
+/**
+  * Parallax Init
+**/
+.parallax-init--default {
+  _setting-parallax-perspective: 1;
+  _setting-parallax-element: "body";
+  _setting-parallax-ios: true;
+  _test: "@at-root { @include parallax-init; }";
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+}
+body, body * {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.parallax-init--perspective {
+  _setting-parallax-perspective: 1;
+  _setting-parallax-element: "body";
+  _setting-parallax-ios: true;
+  _test: "@at-root { @include parallax-init($perspective: .75); }";
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+  -webkit-perspective: 0.75px;
+  perspective: 0.75px;
+}
+body, body * {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.parallax-init--element {
+  _setting-parallax-perspective: 1;
+  _setting-parallax-element: "body";
+  _setting-parallax-ios: true;
+  _test: "@at-root { @include parallax-init($element: '.parallax'); }";
+}
+.parallax {
+  overflow: auto;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+}
+.parallax, .parallax * {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.parallax-init--ios {
+  _setting-parallax-perspective: 1;
+  _setting-parallax-element: "body";
+  _setting-parallax-ios: true;
+  _test: "@at-root { @include parallax-init($parallax-ios: false); }";
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+  -webkit-overflow-scrolling: touch;
+}
+body, body * {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/**
+  * Parallax Item
+**/
+.parallax-item--default {
+  _setting-parallax-distance: 0;
+  _setting-parallax-perspective: 1;
+  _test: "@include parallax;";
+  -webkit-transform: translateZ(0px) scale(1);
+  transform: translateZ(0px) scale(1);
+  z-index: 0;
+}
+.parallax-item--distance {
+  _setting-parallax-distance: 0;
+  _setting-parallax-perspective: 1;
+  _test: "@include parallax($distance: .5);";
+  -webkit-transform: translateZ(0.5px) scale(0.5);
+  transform: translateZ(0.5px) scale(0.5);
+  z-index: 50;
+}
+.parallax-item--perspective {
+  _setting-parallax-distance: 0;
+  _setting-parallax-perspective: 1;
+  _test: "@include parallax($distance: 1, $perspective: 1);";
+  -webkit-transform: translateZ(1px) scale(0);
+  transform: translateZ(1px) scale(0);
+  z-index: 100;
+  _test: "@include parallax($distance: 1, $perspective: .5);";
+  -webkit-transform: translateZ(0.5px) scale(0);
+  transform: translateZ(0.5px) scale(0);
+  z-index: 100;
+}

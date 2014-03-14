@@ -1,0 +1,319 @@
+/**
+  * Intrinsic Ratio Parent
+**/
+.ir--parent-default {
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio-parent;";
+  position: relative;
+  height: 0;
+}
+.ir--parent-extend {
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio-parent(true);";
+}
+.ir--parent-extend, .ir--full-extend, .ir--ir-position {
+  position: relative;
+  height: 0;
+}
+
+/**
+  * Intrinsic Ratio Child
+**/
+.ir--child-default {
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio-child;";
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--child-extend {
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio-child(true);";
+}
+.ir--child-extend, .ir--full-extend > *, .ir--ir-position > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+  * Intrinsic Ratio Ratio
+**/
+.ir--ratio-default {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _test: "@include intrinsic-ratio-ratio;";
+  padding-top: 56.25%;
+  width: 100%;
+}
+.ir--ratio-ratio {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _test: "@include intrinsic-ratio-ratio($ratio: 4/3);";
+  padding-top: 75%;
+  width: 100%;
+}
+.ir--ratio-width {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _test: "@include intrinsic-ratio-ratio($width: 75%);";
+  padding-top: 42.1875%;
+  width: 75%;
+}
+.ir--ratio-position {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _test: "@include intrinsic-ratio-ratio($position: bottom);";
+  padding-bottom: 56.25%;
+  width: 100%;
+}
+
+/**
+  * Full IR Mixin
+**/
+.ir--full-default {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio;";
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+  width: 100%;
+}
+.ir--full-default > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--full-ratio {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio($ratio: 4/3);";
+  position: relative;
+  height: 0;
+  padding-top: 75%;
+  width: 100%;
+}
+.ir--full-ratio > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--full-width {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio($width: 75%);";
+  position: relative;
+  height: 0;
+  padding-top: 42.1875%;
+  width: 75%;
+}
+.ir--full-width > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--full-position {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio($position: bottom);";
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  width: 100%;
+}
+.ir--full-position > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--full-elements {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio($width: 75%);";
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+  width: 100%;
+}
+.ir--full-elements iframe {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--full-extend {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include intrinsic-ratio($position: bottom);";
+  padding-top: 56.25%;
+  width: 100%;
+}
+
+/**
+  * Full IR Mixin (short name)
+**/
+.ir--ir-default {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include ir;";
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+  width: 100%;
+}
+.ir--ir-default > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--ir-ratio {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include ir($ratio: 4/3);";
+  position: relative;
+  height: 0;
+  padding-top: 75%;
+  width: 100%;
+}
+.ir--ir-ratio > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--ir-width {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include ir($width: 75%);";
+  position: relative;
+  height: 0;
+  padding-top: 42.1875%;
+  width: 75%;
+}
+.ir--ir-width > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--ir-position {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include ir($position: bottom);";
+  padding-top: 56.25%;
+  width: 100%;
+}
+.ir--ir-elements {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include ir($width: 75%);";
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+  width: 100%;
+}
+.ir--ir-elements iframe {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.ir--ir-extend {
+  _setting-intrinsic-ratio: 1.77778;
+  _setting-intrinsic-ratio-width: 100%;
+  _setting-intrinsic-ratio-direction: top;
+  _setting-intrinsic-ratio-elements: "> *";
+  _setting-intrinsic-ratio-extend: false;
+  _test: "@include ir($position: bottom);";
+  position: relative;
+  height: 0;
+  padding-true: 56.25%;
+  width: 100%;
+}
+.ir--ir-extend > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}

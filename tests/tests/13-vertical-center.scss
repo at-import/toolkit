@@ -1,0 +1,31 @@
+@import "toolkit";
+
+/**
+  * Vertical Center
+**/
+.vertical-center {
+  &-default {
+    _setting-vertical-midpoint: toolkit-get('vertical midpoint');
+    _setting-vertical-extend: toolkit-get('vertical extend');
+    _test: "@include vertical-center;";
+    @include vertical-center;
+  }
+  &-midpoint {
+    _setting-vertical-midpoint: toolkit-get('vertical midpoint');
+    _setting-vertical-extend: toolkit-get('vertical extend');
+    _test: "@include vertical-center($midpoint: 30%);";
+    @include vertical-center($midpoint: 30%);
+  }
+  &-extend {
+    _setting-vertical-midpoint: toolkit-get('vertical midpoint');
+    _setting-vertical-extend: toolkit-get('vertical extend');
+    _test: "@include vertical-center($extend: true);";
+    @include vertical-center($extend: true);
+  }
+  &-midpoint-extend {
+    _setting-vertical-midpoint: toolkit-get('vertical midpoint');
+    _setting-vertical-extend: toolkit-get('vertical extend');
+    _test: "@include vertical-center($midpoint: 40%, $extend: true);";
+    @include vertical-center($midpoint: 40%, $extend: true);
+  }
+}

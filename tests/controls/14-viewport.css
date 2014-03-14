@@ -1,0 +1,18 @@
+/**
+  * Viewport
+**/
+.viewport {
+  _test: "@at-root { @include viewport { width: 320px auto; }}";
+}
+@-webkit-viewport {
+  width: 320px auto;
+}
+@-moz-viewport {
+  width: 320px auto;
+}
+@-ms-viewport {
+  width: 320px auto;
+}
+@viewport {
+  width: 320px auto;
+}

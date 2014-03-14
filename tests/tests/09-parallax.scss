@@ -1,0 +1,61 @@
+@import "toolkit";
+
+/**
+  * Parallax Init
+**/
+.parallax-init {
+  &--default {
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _setting-parallax-element: toolkit-get('parallax element');
+    _setting-parallax-ios: toolkit-get('parallax ios');
+    _test: "@at-root { @include parallax-init; }";
+    @at-root { @include parallax-init; }
+  }
+  &--perspective {
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _setting-parallax-element: toolkit-get('parallax element');
+    _setting-parallax-ios: toolkit-get('parallax ios');
+    _test: "@at-root { @include parallax-init($perspective: .75); }";
+    @at-root { @include parallax-init($perspective: .75); }
+  }
+  &--element {
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _setting-parallax-element: toolkit-get('parallax element');
+    _setting-parallax-ios: toolkit-get('parallax ios');
+    _test: "@at-root { @include parallax-init($element: '.parallax'); }";
+    @at-root { @include parallax-init($element: '.parallax'); }
+  }
+  &--ios {
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _setting-parallax-element: toolkit-get('parallax element');
+    _setting-parallax-ios: toolkit-get('parallax ios');
+    _test: "@at-root { @include parallax-init($parallax-ios: false); }";
+    @at-root { @include parallax-init($parallax-ios: false); }
+  }
+}
+
+/**
+  * Parallax Item
+**/
+.parallax-item {
+  &--default {
+    _setting-parallax-distance: toolkit-get('parallax distance');
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _test: "@include parallax;";
+    @include parallax;
+  }
+  &--distance {
+    _setting-parallax-distance: toolkit-get('parallax distance');
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _test: "@include parallax($distance: .5);";
+    @include parallax($distance: .5);
+  }
+  &--perspective {
+    _setting-parallax-distance: toolkit-get('parallax distance');
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _test: "@include parallax($distance: 1, $perspective: 1);";
+    @include parallax($distance: 1, $perspective: 1);
+    _test: "@include parallax($distance: 1, $perspective: .5);";
+    @include parallax($distance: 1, $perspective: .5);
+  }
+}

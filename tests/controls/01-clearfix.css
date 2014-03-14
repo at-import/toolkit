@@ -1,0 +1,22 @@
+/**
+  * Clearfix Mixin
+**/
+.clearfix {
+  _setting--clearfix-extend: false;
+}
+.clearfix--no-extend {
+  _test: "@include clearfix;";
+}
+.clearfix--no-extend:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.clearfix--extend {
+  _test: "@include clearfix(true)";
+}
+.clearfix--extend:after {
+  content: "";
+  display: table;
+  clear: both;
+}

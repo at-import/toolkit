@@ -1,0 +1,114 @@
+@import "toolkit";
+
+/**
+  * Triangle
+**/
+.triangle {
+  &--default {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle;";
+    @include triangle;
+  }
+  &--color {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($color: blue);";
+    @include triangle($color: blue);
+  }
+  &--height {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($height: 1.75em);";
+    @include triangle($height: 20px);
+  }
+  &--width {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($width: 1.5rem);";
+    @include triangle($width: 1.5rem);
+  }
+  &--angle-number {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: 72.5);";
+    @include triangle($angle: 72.5);
+  }
+
+  &--angle-top {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: top);";
+    @include triangle($angle: top);
+  }
+  &--angle-top-right {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: top right);";
+    @include triangle($angle: top right);
+  }
+  &--angle-right {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: right);";
+    @include triangle($angle: right);
+  }
+  &--angle-bottom-right {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: bottom right);";
+    @include triangle($angle: bottom right);
+  }
+  &--angle-bottom {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: bottom);";
+    @include triangle($angle: bottom);
+  }
+  &--angle-bottom-left {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: bottom left);";
+    @include triangle($angle: bottom left);
+  }
+  &--angle-left{
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: left);";
+    @include triangle($angle: left);
+  }
+  &--angle-top-left {
+    _setting-triangle-color: toolkit-get('triangle color');
+    _setting-triangle-height: toolkit-get('triangle height');
+    _setting-triangle-width: toolkit-get('triangle width');
+    _setting-triangle-angle: toolkit-get('triangle angle');
+    _test: "@include triangle($angle: top left);";
+    @include triangle($angle: top left);
+  }
+
+
+}

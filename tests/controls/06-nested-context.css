@@ -1,0 +1,40 @@
+/**
+  * Nested Context
+**/
+.nested-context--function {
+  _setting-nested-context-contexts: 100%;
+  _test: "nested-context()";
+  _result: 100%;
+  _test: "nested-context(30%)";
+  _result: 333.33333%;
+  _test: "nested-context(40% 30%)";
+  _result: 833.33333%;
+}
+.nested-context--mixin-default {
+  _setting-nested-context-contexts: 100%;
+  _setting-nested-context-contexts: left;
+  _test: "@include nested-context;";
+  width: 100%;
+}
+.nested-context--mixin-contexts {
+  _setting-nested-context-contexts: 100%;
+  _setting-nested-context-contexts: left;
+  _test: "@include nested-context($contexts: 30%);";
+  width: 333.33333%;
+}
+.nested-context--mixin-right {
+  _setting-nested-context-contexts: 100%;
+  _setting-nested-context-contexts: left;
+  _test: "@include nested-context($position: right);";
+  width: 100%;
+  margin-left: 0%;
+}
+.nested-context--mixin-center {
+  _setting-nested-context-contexts: 100%;
+  _setting-nested-context-contexts: left;
+  _test: "@include nested-context($position: center);";
+  width: 100%;
+  position: relative;
+  left: 50%;
+  margin-left: -50%;
+}

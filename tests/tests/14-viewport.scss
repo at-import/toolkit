@@ -1,0 +1,9 @@
+@import "toolkit";
+
+/**
+  * Viewport
+**/
+.viewport {
+  _test: "@at-root { @include viewport { width: 320px auto; }}";
+  @at-root { @include viewport { width: 320px auto; }}
+}
