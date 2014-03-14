@@ -80,32 +80,65 @@
 //////////////////////////////
 // Color Scales
 //////////////////////////////
-@function color-scale($main, $secondary, $shades: null) {
-  $shades: if($shades != null, $shades, toolkit-get('color scale shades'));
+@function color-scale($main, $secondary, $steps: null) {
+  $steps: if($steps != null, $steps, toolkit-get('color scale steps'));;
 
   $list: $main;
 
   $red1: red($main);
   $red2: red($secondary);
-  $red-diff: (($red1 - $red2) / (($shades - 1)));
+  $red-diff: (($red1 - $red2) / (($steps - 1)));
 
-  $grn1: green($main);
-  $grn2: green($secondary);
-  $grn-diff: (($grn1 - $grn2) / (($shades - 1)));
+  $hue1: hue($main);
+  $hue2: hue($secondary);
+  @if ($hue2 + 359 - $hue1) < abs($hue1 - $hue2) {
+    $hue2: $hue2 + 359;
+  }
+  $hue-diff: ($hue2 - $hue1) / ($steps - 1);
 
-  $blu1: blue($main);
-  $blu2: blue($secondary);
-  $blu-diff: (($blu1 - $blu2) / (($shades - 1)));
+  $sat1: saturation($main);
+  $sat2: saturation($secondary);
+  $sat-diff: 0;
+  @if $sat1 > $sat2 {
+    $sat-diff: ($sat2 - $sat1) / ($steps - 1);
+  }
+  @else {
+    $sat-diff: ($sat1 - $sat2) / ($steps - 1);
+  }
 
-  $red-hold: $red1;
-  $grn-hold: $grn1;
-  $blu-hold: $blu1;
+  $lte1: lightness($main);
+  $lte2: lightness($secondary);
+  $lte-diff: 0;
+  @if $lte1 > $lte2 {
+    $lte-diff: ($lte2 - $lte1) / ($steps - 1);
+  }
+  @else {
+    $lte-diff: ($lte1 - $lte2) / ($steps - 1);
+  }
 
-  @for $i from 2 through $shades {
-    $red-hold: $red-hold - ($red-diff);
-    $grn-hold: $grn-hold - ($grn-diff);
-    $blu-hold: $blu-hold - ($blu-diff);
-    $color-hold: rgb($red-hold, $grn-hold, $blu-hold);
+  $alp1: alpha($main);
+  $alp2: alpha($secondary);
+  $alp-diff: 0;
+  @if $alp1 > $alp2 {
+    $alp-diff: ($alp2 - $alp1) / ($steps - 1);
+  }
+  @else {
+    $alp-diff: ($alp1 - $alp2) / ($steps - 1);
+  }
+
+  $hue-hold: $hue1;
+  $sat-hold: $sat1;
+  $lte-hold: $lte1;
+  $alp-hold: $alp1;
+  $color-hold: 0;
+
+  @for $i from 2 through $steps {
+    $hue-hold: $hue-hold + $hue-diff;
+    $sat-hold: $sat-hold + $sat-diff;
+    $lte-hold: $lte-hold + $lte-diff;
+    $alp-hold: $alp-hold + $alp-diff;
+
+    $color-hold: hsla($hue-hold, $sat-hold, $lte-hold, $alp-hold);
     $list: append($list, $color-hold);
   }
 
