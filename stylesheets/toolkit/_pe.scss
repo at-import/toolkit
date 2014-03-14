@@ -47,7 +47,7 @@
       }
     }
 
-    @if not index($features, 'js') and $no-js != true {
+    @if not index($features, 'js') and $no-js == true {
       .no-js & {
         @extend %#{$uid};
       }
@@ -60,7 +60,7 @@
       }
     }
 
-    @if not index($features, 'js') and $no-js != true {
+    @if not index($features, 'js') and $no-js == true {
       .no-js & {
         @content;
       }
