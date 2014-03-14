@@ -1,14 +1,16 @@
-# -*- encoding: utf-8 -*-
+require './lib/toolkit'
 
 Gem::Specification.new do |s|
+  # Release Specific Information
+  s.version = Toolkit::VERSION
+  s.date = Toolkit::DATE
+
   # General Project Information
   s.name = "toolkit"
-  s.version = "2.0.0.alpha.10"
-  s.date = "2014-02-12"
   s.rubyforge_project = "toolkit"
   s.rubygems_version = "1.7.2"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
-  s.licenses = ['MIT', 'GPL']
+  s.licenses = ['MIT', 'GPL-2.0']
 
   # Author Information
   s.authors = ["Sam Richard", "Scott Kellum", "Mason Wendell"]
@@ -16,15 +18,17 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/Snugug/toolkit"
 
   # Project Description
-  s.description = "Toolkit for Progressive Enhancement and Responsive Web Design"
-  s.summary = "Progressive Enhancement and RWD toolkit of awesomeness"
+  s.description = "Toolkit full of bits and bobs of awesome aimed at assisting in advanced styling with Sass"
+  s.summary = "Toolkit of awesome Sass stuff"
 
   # Files to Include
+  s.files = ["README.md"]
+  s.files += ["CHANGELOG.md"]
+  s.files += Dir.glob("LICENSE.txt")
   s.files = Dir.glob("lib/**/*.*")
   s.files += Dir.glob("stylesheets/**/*.*")
-  s.files += Dir.glob("LICENSE.txt")
+
 
   # Dependent Gems
-  s.add_dependency 'sass',                "~> 3.3.0.rc.3"
-  s.add_dependency 'compass',             "~> 1.0.0.alpha.17"
+  s.add_dependency("sass",      ["~>3.3.0"])
 end

@@ -1,15 +1,20 @@
 {
   "name": "sass-toolkit",
-  "version": "2.0.0-alpha.10",
+  "description": "Toolkit full of bits and bobs of awesome aimed at assisting in advanced styling with Sass"
+  "version": "2.0.0",
   "main": "compass/stylesheets/_toolkit.scss",
   "ignore": [
     "**/.*",
     "node_modules",
-    "components",
-    "sass",
-    "stylesheets",
-    "config.rb",
-    "index.html"
+    "bower_components",
+    "tests",
+    "vendor",
+    "working",
+    "Gemfile",
+    "Gemfile.lock",
+    "Rakefile",
+    "lib",
+    "*.gemspec"
   ],
   "dependencies": {
   }
