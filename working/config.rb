@@ -1,5 +1,4 @@
 # Require any additional compass plugins here.]
-require 'breakpoint'
 
 # File system locations
 sass_dir              = 'sass'
