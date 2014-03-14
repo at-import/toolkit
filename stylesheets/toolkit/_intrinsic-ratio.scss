@@ -37,7 +37,7 @@
 @mixin intrinsic-ratio-ratio($ratio: null, $width: null, $position: null) {
   $ratio: if($ratio != null, $ratio, toolkit-get('intrinsic ratio'));
   $width: if($width != null, $width, toolkit-get('intrinsic ratio width'));
-  $position: if($position != null, $position, toolkit-get('intrinsic ratio direction'));
+  $position: if($position != null, $position, toolkit-get('intrinsic ratio position'));
 
   padding-#{$position}: (1 / $ratio) * $width;
   width: $width;
@@ -47,7 +47,7 @@
   $ratio: if($ratio != null, $ratio, toolkit-get('intrinsic ratio'));
   $width: if($width != null, $width, toolkit-get('intrinsic ratio width'));
   $elements: if($elements != null, $elements, toolkit-get('intrinsic ratio elements'));
-  $position: if($position != null, $position, toolkit-get('intrinsic ratio direction'));
+  $position: if($position != null, $position, toolkit-get('intrinsic ratio position'));
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
 
   @include intrinsic-ratio-parent($extend);

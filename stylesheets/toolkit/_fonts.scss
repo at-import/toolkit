@@ -2,7 +2,7 @@
 // Enable ligatures
 //////////////////////////////
 @mixin enable-ligatures($extend: null) {
-  $extend: if($extend != null, $extend, toolkit-get('extend ligatures'));
+  $extend: if($extend != null, $extend, toolkit-get('ligature extend'));
 
   @if $extend {
     @include toolkit-placeholder('enable ligatures') {
@@ -75,11 +75,11 @@
 // Icon Font
 // From http://icomoon.io
 //////////////////////////////
-@mixin icon-font($font, $speak: null, $extend: null) {
-  $speak: if($speak != null, $speak, toolkit-get('speak icon font'));
-  $extend: if($extend != null, $extend, toolkit-get('extend icon font'));
+@mixin icon-font($font-stack, $speak: null, $extend: null) {
+  $speak: if($speak != null, $speak, toolkit-get('icon font speak'));
+  $extend: if($extend != null, $extend, toolkit-get('icon font extend'));
 
-  font-family: $font;
+  font-family: $font-stack;
   @if $speak == false {
     speak: none;
   }
@@ -87,7 +87,7 @@
 }
 
 @mixin icon-font--core($extend: null) {
-  $extend: if($extend != null, $extend, toolkit-get('extend icon font'));
+  $extend: if($extend != null, $extend, toolkit-get('icon font extend'));
 
   @if $extend  {
     @include toolkit-placeholder('icon font core') {
