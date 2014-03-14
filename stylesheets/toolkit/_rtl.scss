@@ -1,0 +1,24 @@
+@mixin rtl($property, $size) {
+  $_property: $property;
+  #{$property}: $size;
+
+  @if length($size) == 4 {
+    [dir="rtl"] & {
+      #{$property}: nth($size, 1) nth($size, 4) nth($size, 3) nth($size, 2);
+    }
+  }
+  @else {
+    @if (str-index($property, 'left')) {
+      $property: str-slice($property, 1, str-index($property, 'left') - 1) + 'right';
+    }
+    @else if (str-index($property, 'right')) {
+      $property: str-slice($property, 1, str-index($property, 'right') - 1) + 'left';
+    }
+
+    @if $property != $_property {
+      [dir="rtl"] & {
+        #{$property}: $size;
+      }
+    }
+  }
+}

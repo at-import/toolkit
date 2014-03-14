@@ -5,7 +5,9 @@
   $extend: if($extend != null, $extend, toolkit-get('extend ligatures'));
 
   @if $extend {
-    @extend %enable-ligatures;
+    @include toolkit-placeholder('enable ligatures') {
+      @include enable-ligatures;
+    }
   }
   @else {
     -webkit-font-feature-settings:"liga","dlig";
@@ -15,10 +17,6 @@
     -o-font-feature-settings:"liga","dlig";
     font-feature-settings: "liga","dlig";
   }
-}
-
-%enable-ligatures {
-  @include enable-ligatures;
 }
 
 //////////////////////////////
@@ -92,7 +90,9 @@
   $extend: if($extend != null, $extend, toolkit-get('extend icon font'));
 
   @if $extend  {
-    @extend %icon-font--core;
+    @include toolkit-placeholder('icon font core') {
+      @include icon-font--core(false);
+    }
   }
   @else {
     font-style: normal;
@@ -108,10 +108,6 @@
   }
 }
 
-%icon-font--core {
-  @include icon-font--core(false);
-}
-
 //////////////////////////////
 // Font Fade In
 //////////////////////////////
@@ -121,7 +117,9 @@
   $extend: if($extend != null, $extend, toolkit-get('fade in extend'));
 
   @if $extend == true and $duration == toolkit-get('fade in duration') and $loading == toolkit-get('fade in loading class') {
-    @extend %content-fade-in;
+    @include toolkit-placeholder('content fade in') {
+      @include content-fade-in($extend: false);
+    }
   }
   @else {
     opacity: 1;
@@ -137,8 +135,4 @@
       opacity: 0;
     }
   }
-}
-
-%content-fade-in {
-  @include content-fade-in($extend: false);
 }

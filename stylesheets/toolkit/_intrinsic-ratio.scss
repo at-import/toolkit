@@ -4,20 +4,24 @@
 @mixin intrinsic-ratio-parent($extend: null) {
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
 
-
-    @if $extend {
-      @extend %intrinsic-ratio-parent;
+  @if $extend {
+    @include toolkit-placeholder('intrinsic ratio parent') {
+      @include intrinsic-ratio-parent(false);
     }
-    @else {
-      position: relative;
-      height: 0;
-    }
+  }
+  @else {
+    position: relative;
+    height: 0;
+  }
 }
 
 @mixin intrinsic-ratio-child($extend: null) {
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
+
   @if $extend {
-    @extend %intrinsic-ratio-child;
+    @include toolkit-placeholder('intrinsic ratio child') {
+      @include intrinsic-ratio-child(false);
+    }
   }
   @else {
     display: block;
@@ -34,6 +38,7 @@
   $ratio: if($ratio != null, $ratio, toolkit-get('intrinsic ratio'));
   $width: if($width != null, $width, toolkit-get('intrinsic ratio width'));
   $position: if($position != null, $position, toolkit-get('intrinsic ratio direction'));
+
   padding-#{$position}: (1 / $ratio) * $width;
   width: $width;
 }
@@ -44,6 +49,7 @@
   $elements: if($elements != null, $elements, toolkit-get('intrinsic ratio elements'));
   $position: if($position != null, $position, toolkit-get('intrinsic ratio direction'));
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
+
   @include intrinsic-ratio-parent($extend);
 
   @include intrinsic-ratio-ratio($ratio, $width, $position);
@@ -57,12 +63,4 @@
 
 @mixin ir($ratio: null, $width: null, $elements: null, $position: null, $extend: null) {
   @include intrinsic-ratio($ratio, $width, $elements, $extend, $position);
-}
-
-%intrinsic-ratio-parent {
-  @include intrinsic-ratio-parent(false);
-}
-
-%intrinsic-ratio-child {
-  @include intrinsic-ratio-child(false);
 }

@@ -3,8 +3,11 @@
 //////////////////////////////
 @mixin clearfix($extend: null) {
   $extend: if($extend != null, $extend, toolkit-get('clearfix extend'));
-  @if $extend {
-    @extend %toolkit-clearfix;
+
+  @if $extend == true {
+    @include toolkit-placeholder('clearfix') {
+      @include clearfix(false);
+    }
   }
   @else {
     &:after {
@@ -13,8 +16,4 @@
       clear: both;
     }
   }
-}
-
-%toolkit-clearfix {
-  @include clearfix(false);
 }

@@ -1,0 +1,30 @@
+$Private-Toolkit-Placeholders: (
+);
+
+//////////////////////////////
+// Placeholder Get/Set
+//////////////////////////////
+@function toolkit-placeholder-set($id) {
+  $unique-id: unique-id();
+  $Private-Toolkit-Placeholders: map-merge($Private-Toolkit-Placeholders, ($id: $unique-id)) !global;
+  @return $unique-id;
+}
+
+@function toolkit-placeholder-get($id) {
+  @return map-get($Private-Toolkit-Placeholders, $id);
+}
+
+//////////////////////////////
+// Generate Placeholder Class and Extend
+//////////////////////////////
+@mixin toolkit-placeholder($id) {
+  $placeholder-id: toolkit-placeholder-get($id);
+
+  @if $placeholder-id == null {
+    $placeholder-id: toolkit-placeholder-set($id);
+    @at-root %#{$placeholder-id} {
+      @content;
+    }
+  }
+  @extend %#{$placeholder-id};
+}
