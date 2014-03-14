@@ -1,10 +1,10 @@
-@mixin rtl($property, $size) {
+@mixin rtl($property, $value) {
   $_property: $property;
-  #{$property}: $size;
+  #{$property}: $value;
 
-  @if length($size) == 4 {
+  @if length($value) == 4 {
     [dir="rtl"] & {
-      #{$property}: nth($size, 1) nth($size, 4) nth($size, 3) nth($size, 2);
+      #{$property}: nth($value, 1) nth($value, 4) nth($value, 3) nth($value, 2);
     }
   }
   @else {
@@ -17,7 +17,7 @@
 
     @if $property != $_property {
       [dir="rtl"] & {
-        #{$property}: $size;
+        #{$property}: $value;
       }
     }
   }
