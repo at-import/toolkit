@@ -17,7 +17,7 @@
 // mixin to make things easier
 @mixin nested-context($contexts: null, $position: null) {
   $contexts: if($contexts != null, $contexts, toolkit-get('nested context contexts'));
-  $position: if($position != null, $position, toolkit-get('nestex context position'));
+  $position: if($position != null, $position, toolkit-get('nested context position'));
 
   width: nested-context($contexts);
   @if $position == "center" {
