@@ -39,11 +39,11 @@
   }
 
   @if unit($height) == "" or unit($height) == "%" {
-    @debug "in triangle #{$height} is not a compatable unit for height."
+    @debug "in triangle #{$height} is not a compatible unit for height."
   }
 
   @if unit($width) == "" or unit($width) == "%" {
-    @debug "in triangle #{$width} is not a compatable unit for width."
+    @debug "in triangle #{$width} is not a compatible unit for width."
   }
 
   // offset 45deg to make each side start at 0
