@@ -1,4 +1,4 @@
-# Toolkit
+# Toolkit [![Gem Version](https://badge.fury.io/rb/toolkit.png)](http://badge.fury.io/rb/toolkit) [![Build Status](https://travis-ci.org/Team-Sass/toolkit.png?branch=2.x.x)](https://travis-ci.org/Team-Sass/toolkit)
 
 **Progressive Enhancement? Simple. Responsive Web Design? Done. Design in Browser? Beautiful.**
 
