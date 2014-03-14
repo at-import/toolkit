@@ -51,10 +51,17 @@
 /**
   * Color Scales
 **/
-.color--scale {
+.color--scale--no-alpha {
   _setting--color-scale-shades: 6;
   _test: "color-scale(red, blue)";
-  _result: red #cc0033 #990066 #660099 #3300cc blue;
+  _result: red #ffcc00 #66ff00 #00ff66 #00ccff blue;
   _test: "color-scale(red, blue, 3)";
-  _result: red #7f007f blue;
+  _result: red lime blue;
+}
+.color--scale--alpha {
+  _setting--color-scale-shades: 6;
+  _test: "color-scale(rgba(lime, 1), rgba(tan, .5))";
+  _result: lime rgba(73, 223, 13, 0.9) rgba(121, 193, 24, 0.8) rgba(146, 165, 33, 0.7) rgba(139, 125, 40, 0.6) rgba(115, 85, 45, 0.5);
+  _test: "color-scale(rgba(lime, 1), rgba(tan, .5), 3)";
+  _result: lime rgba(136, 178, 29, 0.75) rgba(115, 85, 45, 0.5);
 }

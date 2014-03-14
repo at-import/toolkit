@@ -8,29 +8,36 @@
     _setting-parallax-perspective: toolkit-get('parallax perspective');
     _setting-parallax-element: toolkit-get('parallax element');
     _setting-parallax-ios: toolkit-get('parallax ios');
-    _test: "@at-root { @include parallax-init; }";
-    @at-root { @include parallax-init; }
+    _test: "@include parallax-init;";
+    @include parallax-init;
   }
   &--perspective {
     _setting-parallax-perspective: toolkit-get('parallax perspective');
     _setting-parallax-element: toolkit-get('parallax element');
     _setting-parallax-ios: toolkit-get('parallax ios');
-    _test: "@at-root { @include parallax-init($perspective: .75); }";
-    @at-root { @include parallax-init($perspective: .75); }
+    _test: "@include parallax-init($perspective: .75);";
+    @include parallax-init($perspective: .75);
   }
-  &--element {
+  &--element-this {
     _setting-parallax-perspective: toolkit-get('parallax perspective');
     _setting-parallax-element: toolkit-get('parallax element');
     _setting-parallax-ios: toolkit-get('parallax ios');
-    _test: "@at-root { @include parallax-init($element: '.parallax'); }";
-    @at-root { @include parallax-init($element: '.parallax'); }
+    _test: "@include parallax-init($element: this);";
+    @include parallax-init($element: this);
+  }
+  &--element-that {
+    _setting-parallax-perspective: toolkit-get('parallax perspective');
+    _setting-parallax-element: toolkit-get('parallax element');
+    _setting-parallax-ios: toolkit-get('parallax ios');
+    _test: "@include parallax-init($element: '.that');";
+    @include parallax-init($element: '.that');
   }
   &--ios {
     _setting-parallax-perspective: toolkit-get('parallax perspective');
     _setting-parallax-element: toolkit-get('parallax element');
     _setting-parallax-ios: toolkit-get('parallax ios');
-    _test: "@at-root { @include parallax-init($parallax-ios: false); }";
-    @at-root { @include parallax-init($parallax-ios: false); }
+    _test: "@include parallax-init($parallax-ios: false);";
+    @include parallax-init($parallax-ios: false);
   }
 }
 

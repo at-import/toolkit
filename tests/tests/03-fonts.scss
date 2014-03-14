@@ -5,23 +5,23 @@
 **/
 .ligatures {
   &--no-extend {
-    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    _setting-extend-ligatures: toolkit-get('ligature extend');
     _test: "@include enable-ligatures(false)";
     @include enable-ligatures(false);
   }
   &--extend {
-    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    _setting-extend-ligatures: toolkit-get('ligature extend');
     _test: "@include enable-ligatures(true)";
     @include enable-ligatures(true);
   }
   &--default {
-    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    _setting-extend-ligatures: toolkit-get('ligature extend');
     _test: "@include enable-ligatures";
     @include enable-ligatures;
   }
   &--default-change {
-    @include toolkit-set('extend ligatures', true);
-    _setting-extend-ligatures: toolkit-get('extend ligatures');
+    @include toolkit-set('ligature extend', true);
+    _setting-extend-ligatures: toolkit-get('ligature extend');
     _test: "@include enable-ligatures";
     @include enable-ligatures;
   }
@@ -46,20 +46,20 @@ $fonts: (
 **/
 .icon-font {
   &--no-extend {
-    _setting-speak-icon-font: toolkit-get('speak icon font');
-    _setting-extend-icon-font: toolkit-get('extend icon font');
+    _setting-speak-icon-font: toolkit-get('icon font speak');
+    _setting-extend-icon-font: toolkit-get('icon font extend');
     _test: "@include icon-font('north', $extend: false);";
     @include icon-font('north', $extend: false);
   }
   &--speak {
-    _setting-speak-icon-font: toolkit-get('speak icon font');
-    _setting-extend-icon-font: toolkit-get('extend icon font');
+    _setting-speak-icon-font: toolkit-get('icon font speak');
+    _setting-extend-icon-font: toolkit-get('icon font extend');
     _test: "@include icon-font('north', true);";
     @include icon-font('north', true);
   }
   &--extend {
-    _setting-speak-icon-font: toolkit-get('speak icon font');
-    _setting-extend-icon-font: toolkit-get('extend icon font');
+    _setting-speak-icon-font: toolkit-get('icon font speak');
+    _setting-extend-icon-font: toolkit-get('icon font extend');
     _test: "@include icon-font('north', $extend: true);";
     @include icon-font('north', $extend: true);
   }

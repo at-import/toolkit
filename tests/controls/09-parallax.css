@@ -5,7 +5,7 @@
   _setting-parallax-perspective: 1;
   _setting-parallax-element: "body";
   _setting-parallax-ios: true;
-  _test: "@at-root { @include parallax-init; }";
+  _test: "@include parallax-init;";
 }
 html, body {
   width: 100%;
@@ -28,7 +28,7 @@ body, body * {
   _setting-parallax-perspective: 1;
   _setting-parallax-element: "body";
   _setting-parallax-ios: true;
-  _test: "@at-root { @include parallax-init($perspective: .75); }";
+  _test: "@include parallax-init($perspective: .75);";
 }
 html, body {
   width: 100%;
@@ -47,18 +47,31 @@ body, body * {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-.parallax-init--element {
+.parallax-init--element-this {
   _setting-parallax-perspective: 1;
   _setting-parallax-element: "body";
   _setting-parallax-ios: true;
-  _test: "@at-root { @include parallax-init($element: '.parallax'); }";
-}
-.parallax {
+  _test: "@include parallax-init($element: this);";
   overflow: auto;
   -webkit-perspective: 1px;
   perspective: 1px;
 }
-.parallax, .parallax * {
+.parallax-init--element-this, .parallax-init--element-this * {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.parallax-init--element-that {
+  _setting-parallax-perspective: 1;
+  _setting-parallax-element: "body";
+  _setting-parallax-ios: true;
+  _test: "@include parallax-init($element: '.that');";
+}
+.that {
+  overflow: auto;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+}
+.that, .that * {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
@@ -66,7 +79,7 @@ body, body * {
   _setting-parallax-perspective: 1;
   _setting-parallax-element: "body";
   _setting-parallax-ios: true;
-  _test: "@at-root { @include parallax-init($parallax-ios: false); }";
+  _test: "@include parallax-init($parallax-ios: false);";
 }
 html, body {
   width: 100%;

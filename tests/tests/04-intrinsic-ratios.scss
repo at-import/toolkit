@@ -43,28 +43,28 @@
   &--ratio-default {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _test: "@include intrinsic-ratio-ratio;";
     @include intrinsic-ratio-ratio;
   }
   &--ratio-ratio {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _test: "@include intrinsic-ratio-ratio($ratio: 4/3);";
     @include intrinsic-ratio-ratio($ratio: 4/3);
   }
   &--ratio-width {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _test: "@include intrinsic-ratio-ratio($width: 75%);";
     @include intrinsic-ratio-ratio($width: 75%);
   }
   &--ratio-position {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _test: "@include intrinsic-ratio-ratio($position: bottom);";
     @include intrinsic-ratio-ratio($position: bottom);
   }
@@ -78,7 +78,7 @@
   &--full-default {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include intrinsic-ratio;";
@@ -87,7 +87,7 @@
   &--full-ratio {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include intrinsic-ratio($ratio: 4/3);";
@@ -96,7 +96,7 @@
   &--full-width {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include intrinsic-ratio($width: 75%);";
@@ -105,7 +105,7 @@
   &--full-position {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include intrinsic-ratio($position: bottom);";
@@ -114,7 +114,7 @@
   &--full-elements {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include intrinsic-ratio($width: 75%);";
@@ -123,7 +123,7 @@
   &--full-extend {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include intrinsic-ratio($position: bottom);";
@@ -138,7 +138,7 @@
   &--ir-default {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include ir;";
@@ -147,7 +147,7 @@
   &--ir-ratio {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include ir($ratio: 4/3);";
@@ -156,7 +156,7 @@
   &--ir-width {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include ir($width: 75%);";
@@ -165,7 +165,7 @@
   &--ir-position {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include ir($position: bottom);";
@@ -174,7 +174,7 @@
   &--ir-elements {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include ir($width: 75%);";
@@ -183,7 +183,7 @@
   &--ir-extend {
     _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
     _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
-    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio direction');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
     _setting-intrinsic-ratio-elements: toolkit-get('intrinsic ratio elements');
     _setting-intrinsic-ratio-extend: toolkit-get('intrinsic ratio extend');
     _test: "@include ir($position: bottom);";

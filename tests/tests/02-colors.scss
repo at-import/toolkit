@@ -63,9 +63,18 @@
   * Color Scales
 **/
 .color--scale {
-  _setting--color-scale-shades: toolkit-get('color scale shades');
-  _test: "color-scale(red, blue)";
-  _result: inspect(color-scale(red, blue));
-  _test: "color-scale(red, blue, 3)";
-  _result: inspect(color-scale(red, blue, 3));
+  &--no-alpha {
+    _setting--color-scale-shades: toolkit-get('color scale steps');
+    _test: "color-scale(red, blue)";
+    _result: inspect(color-scale(red, blue));
+    _test: "color-scale(red, blue, 3)";
+    _result: inspect(color-scale(red, blue, 3));
+  }
+  &--alpha {
+    _setting--color-scale-shades: toolkit-get('color scale steps');
+    _test: "color-scale(rgba(lime, 1), rgba(tan, .5))";
+    _result: inspect(color-scale(rgba(lime, 1), rgba(tan, .5)));
+    _test: "color-scale(rgba(lime, 1), rgba(tan, .5), 3)";
+    _result: inspect(color-scale(rgba(lime, 1), rgba(tan, .5), 3));
+  }
 }
