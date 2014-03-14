@@ -6,36 +6,55 @@
   $parallax-ios: if($parallax-ios != null, $parallax-ios, toolkit-get('parallax ios'));
 
   @if $element == 'body' {
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
+    @at-root {
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      body {
+        @include parallax-init-core($perspective, $parallax-ios);
+      }
     }
   }
-  #{$element} {
-    overflow: auto;
-    @if mixin-exists(perspective) {
-      @include perspective($perspective * 1px);
+  @else {
+    @if $element == this {
+      @include parallax-init-core($perspective, $parallax-ios);
     }
     @else {
-      -webkit-perspective: $perspective * 1px;
-      perspective: $perspective * 1px;
-    }
-    // Allows for smooth scrolling but disables parallax effects.
-    @if $parallax-ios == false {
-      -webkit-overflow-scrolling: touch;
-    }
-    // Make sure 3D perspective is preserved
-    &, & * {
-      @if mixin-exists(transform-style) {
-      	@include transform-style(preserve-3d);
+      @at-root #{$element} {
+        @include parallax-init-core($perspective, $parallax-ios);
       }
-      @else {
-      	-webkit-transform-style: preserve-3d;
-      	transform-style: preserve-3d;
-      }
+    }
+  }
+}
+
+@mixin parallax-init-core($perspective: null, $parallax-ios: null) {
+  $perspective: if($perspective != null, $perspective, toolkit-get('parallax perspective'));
+  $parallax-ios: if($parallax-ios != null, $parallax-ios, toolkit-get('parallax ios'));
+
+  overflow: auto;
+  @if mixin-exists(perspective) {
+    @include perspective($perspective * 1px);
+  }
+  @else {
+    -webkit-perspective: $perspective * 1px;
+    perspective: $perspective * 1px;
+  }
+  // Allows for smooth scrolling but disables parallax effects.
+  @if $parallax-ios == false {
+    -webkit-overflow-scrolling: touch;
+  }
+  // Make sure 3D perspective is preserved
+  &, & * {
+    @if mixin-exists(transform-style) {
+      @include transform-style(preserve-3d);
+    }
+    @else {
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
   }
 }
