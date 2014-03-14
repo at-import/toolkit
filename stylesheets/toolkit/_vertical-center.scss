@@ -5,10 +5,14 @@
   $extend: if($extend != null, $extend, toolkit-get('vertical extend'));
 
   top: $midpoint;
+  @include vertical-center-core($extend);
+}
 
+@mixin vertical-center-core($extend: null) {
+  $extend: if($extend != null, $extend, toolkit-get('vertical extend'));
   @if $extend {
     @include toolkit-placeholder('vertical center') {
-      @include vertical-center($extend: false);
+      @include vertical-center-core($extend: false);
     }
   }
   @else {
