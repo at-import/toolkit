@@ -17,6 +17,6 @@ output_style          = :expanded
 # Determine whether Compass asset helper functions generate relative
 # or absolute paths
 relative_assets       = true
-
+asset_cache_buster :none
 # Learn more:
 #   http://compass-style.org/docs/tutorials/configuration-reference/
