@@ -5,7 +5,7 @@
   $extend: if($extend != null, $extend, toolkit-get('clearfix extend'));
 
   @if $extend == true {
-    @include toolkit-placeholder('clearfix') {
+    @include dynamic-extend('clearfix') {
       @include clearfix(false);
     }
   }

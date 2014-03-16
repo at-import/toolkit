@@ -5,7 +5,7 @@
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
 
   @if $extend {
-    @include toolkit-placeholder('intrinsic ratio parent') {
+    @include dynamic-extend('intrinsic ratio parent') {
       @include intrinsic-ratio-parent(false);
     }
   }
@@ -19,7 +19,7 @@
   $extend: if($extend != null, $extend, toolkit-get('intrinsic ratio extend'));
 
   @if $extend {
-    @include toolkit-placeholder('intrinsic ratio child') {
+    @include dynamic-extend('intrinsic ratio child') {
       @include intrinsic-ratio-child(false);
     }
   }

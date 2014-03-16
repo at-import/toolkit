@@ -11,7 +11,7 @@
 @mixin vertical-center-core($extend: null) {
   $extend: if($extend != null, $extend, toolkit-get('vertical extend'));
   @if $extend {
-    @include toolkit-placeholder('vertical center') {
+    @include dynamic-extend('vertical center') {
       @include vertical-center-core($extend: false);
     }
   }

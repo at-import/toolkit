@@ -5,7 +5,7 @@
   $extend: if($extend != null, $extend, toolkit-get('ligature extend'));
 
   @if $extend {
-    @include toolkit-placeholder('enable ligatures') {
+    @include dynamic-extend('enable ligatures') {
       @include enable-ligatures;
     }
   }
@@ -90,7 +90,7 @@
   $extend: if($extend != null, $extend, toolkit-get('icon font extend'));
 
   @if $extend  {
-    @include toolkit-placeholder('icon font core') {
+    @include dynamic-extend('icon font core') {
       @include icon-font--core(false);
     }
   }
@@ -117,7 +117,7 @@
   $extend: if($extend != null, $extend, toolkit-get('fade in extend'));
 
   @if $extend == true and $duration == toolkit-get('fade in duration') and $loading == toolkit-get('fade in loading class') {
-    @include toolkit-placeholder('content fade in') {
+    @include dynamic-extend('content fade in') {
       @include content-fade-in($extend: false);
     }
   }

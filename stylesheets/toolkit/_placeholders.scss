@@ -17,7 +17,7 @@ $Private-Toolkit-Placeholders: (
 //////////////////////////////
 // Generate Placeholder Class and Extend
 //////////////////////////////
-@mixin toolkit-placeholder($id) {
+@mixin dynamic-extend($id) {
   $placeholder-id: toolkit-placeholder-get($id);
 
   @if $placeholder-id == null {
