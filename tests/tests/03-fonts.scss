@@ -38,8 +38,8 @@ $fonts: (
 .font-face {
   _fonts: inspect($fonts);
   _test: "@include font-face('north', $fonts, $inline-woff: true);";
-  @include font-face('north', $fonts, $inline-woff: true);
 }
+@include font-face('north', $fonts, $inline-woff: true);
 
 /**
   * Icon Font

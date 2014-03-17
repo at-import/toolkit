@@ -45,6 +45,7 @@
   _fonts: ("eot": "north/north.eot", "woff": "north/north.woff", "svg": "north/north.svg");
   _test: "@include font-face('north', $fonts, $inline-woff: true);";
 }
+
 @font-face {
   font-family: "north";
   font-weight: normal;

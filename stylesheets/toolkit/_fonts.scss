@@ -56,17 +56,15 @@
 
   }
 
-  @at-root {
-    @font-face {
-      font-family: $name;
-      font-weight: $weight;
-      font-style: $style;
-      @if $eot {
-        src: $eot;
-      }
-      @if length($font-stack) > 0 {
-        src: $font-stack;
-      }
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-style: $style;
+    @if $eot {
+      src: $eot;
+    }
+    @if length($font-stack) > 0 {
+      src: $font-stack;
     }
   }
 }
