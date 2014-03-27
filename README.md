@@ -226,6 +226,7 @@ What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A L
 - `'intrinsic ratio extend': false`
 
 #### @include intrinsic-ratio-ratio([$ratio, $width, $position])
+#### @include ir-ratio([$ratio, $width, $position])
 
 **Settings**
 

@@ -68,6 +68,35 @@
     _test: "@include intrinsic-ratio-ratio($position: bottom);";
     @include intrinsic-ratio-ratio($position: bottom);
   }
+
+  &--ir-ratio-default {
+    _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
+    _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
+    _test: "@include ir-ratio;";
+    @include ir-ratio;
+  }
+  &--ir-ratio-ratio {
+    _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
+    _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
+    _test: "@include ir-ratio($ratio: 4/3);";
+    @include ir-ratio($ratio: 4/3);
+  }
+  &--ir-ratio-width {
+    _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
+    _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
+    _test: "@include ir-ratio($width: 75%);";
+    @include ir-ratio($width: 75%);
+  }
+  &--ir-ratio-position {
+    _setting-intrinsic-ratio: toolkit-get('intrinsic ratio');
+    _setting-intrinsic-ratio-width: toolkit-get('intrinsic ratio width');
+    _setting-intrinsic-ratio-direction: toolkit-get('intrinsic ratio position');
+    _test: "@include ir-ratio($position: bottom);";
+    @include ir-ratio($position: bottom);
+  }
 }
 
 /**
