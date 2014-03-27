@@ -33,7 +33,16 @@ $Toolkit-Settings: (
   'parallax ios': true,
   'parallax distance': 0,
   'vertical midpoint': 50%,
-  'vertical extend': false
+  'vertical extend': false,
+  'horizontal midpoint': 0%,
+  'horizontal fixed midpoint': 50%,
+  'horizontal fixed': false,
+  'horizontal extend': false,
+  'absolute center vertical midpoint': 50%,
+  'absolute center horizontal midpoint': 0%,
+  'absolute center fixed horizontal midpoint': 50%,
+  'absolute center fixed': false,
+  'absolute center extend': true,
 );
 
 //////////////////////////////
