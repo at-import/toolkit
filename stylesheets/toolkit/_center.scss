@@ -35,14 +35,14 @@
   $extend: if($extend != null, $extend, toolkit-get('horizontal extend'));
 
   @if $fixed {
-    $horizontal: if($horizontal != null, $horizontal, toolkit-get('horizontal fixed midpoint'));
+    $midpoint: if($midpoint != null, $midpoint, toolkit-get('horizontal fixed midpoint'));
   }
   @else {
-    $horizontal: if($horizontal != null, $horizontal, toolkit-get('horizontal midpoint'));
+    $midpoint: if($midpoint != null, $midpoint, toolkit-get('horizontal midpoint'));
   }
 
-  @if $horizontal != 0% {
-    left: $horizontal;
+  @if $midpoint != 0% {
+    left: $midpoint;
   }
 
   @include horizontal-center-core($fixed, $extend);
