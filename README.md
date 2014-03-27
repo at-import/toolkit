@@ -28,7 +28,10 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Parallax](#parallax)
 1. [RTL](#rtl)
 1. [Triangles](#triangles)
-1. [Vertical Center](#vertical-center)
+1. [Center](#center)
+	* [Vertical Center](#vertical-center)
+	* [Horizontal Center](#horizontal-center)
+	* [Absolute Center](#absolute-center)
 1. [Viewport](#viewport)
 
 ## Basics
@@ -313,7 +316,16 @@ Width and height just stretch the triangle to match a width or height. You can u
 - `'triangle width': 1em`
 - `'triangle angle': 0`
 
-## Vertical Center
+## Center
+
+> We can do [insert seemingly impossible thing here] but we can't even center with CSS
+>
+> *Unfunny people on the Internet*
+
+Yes, Flexbox will give us a native way to center things when it finally arrives, but until then, and for all of the browsers that don't support Flexbox, a few handy mixins for centering vertically, horizontally, or both!
+
+
+### Vertical Center
 
 Vertical center anything, literally anything, with the `vertical-center` mixin. Based on [Sebastian Ekström’s vertical align technique](http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/).
 
@@ -324,14 +336,41 @@ Vertical center anything, literally anything, with the `vertical-center` mixin. 
 - `'vertical midpoint': 50%`
 - `'vertical extend': false`
 
+### Horizontal Center
+
+Horizontal center anything, literally anything, with the `horizontal-center` mixin. Based on [Sebastian Ekström’s vertical align technique](http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/) for fixed position items and good 'ol `margin: 0 auto` for everything else.
+
+#### @include horizontal-center([$midpoint, $fixed, $extend])
+
+**Settings**
+
+- `'horizontal fixed': false` (fixed position item)
+- `'horizontal extend': false`
+- `'horizontal midpoint': 0%`
+- `'horizontal fixed midpoint': 50%` (midpoint for fixed position item)
+
+### Absolute Center
+
+I want it in the middle. The absolute middle. The middle of the middle of the middle. The absolute middle of the middle of the middle of the middle.
+
+#### @include absolute-center([$vertical, $horizontal, $fixed, $extend])
+
+**Settings**
+
+- `'absolute center fixed': false` (fixed position item)
+- `'absolute center extend': false`
+- `'absolute center vertical midpoint': 50%`
+- `'absolute center fixed horizontal': 0%` 
+- `'absolute center fixed horizontal midpoint': 50%` (horizontal midpoint for fixed position item)
+
 ## Viewport
 
 Currently in the Draft stage, but being implemented by Microsoft is the CSS directive [`@viewport`](http://dev.w3.org/csswg/css-device-adapt/#the-atviewport-rule). This mixin simply provides prefixing.
 
-#### @include vertical-center([$midpoint, $extend]) { @content }
+#### @include viewport { @content }
 
 ## License
 
-(c) Sam Richard, Scott Kellum 2012
+(c) Sam Richard, Scott Kellum 2012-2014
 
 Toolkit is dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl.html) Licenses.
