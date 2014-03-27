@@ -1,0 +1,41 @@
+/**
+  * Vertical Center
+**/
+.vertical-center-default {
+  _setting-vertical-midpoint: 50%;
+  _setting-vertical-extend: false;
+  _test: "@include vertical-center;";
+  top: 50%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.vertical-center-midpoint {
+  _setting-vertical-midpoint: 50%;
+  _setting-vertical-extend: false;
+  _test: "@include vertical-center($midpoint: 30%);";
+  top: 30%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.vertical-center-extend {
+  _setting-vertical-midpoint: 50%;
+  _setting-vertical-extend: false;
+  _test: "@include vertical-center($extend: true);";
+  top: 50%;
+}
+.vertical-center-extend, .vertical-center-midpoint-extend {
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.vertical-center-midpoint-extend {
+  _setting-vertical-midpoint: 50%;
+  _setting-vertical-extend: false;
+  _test: "@include vertical-center($midpoint: 40%, $extend: true);";
+  top: 40%;
+}
