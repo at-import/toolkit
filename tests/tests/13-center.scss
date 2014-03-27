@@ -29,3 +29,163 @@
     @include vertical-center($midpoint: 40%, $extend: true);
   }
 }
+
+/**
+  * Horizontal Center
+**/
+.horizontal-center {
+  &-default {
+    _setting-horizontal-fixed: toolkit-get('horizontal fixed');
+    _setting-horizontal-extend: toolkit-get('horizontal extend');
+    _setting-horizontal-fixed-midpoint: toolkit-get('horizontal fixed midpoint');
+    _setting-horizontal-midpoint: toolkit-get('horizontal midpoint');
+    _test: '@include horizontal-center';
+    @include horizontal-center;
+  }
+  &-midpoint {
+    _setting-horizontal-fixed: toolkit-get('horizontal fixed');
+    _setting-horizontal-extend: toolkit-get('horizontal extend');
+    _setting-horizontal-fixed-midpoint: toolkit-get('horizontal fixed midpoint');
+    _setting-horizontal-midpoint: toolkit-get('horizontal midpoint');
+    _test: '@include horizontal-center($midpoint: -10%)';
+    @include horizontal-center($midpoint: -10%);
+  }
+  &-extend {
+    _setting-horizontal-fixed: toolkit-get('horizontal fixed');
+    _setting-horizontal-extend: toolkit-get('horizontal extend');
+    _setting-horizontal-fixed-midpoint: toolkit-get('horizontal fixed midpoint');
+    _setting-horizontal-midpoint: toolkit-get('horizontal midpoint');
+    _test: '@include horizontal-center($extend: true)';
+    @include horizontal-center($extend: true);
+  }
+  &-fixed {
+    _setting-horizontal-fixed: toolkit-get('horizontal fixed');
+    _setting-horizontal-extend: toolkit-get('horizontal extend');
+    _setting-horizontal-fixed-midpoint: toolkit-get('horizontal fixed midpoint');
+    _setting-horizontal-midpoint: toolkit-get('horizontal midpoint');
+    _test: '@include horizontal-center($fixed: true)';
+    @include horizontal-center($fixed: true);
+  }
+  &-fixed-midpoint {
+    _setting-horizontal-fixed: toolkit-get('horizontal fixed');
+    _setting-horizontal-extend: toolkit-get('horizontal extend');
+    _setting-horizontal-fixed-midpoint: toolkit-get('horizontal fixed midpoint');
+    _setting-horizontal-midpoint: toolkit-get('horizontal midpoint');
+    _test: '@include horizontal-center($midpoint: 30%, $fixed: true)';
+    @include horizontal-center($midpoint: 30%, $fixed: true);
+  }
+  &-fixed-extend {
+    _setting-horizontal-fixed: toolkit-get('horizontal fixed');
+    _setting-horizontal-extend: toolkit-get('horizontal extend');
+    _setting-horizontal-fixed-midpoint: toolkit-get('horizontal fixed midpoint');
+    _setting-horizontal-midpoint: toolkit-get('horizontal midpoint');
+    _test: '@include horizontal-center($fixed: true, $extend: true)';
+    @include horizontal-center($fixed: true, $extend: true);
+  }
+}
+
+/**
+  * Absolute Center
+**/
+.absolute-center {
+  &-default {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center';
+    @include absolute-center;
+  }
+
+  &-vertical {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($vertical: 30%)';
+    @include absolute-center($vertical: 30%);
+  }
+
+  &-horizontal {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($horizontal: 30%)';
+    @include absolute-center($horizontal: 30%);
+  }
+
+  &-extend {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($extend: true)';
+    @include absolute-center($extend: true);
+  }
+
+  &-horizontal-extend {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($horizontal: 30%, $extend: true)';
+    @include absolute-center($horizontal: 30%, $extend: true);
+  }
+
+  &-fixed {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($fixed: true)';
+    @include absolute-center($fixed: true);
+  }
+
+  &-fixed-vertical {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($vertical: 30%)';
+    @include absolute-center($vertical: 30%, $fixed: true);
+  }
+
+  &-fixed-horizontal {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($horizontal: 30%)';
+    @include absolute-center($horizontal: 30%, $fixed: true);
+  }
+
+  &-fixed-extend {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($extend: true, $fixed: true)';
+    @include absolute-center($extend: true, $fixed: true);
+  }
+
+  &-fixed-horizontal-extend {
+    _setting-absolute-center-fixed: toolkit-get('absolute center fixed');
+    _setting-absolute-center-extend: toolkit-get('absolute center extend');
+    _setting-absolute-center-vertical-midpoint: toolkit-get('absolute center vertical midpoint');
+    _setting-absolute-center-fixed-horizontal-midpoint: toolkit-get('absolute center fixed horizontal midpoint');
+    _setting-absolute-center-horizontal-midpoint: toolkit-get('absolute center horizontal midpoint');
+    _test: '@include absolute-center($horizontal: 30%, $extend: true, $fixed: true)';
+    @include absolute-center($horizontal: 30%, $extend: true, $fixed: true);
+  }
+
+}

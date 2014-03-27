@@ -39,3 +39,216 @@
   _test: "@include vertical-center($midpoint: 40%, $extend: true);";
   top: 40%;
 }
+
+/**
+  * Horizontal Center
+**/
+.horizontal-center-default {
+  _setting-horizontal-fixed: false;
+  _setting-horizontal-extend: false;
+  _setting-horizontal-fixed-midpoint: 50%;
+  _setting-horizontal-midpoint: 0%;
+  _test: '@include horizontal-center';
+  position: relative;
+  margin: 0 auto;
+}
+.horizontal-center-midpoint {
+  _setting-horizontal-fixed: false;
+  _setting-horizontal-extend: false;
+  _setting-horizontal-fixed-midpoint: 50%;
+  _setting-horizontal-midpoint: 0%;
+  _test: '@include horizontal-center($midpoint: -10%)';
+  left: -10%;
+  position: relative;
+  margin: 0 auto;
+}
+.horizontal-center-extend {
+  _setting-horizontal-fixed: false;
+  _setting-horizontal-extend: false;
+  _setting-horizontal-fixed-midpoint: 50%;
+  _setting-horizontal-midpoint: 0%;
+  _test: '@include horizontal-center($extend: true)';
+}
+.horizontal-center-extend {
+  position: relative;
+  margin: 0 auto;
+}
+.horizontal-center-fixed {
+  _setting-horizontal-fixed: false;
+  _setting-horizontal-extend: false;
+  _setting-horizontal-fixed-midpoint: 50%;
+  _setting-horizontal-midpoint: 0%;
+  _test: '@include horizontal-center($fixed: true)';
+  left: 50%;
+  position: fixed;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.horizontal-center-fixed-midpoint {
+  _setting-horizontal-fixed: false;
+  _setting-horizontal-extend: false;
+  _setting-horizontal-fixed-midpoint: 50%;
+  _setting-horizontal-midpoint: 0%;
+  _test: '@include horizontal-center($midpoint: 30%, $fixed: true)';
+  left: 30%;
+  position: fixed;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.horizontal-center-fixed-extend {
+  _setting-horizontal-fixed: false;
+  _setting-horizontal-extend: false;
+  _setting-horizontal-fixed-midpoint: 50%;
+  _setting-horizontal-midpoint: 0%;
+  _test: '@include horizontal-center($fixed: true, $extend: true)';
+  left: 50%;
+}
+.horizontal-center-fixed-extend {
+  position: fixed;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/**
+  * Absolute Center
+**/
+.absolute-center-default {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center';
+  top: 50%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.absolute-center-vertical {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($vertical: 30%)';
+  top: 30%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.absolute-center-horizontal {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($horizontal: 30%)';
+  top: 50%;
+  left: 30%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.absolute-center-extend {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($extend: true)';
+  top: 50%;
+}
+.absolute-center-extend, .absolute-center-horizontal-extend {
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.absolute-center-horizontal-extend {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($horizontal: 30%, $extend: true)';
+  top: 50%;
+  left: 30%;
+}
+.absolute-center-fixed {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($fixed: true)';
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+.absolute-center-fixed-vertical {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($vertical: 30%)';
+  top: 30%;
+  left: 50%;
+  position: fixed;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+.absolute-center-fixed-horizontal {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($horizontal: 30%)';
+  top: 50%;
+  left: 30%;
+  position: fixed;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+.absolute-center-fixed-extend {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($extend: true, $fixed: true)';
+  top: 50%;
+  left: 50%;
+}
+.absolute-center-fixed-extend, .absolute-center-fixed-horizontal-extend {
+  position: fixed;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+.absolute-center-fixed-horizontal-extend {
+  _setting-absolute-center-fixed: false;
+  _setting-absolute-center-extend: false;
+  _setting-absolute-center-vertical-midpoint: 50%;
+  _setting-absolute-center-fixed-horizontal-midpoint: 50%;
+  _setting-absolute-center-horizontal-midpoint: 0%;
+  _test: '@include absolute-center($horizontal: 30%, $extend: true, $fixed: true)';
+  top: 50%;
+  left: 30%;
+}
