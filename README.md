@@ -296,8 +296,6 @@ The parallax mixin puts elements into real perspective and scales them back down
 
 Quickly and easily write your left-to-right and right-to-left properties with one mixin! Works for `*-left` and `*-right` properties, as well as shorthand syntaxes.
 
-![triangle](http://img.pgdn.us/triangle2.gif)
-
 #### @include rtl($property, $value)
 
 ## Triangles
@@ -305,6 +303,8 @@ Quickly and easily write your left-to-right and right-to-left properties with on
 You love em! Triangles! Now create them using just CSS! Turn any element or pseudo element into a triangle just by using the `@include triangle;`. It's perfect for flags, speech bubbles, and arrows.
 
 Width and height just stretch the triangle to match a width or height. You can use any units you want although percentages don't work so well. Angle is where the  point of the triangle is drawn opposing one side. This is a little diffucult to explain, so here is a gif. If the width and height are not uniform, then the angle will be stretched to match the triangles proportions. The mixin also supports keywords like `top`, `top right`, `right` and so on for the angle. The triangle will point in the direction you give it.
+
+![triangle](http://img.pgdn.us/triangle2.gif)
 
 ![triangle example](http://img.pgdn.us/triangle-ex.png)
 
