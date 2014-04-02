@@ -6,6 +6,6 @@ if (defined? Compass)
 end
 
 module Toolkit
-  VERSION = "2.1.0"
-  DATE = "2014-03-27"
+  VERSION = "2.2.0"
+  DATE = "2014-03-02"
 end
