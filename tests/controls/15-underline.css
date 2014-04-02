@@ -1,0 +1,86 @@
+/**
+  * Underline
+**/
+.underline-default {
+  _setting-underline-background: white;
+  _setting-underline-color: #0000ee;
+  _setting-underline-clear-descenders: true;
+  _setting-underline-distance: 1;
+  _setting-underline-width: 2;
+  _test: "@include underline";
+  text-decoration: none;
+  background-image: linear-gradient(to top, white 75%, #0000ee 75%);
+  background-repeat: repeat-x;
+  background-size: 0.125em 0.1875em;
+  background-position: 0 1.125em;
+  text-shadow: 0.0625em 0.0625em 0 white, -0.0625em 0 0 white;
+}
+.underline-background {
+  _setting-underline-background: white;
+  _setting-underline-color: #0000ee;
+  _setting-underline-clear-descenders: true;
+  _setting-underline-distance: 1;
+  _setting-underline-width: 2;
+  _test: "@include underline($background: #f00)";
+  text-decoration: none;
+  background-image: linear-gradient(to top, red 75%, #0000ee 75%);
+  background-repeat: repeat-x;
+  background-size: 0.125em 0.1875em;
+  background-position: 0 1.125em;
+  text-shadow: 0.0625em 0.0625em 0 red, -0.0625em 0 0 red;
+}
+.underline-color {
+  _setting-underline-background: white;
+  _setting-underline-color: #0000ee;
+  _setting-underline-clear-descenders: true;
+  _setting-underline-distance: 1;
+  _setting-underline-width: 2;
+  _test: "@include underline($color: #f00)";
+  text-decoration: none;
+  background-image: linear-gradient(to top, white 75%, red 75%);
+  background-repeat: repeat-x;
+  background-size: 0.125em 0.1875em;
+  background-position: 0 1.125em;
+  text-shadow: 0.0625em 0.0625em 0 white, -0.0625em 0 0 white;
+}
+.underline-clear-descenders {
+  _setting-underline-background: white;
+  _setting-underline-color: #0000ee;
+  _setting-underline-clear-descenders: true;
+  _setting-underline-distance: 1;
+  _setting-underline-width: 2;
+  _test: "@include underline($clear-descenders: false)";
+  text-decoration: none;
+  background-image: linear-gradient(to top, white 75%, #0000ee 75%);
+  background-repeat: repeat-x;
+  background-size: 0.125em 0.1875em;
+  background-position: 0 1.125em;
+}
+.underline-distance {
+  _setting-underline-background: white;
+  _setting-underline-color: #0000ee;
+  _setting-underline-clear-descenders: true;
+  _setting-underline-distance: 1;
+  _setting-underline-width: 2;
+  _test: "@include underline($distance: 2)";
+  text-decoration: none;
+  background-image: linear-gradient(to top, white 75%, #0000ee 75%);
+  background-repeat: repeat-x;
+  background-size: 0.125em 0.1875em;
+  background-position: 0 2.125em;
+  text-shadow: 0.0625em 0.0625em 0 white, -0.0625em 0 0 white;
+}
+.underline-width {
+  _setting-underline-background: white;
+  _setting-underline-color: #0000ee;
+  _setting-underline-clear-descenders: true;
+  _setting-underline-distance: 1;
+  _setting-underline-width: 2;
+  _test: "@include underline($width: 1)";
+  text-decoration: none;
+  background-image: linear-gradient(to top, white 75%, #0000ee 75%);
+  background-repeat: repeat-x;
+  background-size: 0.125em 0.125em;
+  background-position: 0 1.0625em;
+  text-shadow: 0.0625em 0.0625em 0 white, -0.0625em 0 0 white;
+}

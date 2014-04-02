@@ -1,0 +1,26 @@
+@mixin underline($background: null, $color: null, $clear-descenders: null, $distance: null, $width: null) {
+  $background: if($background != null, $background, toolkit-get('underline background'));
+  $color: if($color != null, $color, toolkit-get('underline color'));
+  $clear-descenders: if($clear-descenders != null, $clear-descenders, toolkit-get('underline clear descenders'));
+  $distance: if($distance != null, $distance, toolkit-get('underline distance'));
+  $width: if($width != null, $width, toolkit-get('underline width'));
+  $PX: .0625em;
+
+  text-decoration: none;
+
+  @if mixin-exists(background-image) and function-exists(linear-gradient) {
+    @include background-image(
+      linear-gradient(bottom, $background 75%, $color 75%)
+    );
+  }
+  @else {
+    background-image: linear-gradient(to top, $background 75%, $color 75%);
+  }
+  background-repeat: repeat-x;
+  background-size: (2 * $PX) ((1 + $width) * $PX);
+  background-position: 0 (($width) * $PX) + $distance;
+
+  @if $clear-descenders {
+    text-shadow: (1 * $PX) (1 * $PX) 0 $background, (-1 * $PX) 0 0 $background;
+  }
+}

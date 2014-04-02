@@ -1,0 +1,67 @@
+@import "toolkit";
+
+/**
+  * Underline
+**/
+.underline {
+  &-default {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline";
+    @include underline;
+  }
+
+  &-background {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline($background: #f00)";
+    @include underline($background: #f00);
+  }
+
+  &-color {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline($color: #f00)";
+    @include underline($color: #f00);
+  }
+
+  &-clear-descenders {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline($clear-descenders: false)";
+    @include underline($clear-descenders: false);
+  }
+
+  &-distance {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline($distance: 2)";
+    @include underline($distance: 2);
+  }
+
+  &-width {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline($width: 1)";
+    @include underline($width: 1);
+  }
+
+}
