@@ -370,6 +370,20 @@ Currently in the Draft stage, but being implemented by Microsoft is the CSS dire
 
 #### @include viewport { @content }
 
+## Underlines
+
+Create beautiful underlines [à la Medium](https://medium.com/designing-medium/7c03a9274f9)! Now with the ability to clear descenders!
+
+#### @include underline([$background, $color, $clear-descenders, $distance, $width])
+
+**Settings**
+
+- `'underline background': #f00`
+- `'underline color': #00e`
+- `'underline clear descenders': true`
+- `'underline distance': 1` (unitless number)
+- `'underline width': 2` (unitless number)
+
 ## License
 
 (c) Sam Richard, Scott Kellum 2012-2014
