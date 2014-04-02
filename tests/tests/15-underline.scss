@@ -64,4 +64,24 @@
     @include underline($width: 1);
   }
 
+  &-first-extend {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline($background: green, $extend: true)";
+    @include underline($background: green, $extend: true);
+  }
+
+  &-second-extend {
+    _setting-underline-background: toolkit-get('underline background');
+    _setting-underline-color: toolkit-get('underline color');
+    _setting-underline-clear-descenders: toolkit-get('underline clear descenders');
+    _setting-underline-distance: toolkit-get('underline distance');
+    _setting-underline-width: toolkit-get('underline width');
+    _test: "@include underline($color: green, $extend: true)";
+    @include underline($color: green, $extend: true);
+  }
+
 }

@@ -383,6 +383,7 @@ Create beautiful underlines [à la Medium](https://medium.com/designing-medium/7
 - `'underline clear descenders': true`
 - `'underline distance': 1` (unitless number) 
 - `'underline width': 2` (unitless number)
+- `'underline extend': false`
 
 ## License
 
