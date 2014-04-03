@@ -33,6 +33,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 	* [Horizontal Center](#horizontal-center)
 	* [Absolute Center](#absolute-center)
 1. [Viewport](#viewport)
+1. [Underline](#underline)
 
 ## Basics
 
@@ -370,7 +371,7 @@ Currently in the Draft stage, but being implemented by Microsoft is the CSS dire
 
 #### @include viewport { @content }
 
-## Underlines
+## Underline
 
 Create beautiful underlines [à la Medium](https://medium.com/designing-medium/7c03a9274f9)! Now with the ability to clear descenders!
 
