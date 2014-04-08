@@ -21,6 +21,26 @@
 }
 
 /**
+  * Luma
+**/
+.color--luma {
+  _test: "luma(#b4d455)";
+  _result: 187.954;
+}
+.color--luma-gte {
+  _test: "luma-gte(#b4d455, #c0ffee)";
+  _result: false;
+}
+.color--luma-lte {
+  _test: "luma-lte(#b4d455, #c0ffee)";
+  _result: true;
+}
+.color--luma-diff {
+  _test: "luma-diff(#b4d455, #c0ffee)";
+  _result: -46.271;
+}
+
+/**
   * Color Stacks
 **/
 .color--stack {

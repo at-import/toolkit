@@ -14,6 +14,35 @@
 }
 
 //////////////////////////////
+// Luma
+//////////////////////////////
+@function luma($color) {
+  @return (red($color) * .299) + (green($color) * .587) + (blue($color) * .114);
+}
+
+@function luma-gte($color1, $color2) {
+  @if luma($color1) >= luma($color2) {
+    @return true;
+  }
+  @else {
+    @return false;
+  }
+}
+
+@function luma-lte($color1, $color2) {
+  @if luma($color1) <= luma($color2) {
+    @return true;
+  }
+  @else {
+    @return false;
+  }
+}
+
+@function luma-diff($color1, $color2) {
+  @return luma($color1) - luma($color2);
+}
+
+//////////////////////////////
 // Color Stacks
 //////////////////////////////
 @function color-stack($main, $secondary, $amounts...) {

@@ -15,6 +15,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Clearfix](#clearfix)
 1. [Colors](#colors)
   * [Tint and Shade](#tint-and-shade)
+  * [Luma](#luma)
   * [Color Stacks](#color-stacks)
   * [Color Scales](#color-scales)
 1. [Font Helpers](#font-helpers)
@@ -112,6 +113,19 @@ While Sass's built in `lighten` and `darken` functions are great if you're looki
 **Settings**
 
 - `'shade color': #000`
+
+### Luma
+
+[Luma](http://en.wikipedia.org/wiki/Luminance_(video)) represented the brightness in an image (the "black-and-white" or achromatic portion of the image). As human vision is much more sensitive to luminance ("black and white") than it is to chromatic differences ("colors"), luma provides an effective means of determining how a human will react to the relative brightness of a color. The Luma functions are based on the conversion to the [YIQ](http://en.wikipedia.org/wiki/YIQ) color space, with Y being luma (also, the only component used in black-and-white televisions). The `luma` function provided will return the luma value for a color, and the additional helpers can be used for common tasks related to luma, such as if one color's luma is greater than and equal to or less than or equal to a second colors, and the difference between two colors' luma.
+
+#### @include luma($color)
+
+#### @include luma-gte($color1, $color2)
+
+#### @include luma-lte($color1, $color2)
+
+#### @include luma-diff($color1, $color2)
+
 
 ### Color Stacks
 
