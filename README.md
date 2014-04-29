@@ -18,6 +18,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
   * [Luma](#luma)
   * [Color Stacks](#color-stacks)
   * [Color Scales](#color-scales)
+1. [DRY Mixins](#dry-mixins)
 1. [Font Helpers](#font-helpers)
   * [Enable Ligatures](#enable-ligatures)
   * [Font Face](#font-face)
@@ -175,6 +176,11 @@ Color scales allow you to step from one color to another in even steps. Color sc
 
 - `'color scale steps': 6`
 
+## DRY Mixins
+
+The pattern that inspired the [A List Apart](http://alistapart.com/) article [DRY-ing Out Your Sass Mixins](http://alistapart.com/article/dry-ing-out-your-sass-mixins), now availbale for you to use in your projects! Examples can be found all throughout Toolkit.
+
+#### @include dynamic-extend($id) { @content }
 
 ## Font Helpers
 
