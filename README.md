@@ -257,7 +257,7 @@ What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A L
 
 ## Kickstart
 
-Importing the kickstart mixin will add the following common styles to your project:
+Importing the kickstart partial with `@import "toolkit/kickstart";` will add the following common styles to your project:
 
 ```scss
 *, *:before, *:after {
