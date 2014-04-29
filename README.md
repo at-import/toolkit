@@ -178,7 +178,7 @@ Color scales allow you to step from one color to another in even steps. Color sc
 
 ## DRY Mixins
 
-The pattern that inspired the [A List Apart](http://alistapart.com/) article [DRY-ing Out Your Sass Mixins](http://alistapart.com/article/dry-ing-out-your-sass-mixins), now availbale for you to use in your projects! Examples can be found all throughout Toolkit.
+The pattern that inspired the [A List Apart](http://alistapart.com/) article [DRY-ing Out Your Sass Mixins](http://alistapart.com/article/dry-ing-out-your-sass-mixins), now availbale for you to use in your projects! The full writeup on the why can be found in the article, and examples can be found all throughout Toolkit.
 
 #### @include dynamic-extend($id) { @content }
 
