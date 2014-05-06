@@ -4,9 +4,9 @@ GPL license: http://www.gnu.org/licenses/gpl.html
 
 MIT license: http://www.opensource.org/licenses/mit-license.php
 
-Hammer.js License:
+Toolkit License:
 
-Copyright (C) 2011 by Jorik Tangelder (Eight Media)
+Copyright (C) 2011 by Sam Richard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
