@@ -1,0 +1,9 @@
+@mixin target($target) {
+  @at-root {
+    /*! @{target: #{$target}} */
+    & {
+      @content;  
+    }
+    /*! {target: #{$target}}@ */  
+  }
+}
