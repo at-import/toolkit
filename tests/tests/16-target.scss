@@ -1,0 +1,9 @@
+@import "toolkit";
+
+/**
+  * Target
+**/
+.target {
+  _test: "@include target(test-target) { content: bar }";
+  @include target(test-target) { content: bar };
+}

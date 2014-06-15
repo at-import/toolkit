@@ -1,0 +1,12 @@
+/**
+  * Target
+**/
+.target {
+  _test: "@include target(test-target) { content: bar }";
+}
+/*! @{target: test-target} */
+.target {
+  content: bar;
+}
+
+/*! {target: test-target}@ */
