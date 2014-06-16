@@ -36,6 +36,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 	* [Absolute Center](#absolute-center)
 1. [Viewport](#viewport)
 1. [Underline](#underline)
+1. [Target](#target)
 
 ## Basics
 
@@ -405,6 +406,12 @@ Create beautiful underlines [à la Medium](https://medium.com/designing-medium/7
 - `'underline distance': 1` (unitless number)
 - `'underline width': 2` (unitless number)
 - `'underline extend': false`
+
+## Target
+
+Creates specially formatted comments for use with [gulp-css-target](https://github.com/snugug/gulp-css-target)
+
+#### @include target($target) { @content }
 
 ## License
 
