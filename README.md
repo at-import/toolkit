@@ -10,7 +10,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Basics](#basics)
   * [Requirements](#requirements)
   * [Installation](#installation)
-  * [Settings](#settings)
+  * [Changing Settings](#changing-settings)
   * [Extends](#extends)
 1. [Clearfix](#clearfix)
 1. [Colors](#colors)
@@ -29,6 +29,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Nested Context](#nested-context)
 1. [Parallax](#parallax)
 1. [RTL](#rtl)
+1. [Settings](#settings)
 1. [Triangles](#triangles)
 1. [Center](#center)
 	* [Vertical Center](#vertical-center)
@@ -62,7 +63,7 @@ To install as a Bower package, run the following:
 bower install sass-toolkit --save-dev
 ```
 
-### Settings
+### Changing Settings
 
 All of Toolkit's settings can be changed with a simple mixin. Whenever you would like to change a default, include the following mixin, and from then on out, whenever that default is needed, the value you've changed it to will be used:
 
@@ -319,6 +320,103 @@ The parallax mixin puts elements into real perspective and scales them back down
 Quickly and easily write your left-to-right and right-to-left properties with one mixin! Works for `*-left` and `*-right` properties, as well as shorthand syntaxes.
 
 #### @include rtl($property, $value)
+
+## Settings
+
+While the standard `$variable: value !default` for allowing users the ability to change defaults in a system is okay, it can become cumbersome quickly. Cascading user changes is hard, doesn't always work as expected, and for large systems all of those settings pollute the global namespace. These setting functions and mixins make it easy to work with setting in the same way that [Toolkit does](#changing-settings). We're even dogfooding here, using these internally to work with Toolkit's settings! And none of our tests broke when we made the transition!
+
+### User Setting Exists
+
+Used to see if a user has set a setting. Will return `true` or `false`.
+
+#### user-setting-exists($setting)
+
+Pass in a comma separated list of user settings you would like to test. Will return a map where the keys are the settings and the values are their respective state.
+
+#### user-setting-exists-multiple($settings...)
+
+### Setting Get
+
+Used to retrieve a setting. Will attempt to find the user setting first, and if a user hasn't set a value for that setting, will use the default setting. Returns the value of the setting
+
+#### setting-get($setting)
+
+Pass in a comma separated list of user settings you would like to retrieve. Will return a map where the keys are the settings and the values are their respective values.
+
+#### setting-get-multiple($setting...)
+
+### Setting Set
+
+Used to set a setting. Returns `true`. The function and the mixins take the same input.
+
+#### setting-set($setting, $value)
+
+#### @include setting-set($setting, $value)
+
+#### @include setting-change($setting, $value)
+
+Used to set multiple settings at once. The input should be a map where the key is the setting and the value is the value of said setting.
+
+#### setting-set-multiple($settings)
+
+#### @include setting-set-multiple($settings)
+
+#### @include setting-change-multiple($settings)
+
+### Setting Clear
+
+Used to clear a single user setting. Will return `true`. The function and the mixins take the same input.
+
+#### setting-clear($setting)
+
+#### @include setting-clear($setting)
+
+Pass in a comma separated list of user settings you would like to clear. Will return `true`. The function and the mixins take the same input.
+
+#### setting-clear-multiple($settings...)
+
+#### @include setting-clear-multiple($settings...)
+
+Used to clear all user settings. Will return `true`. The function and the mixins take the same input.
+
+#### setting-reset()
+
+#### @include setting-reset()
+
+### Setting Pick
+
+The most common usecase of actually needing to determine the setting to use is within a custom function or mixin. The recommended way of doing this is to provide a default value of `null` for arguments that are controlled by settings, then check to see if that value is `null` and, if not, get the correct setting. The setting pick functions do this.
+
+#### setting-pick($setting, $input)
+
+Used to pick multiple settings at once. The input should be a map where the key is the setting and the value is the input to be tested. Will return a map where the keys are the setting and the value is the determined value.
+
+#### setting-pick-multiple($settings)
+
+```scss
+@mixin button($size, $color: null) {
+  $color: setting-pick('button color', $color);
+  // ... rest of stuff goes here
+}
+```
+
+### Setting Defaults
+
+Congratulations! You now have an API for working with setting that you didn't need to write! Awesome! But how do you actually make global settings to use? Well, simple. Create a map of your settings, the keys being the setting name, the values being the value of the setting, and merge it into the `$GlobalSettings` variable. This will put them in the global setting namespace. If you would like your variables namespaced, it's recommended that you write wrapper functions for the setting functions for your plugin.
+
+```scss
+@import "toolkit";
+
+$MyAwesomePluginSettings: (
+  'button color': #b4d455,
+  'mug fill color': #c0ffee
+);
+
+$GlobalSettings: map-merge($GlobalSettings, $MyAwesomePluginSettings);
+
+// ... The rest of your awesome plugin stuff here
+```
+
 
 ## Triangles
 
