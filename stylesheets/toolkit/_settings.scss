@@ -55,25 +55,9 @@ $Toolkit-Settings: (
 // New Settings module
 //////////////////////////////
 // Global
-$GlobalSettings: ();
+$GlobalSettings: $Toolkit-Settings !default;
 // User
 $UserSettings: () !default;
-
-//////////////////////////////
-// User Settings
-//////////////////////////////
-$toolkit: () !default;
-
-//////////////////////////////
-// Set Toolkit Settings
-//////////////////////////////
-@each $key, $value in $Toolkit-Settings {
-  $GlobalSettings: map-merge($GlobalSettings, ($key: $value)) !global;
-}
-
-//////////////////////////////
-// Settings Module
-//////////////////////////////
 
 //////////////////////////////
 // User Setting Exists
@@ -87,7 +71,7 @@ $toolkit: () !default;
   }
 }
 
-@fucntion user-setting-exists-multiple($settings...) {
+@function user-setting-exists-multiple($settings...) {
   $Return: ();
   @each $setting in $settings {
     $Return: map-merge($Return, ($setting: user-setting-exists($setting)));
@@ -218,13 +202,13 @@ $toolkit: () !default;
 //////////////////////////////
 // Setting Pick
 //////////////////////////////
-@function setting-pick($input, $setting) {
+@function setting-pick($setting, $input) {
   @return if($input != null, $input, setting-get($setting));
 }
 
 @function setting-pick-multiple($settings) {
   $Return: ();
-  @each $input, $setting in $settings {
+  @each $setting, $input in $settings {
     $Return: map-merge($Return, ($setting: setting-pick($input, $setting)));
   }
 
