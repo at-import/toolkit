@@ -87,6 +87,14 @@ $toolkit: () !default;
   }
 }
 
+@fucntion user-setting-exists-multiple($settings...) {
+  $Return: ();
+  @each $setting in $settings {
+    $Return: map-merge($Return, ($setting: user-setting-exists($setting)));
+  }
+  @return $Return;
+}
+
 // Toolkit Version
 @function toolkit-has($setting) {
   @return user-setting-exists($setting);
