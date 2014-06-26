@@ -1,5 +1,5 @@
 //////////////////////////////
-// Default Settings
+// Toolkit Settings
 //////////////////////////////
 $Toolkit-Settings: (
   'clearfix extend': false,
@@ -52,15 +52,34 @@ $Toolkit-Settings: (
 );
 
 //////////////////////////////
+// New Settings module
+//////////////////////////////
+// Global
+$GlobalSettings: ();
+// User
+$UserSettings: () !default;
+
+//////////////////////////////
 // User Settings
 //////////////////////////////
 $toolkit: () !default;
 
 //////////////////////////////
-// Has Setting
+// Set Toolkit Settings
 //////////////////////////////
-@function toolkit-has($setting) {
-  @if map-has-key($toolkit, $setting) {
+@each $key, $value in $Toolkit-Settings {
+  $GlobalSettings: map-merge($GlobalSettings, ($key: $value)) !global;
+}
+
+//////////////////////////////
+// Settings Module
+//////////////////////////////
+
+//////////////////////////////
+// User Setting Exists
+//////////////////////////////
+@function user-setting-exists($setting) {
+  @if map-has-key($UserSettings, $setting) {
     @return true;
   }
   @else {
@@ -68,51 +87,138 @@ $toolkit: () !default;
   }
 }
 
-//////////////////////////////
-// Get Settings
-//////////////////////////////
-@function toolkit-get($setting) {
-  @if toolkit-has($setting) {
-    @return map-get($toolkit, $setting);
-  }
-  @else {
-    @return map-get($Toolkit-Settings, $setting);
-  }
+// Toolkit Version
+@function toolkit-has($setting) {
+  @return user-setting-exists($setting);
 }
 
 //////////////////////////////
-// Set Settings
+// Setting Get
 //////////////////////////////
-@function toolkit-set($setting, $value) {
-  @if (str-index($setting, '-') or str-index($setting, '_')) and str-index($setting, ' ') == null {
-    @warn "Words in Singularity settings should be spaces, not dashes or underscores. Please replace dashes and underscores between words with spaces. Settings will not work as expected until changed.";
+@function setting-get($setting) {
+  @if user-setting-exists($setting) {
+    @return map-get($UserSettings, $setting);
   }
-  $toolkit: map-merge($toolkit, ($setting: $value)) !global;
+  @else {
+    @return map-get($GlobalSettings, $setting);
+  }
+}
+
+@function setting-get-multiple($settings...) {
+  $values: ();
+  @each $setting in $settings {
+    $values: map-merge($values, ($setting: setting-get($setting)));
+  }
+  @return $values;
+}
+
+// Toolkit Version
+@function toolkit-get($setting) {
+  @return setting-get($setting);
+}
+
+
+//////////////////////////////
+// Settings Set
+//////////////////////////////
+@function setting-set($setting, $value) {
+  $UserSettings: map-merge($UserSettings, ($setting: $value)) !global;
   @return true;
 }
 
+@function setting-set-multiple($settings) {
+  $UserSettings: map-merge($UserSettings, $settings) !global;
+  @return true;
+}
+
+@mixin setting-set($setting, $value) {
+  $setting-setter: setting-set($setting, $value) !global;
+}
+
+@mixin setting-change($setting, $value) {
+  @include setting-set($setting, $value);
+}
+
+@mixin setting-set-multiple($settings) {
+  $setting-setter: setting-set-multiple($settings) !global;
+}
+
+@mixin setting-change-multiple($settings) {
+  @include setting-set-multiple($settings);
+}
+
+// Toolkit Version
+@function toolkit-set($setting, $value) {
+  @return setting-set($setting, $value);
+}
+
 @mixin toolkit-change($setting, $value) {
-  $toolkit-change: toolkit-set($setting, $value);
+  @include setting-set($setting, $value);
 }
 
 @mixin toolkit-set($setting, $value) {
-  $toolkit-change: toolkit-set($setting, $value);
+  @include setting-set($setting, $value);
 }
 
 //////////////////////////////
 // Remove Setting
 //////////////////////////////
-@function toolkit-reset($setting) {
+@function setting-clear($setting) {
   $Return: ();
 
-  @each $Key, $Value in $toolkit {
+  @each $Key, $Value in $UserSettings {
     $Return: if($setting == $Key, $Return, map-merge($Return, ($Key: $Value)));
   }
 
-  $toolkit: $Return !global;
+  $UserSettings: $Return !global;
   @return true;
 }
 
+@function setting-clear-multiple($settings...) {
+  @each $setting in $settings {
+    $clear-the-settings: setting-clear($setting);
+  }
+  @return true;
+}
+
+@function setting-reset() {
+  $UserSettings: () !global;
+  @return true;
+}
+
+@mixin setting-clear($setting) {
+  $setting-clearer: setting-clear($setting);
+}
+
+@mixin setting-clear-multiple($settings...) {
+  $setting-clearer: setting-clear-multiple($settings);
+}
+
+@mixin setting-reset() {
+  $setting-clearer: setting-reset();
+}
+
+// Toolkit Version
+@function toolkit-reset($setting) {
+  @return setting-clear($setting);
+}
+
 @mixin toolkit-reset($setting) {
-  $toolkit-reset: toolkit-reset($setting);
+  @include setting-clear($setting);
+}
+
+//////////////////////////////
+// Setting Pick
+//////////////////////////////
+@function setting-pick($input, $setting) {
+  @return if($input != null, $input, setting-get($setting));
+}
+
+@function setting-pick-multiple($settings) {
+  $Return: ();
+  @each $input, $setting in $settings {
+    $Return: map-merge($Return, ($setting: setting-pick($input, $setting)));
+  }
+
+  @return $Return;
 }
