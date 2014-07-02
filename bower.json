@@ -2,7 +2,7 @@
   "name": "sass-toolkit",
   "description": "Toolkit full of bits and bobs of awesome aimed at assisting in advanced styling with Sass",
   "version": "2.5.0",
-  "main": "compass/stylesheets/_toolkit.scss",
+  "main": "stylesheets/_toolkit.scss",
   "ignore": [
     "**/.*",
     "node_modules",
