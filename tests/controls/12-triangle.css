@@ -2,7 +2,7 @@
   * Triangle
 **/
 .triangle--default {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -11,11 +11,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-bottom-color: black;
+  border-bottom-color: #000;
   border-width: 0 0.5em 1em 0.5em;
 }
 .triangle--color {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -28,7 +28,7 @@
   border-width: 0 0.5em 1em 0.5em;
 }
 .triangle--height {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -37,11 +37,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-bottom-color: black;
+  border-bottom-color: #000;
   border-width: 0 0.5em 20px 0.5em;
 }
 .triangle--width {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -50,11 +50,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-bottom-color: black;
+  border-bottom-color: #000;
   border-width: 0 0.75rem 1em 0.75rem;
 }
 .triangle--angle-number {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -63,11 +63,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-left-color: black;
+  border-left-color: #000;
   border-width: 0.30556em 0 0.69444em 1em;
 }
 .triangle--angle-top {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -76,11 +76,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-bottom-color: black;
+  border-bottom-color: #000;
   border-width: 0 0.5em 1em 0.5em;
 }
 .triangle--angle-top-right {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -89,11 +89,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-right-color: black;
+  border-right-color: #000;
   border-width: 0em 1em 1em 0;
 }
 .triangle--angle-right {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -102,11 +102,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-left-color: black;
+  border-left-color: #000;
   border-width: 0.5em 0 0.5em 1em;
 }
 .triangle--angle-bottom-right {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -115,11 +115,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-bottom-color: black;
+  border-bottom-color: #000;
   border-width: 0 0em 1em 1em;
 }
 .triangle--angle-bottom {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -128,11 +128,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-top-color: black;
+  border-top-color: #000;
   border-width: 1em 0.5em 0 0.5em;
 }
 .triangle--angle-bottom-left {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -141,11 +141,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-left-color: black;
+  border-left-color: #000;
   border-width: 1em 0 0em 1em;
 }
 .triangle--angle-left {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -154,11 +154,11 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-right-color: black;
+  border-right-color: #000;
   border-width: 0.5em 1em 0.5em 0;
 }
 .triangle--angle-top-left {
-  _setting-triangle-color: black;
+  _setting-triangle-color: #000;
   _setting-triangle-height: 1em;
   _setting-triangle-width: 1em;
   _setting-triangle-angle: 0;
@@ -167,6 +167,6 @@
   width: 0;
   height: 0;
   border: 0 solid transparent;
-  border-top-color: black;
+  border-top-color: #000;
   border-width: 1em 1em 0 0em;
 }
