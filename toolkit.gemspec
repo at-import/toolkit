@@ -30,5 +30,5 @@ Gem::Specification.new do |s|
 
 
   # Dependent Gems
-  s.add_dependency("sass",      ["~>3.3.0"])
+  s.add_dependency("sass",      ["~>3.3"])
 end
