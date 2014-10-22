@@ -298,7 +298,7 @@ This is easy with fixed widths because then we can just make the child the width
 
 The concept of the parallax effect is simple, things closer to the viewer move faster while things further away move slower. Leveraging 3D transforms, this effect can be implemented without any JavaScript. You need to initialize your parallax container before being able to parallax an item. By default iOS parallax is on but setting it to false will turn on smooth scrolling within that element and no parallax effect will be shown.
 
-The parallax mixin puts elements into real perspective and scales them back down to 100% so images and text will not have any distortion. Items will shift both vertically and horizontally in layouts to achieve the appropriate perspective. With `init`, if `$element: this`, the current element will be initialized; if `$element: '.class'|'#id'`, the respective element will be placed at the root of the stylesheet (not nested under the current selector). `ini` can be called from the root of your stylesheet.
+The parallax mixin puts elements into real perspective and scales them back down to 100% so images and text will not have any distortion. Items will shift both vertically and horizontally in layouts to achieve the appropriate perspective. With `@include init()`, if `$element: this`, the current element will be initialized; if `$element: '.class'|'#id'`, the respective element will be placed at the root of the stylesheet (not nested under the current selector). `@include init()` can be called from the root of your stylesheet.
 
 #### @include parallax-init([$perspective, $element, $parallax-ios])
 
