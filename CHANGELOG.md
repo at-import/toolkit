@@ -1,5 +1,9 @@
 # Toolkit
 
+## v 2.7.0
+
+* **New** Added the `set-multiple` mixin to allow multiple properties to be set to the same value (thanks [@Robovirtuoso](https://github.com/Robovirtuoso)
+
 ## v2.0.0.alpha.7
 ### January 29, 2014
 
