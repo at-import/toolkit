@@ -1,0 +1,14 @@
+/**
+  * Set Multiple
+**/
+.property {
+  _test: "@include set-multiple(30px, margin-left margin-right);";
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.property {
+  _test: "@include set-multiple(50%, width, height);";
+  width: 50%;
+  height: 50%;
+}

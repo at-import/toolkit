@@ -38,6 +38,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Viewport](#viewport)
 1. [Underline](#underline)
 1. [Target](#target)
+1. [Set Multiple](#set-multiple)
 
 ## Basics
 
@@ -510,6 +511,25 @@ Create beautiful underlines [à la Medium](https://medium.com/designing-medium/7
 Creates specially formatted comments for use with [gulp-css-target](https://github.com/snugug/gulp-css-target)
 
 #### @include target($target) { @content }
+
+## Set Multiple
+
+Applies the same property to multiple values.
+
+#### @include set-multiple($value, $property-list);
+
+```scss
+  .box {
+    @include set-multiple(50%, width height);
+  }
+```
+
+```css
+  .box {
+    width: 50%;
+    height: 50%;
+  }
+```
 
 ## License
 
