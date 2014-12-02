@@ -1,0 +1,16 @@
+@import "toolkit";
+
+/**
+  * Set Multiple
+**/
+
+.property {
+  _test: "@include set-multiple(30px, margin-left margin-right);";
+  @include set-multiple(30px, margin-left margin-right);
+}
+
+.property {
+  _test: "@include set-multiple(50%, width, height);";
+  @include set-multiple(50%, width, height);
+}
+
