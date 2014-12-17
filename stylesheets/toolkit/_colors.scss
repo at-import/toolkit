@@ -110,7 +110,7 @@
 // Color Scales
 //////////////////////////////
 @function color-scale($main, $secondary, $steps: null) {
-  $steps: if($steps != null, $steps, toolkit-get('color scale steps'));;
+  $steps: if($steps != null, $steps, toolkit-get('color scale steps'));
 
   $list: $main;
 
