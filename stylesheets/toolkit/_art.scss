@@ -1,0 +1,33 @@
+//////////////////////////////
+// ART!
+// Inspired by http://elrumordelaluz.github.io/Pixelator/
+//////////////////////////////
+@mixin art($art, $px-size: null, $color: null, $radius: null) {
+  $px-size: if($px-size != null, $px-size, toolkit-get('art pixel size'));
+  $color: if($color != null, $color, toolkit-get('art color'));
+  $radius: if($radius != null, $radius, toolkit-get('art border radius'));
+
+  $build: ();
+  $y: $px-size;
+  $x: 0;
+
+  height: $px-size;
+  width: $px-size;
+  border-radius: $radius;
+
+  @for $i from 1 through str_length($art) {
+    $char: str_slice($art, $i, $i);
+    $x: $x + $px-size;
+
+    @if $char == 'n' {
+      $y: $y + $px-size;
+      $x: 0;
+    }
+    @else if $char != ' ' {
+      $border: $x $y 0 $color;
+      $build: append($build, $border, comma);
+    }
+  }
+
+  box-shadow: $build;
+}

@@ -1,0 +1,30 @@
+@import "toolkit";
+
+$IBM:
+'xxxxxxx xxxxxxxxxx   xxxxxx       xxxxxx\n' +
+'                                        \n' +
+'xxxxxxx xxxxxxxxxxxx xxxxxxx     xxxxxxx\n' +
+'                                        \n' +
+'  xxx     xxx    xxx   xxxxxx    xxxxx  \n' +
+'                                        \n' +
+'  xxx     xxxxxxxxx    xxxxxxx xxxxxxx  \n' +
+'                                        \n' +
+'  xxx     xxxxxxxxx    xxx xxxxxxx xxx  \n' +
+'                                        \n' +
+'  xxx     xxx    xxx   xxx  xxxxx  xxx  \n' +
+'                                        \n' +
+'xxxxxxx xxxxxxxxxxxx xxxxx   xxx   xxxxx\n' +
+'                                        \n' +
+'xxxxxxx xxxxxxxxxx   xxxxx    x    xxxxx';
+
+/**
+  * Art
+**/
+.target {
+  /* Default Size */
+  _test: "@include art(#{$IBM})";
+  @include art($IBM);
+  /* Changed Size */
+  _test: "@include art(#{$IBM}, 5px)";
+  @include art($IBM, 5px);
+}
