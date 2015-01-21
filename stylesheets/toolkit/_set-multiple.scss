@@ -1,0 +1,20 @@
+@mixin set-multiple($value, $properties...) {
+  $property-length: length($properties);
+  $error-msg: "The `set-multiple` mixin requires you to pass in a list of properties as the second argument";
+
+  @if $property-length < 1 {
+    @if feature-exists(at-error) {
+      @error $error-msg;
+    } 
+    @else {
+      @warn $error-msg;
+    }
+  }
+
+  // If the first argument passed in is a white-spaced separated list.
+  $properties: if($property-length == 1, nth($properties, 1), $properties);
+
+  @each $property in $properties {
+    #{$property}: $value
+  }
+}

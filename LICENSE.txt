@@ -1,9 +1,3 @@
-Toolkit is dual licensed under the MIT and GPL licenses:
-
-GPL license: http://www.gnu.org/licenses/gpl.html
-
-MIT license: http://www.opensource.org/licenses/mit-license.php
-
 Toolkit License:
 
 Copyright (C) 2011-2014 by Sam Richard

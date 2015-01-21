@@ -39,6 +39,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Viewport](#viewport)
 1. [Underline](#underline)
 1. [Target](#target)
+1. [Set Multiple](#set-multiple)
 
 ## Basics
 
@@ -191,7 +192,7 @@ Color scales allow you to step from one color to another in even steps. Color sc
 
 ## DRY Mixins
 
-The pattern that inspired the [A List Apart](http://alistapart.com/) article [DRY-ing Out Your Sass Mixins](http://alistapart.com/article/dry-ing-out-your-sass-mixins), now availbale for you to use in your projects! The full writeup on the why can be found in the article, and examples can be found all throughout Toolkit.
+The pattern that inspired the [A List Apart](http://alistapart.com/) article [DRY-ing Out Your Sass Mixins](http://alistapart.com/article/dry-ing-out-your-sass-mixins), now available for you to use in your projects! The full writeup on the why can be found in the article, and examples can be found all throughout Toolkit.
 
 #### @include dynamic-extend($id) { @content }
 
@@ -309,7 +310,7 @@ This is easy with fixed widths because then we can just make the child the width
 
 The concept of the parallax effect is simple, things closer to the viewer move faster while things further away move slower. Leveraging 3D transforms, this effect can be implemented without any JavaScript. You need to initialize your parallax container before being able to parallax an item. By default iOS parallax is on but setting it to false will turn on smooth scrolling within that element and no parallax effect will be shown.
 
-The parallax mixin puts elements into real perspective and scales them back down to 100% so images and text will not have any distortion. Items will shift both vertically and horizontally in layouts to achieve the appropriate perspective. With `init`, if `$element: this`, the current element will be initialized; if `$element: '.class'|'#id'`, the respective element will be placed at the root of the stylesheet (not nested under the current selector). `ini` can be called from the root of your stylesheet.
+The parallax mixin puts elements into real perspective and scales them back down to 100% so images and text will not have any distortion. Items will shift both vertically and horizontally in layouts to achieve the appropriate perspective. With `@include init()`, if `$element: this`, the current element will be initialized; if `$element: '.class'|'#id'`, the respective element will be placed at the root of the stylesheet (not nested under the current selector). `@include init()` can be called from the root of your stylesheet.
 
 #### @include parallax-init([$perspective, $element, $parallax-ios])
 
@@ -522,8 +523,43 @@ Creates specially formatted comments for use with [gulp-css-target](https://gith
 
 #### @include target($target) { @content }
 
+## Set Multiple
+
+Applies the same property to multiple values.
+
+#### @include set-multiple($value, $property-list);
+
+```scss
+  .box {
+    @include set-multiple(50%, width height);
+  }
+```
+
+```css
+  .box {
+    width: 50%;
+    height: 50%;
+  }
+```
+
 ## License
 
-(c) Sam Richard, Scott Kellum 2012-2014
+Copyright (C) 2011-2014 by Sam Richard
 
-Toolkit is dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl.html) Licenses.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
