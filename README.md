@@ -12,6 +12,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
   * [Installation](#installation)
   * [Changing Settings](#changing-settings)
   * [Extends](#extends)
+1. [Art](#art)
 1. [Clearfix](#clearfix)
 1. [Colors](#colors)
   * [Tint and Shade](#tint-and-shade)
@@ -86,6 +87,16 @@ Each mixin/function definition looks like the following:
 - `'clearfix extend': false`
 
 Mixins start with `@include`, functions don't. Variables in [brackets] are optional. Settings are global setting variables that provide the defaults for optional variables, with their default.
+
+## Art
+
+Create pixel art using [CSS Box Shadows](http://sassmeister.com/gist/cf4a1eff8326585d66e6)! Simply write a string with `x` for where you'd like a pixel, and ` ` where you wouldn't. When you want a new line, simply write `\n`. The "pixel" size is the size of one pixel and doesn't have to be `px`. Border radius will apply to each "pixel", as will color.
+
+#### @include art($art[, $px-size, $color, $radius])
+
+- `'art pixel size': 1px`
+- `'art color': black`
+- `'art border radius': 0%`
 
 ## Clearfix
 
