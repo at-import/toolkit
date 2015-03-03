@@ -30,11 +30,11 @@
   $font-stack: ();
   $font-src: '';
   $eot: false;
-  $font-extensions: ('eot': 'embedded-opentype', 'woff': 'woff', 'ttf': 'truetype', 'svg': 'svg');
+  $font-extensions: ('eot': 'embedded-opentype', 'woff2': 'woff2', 'woff': 'woff', 'ttf': 'truetype', 'svg': 'svg');
 
   @each $ext, $format in $font-extensions {
     @if map-has-key($files, $ext) {
-      @if function-exists(inline-font-files) and $inline-woff == true and $ext == 'woff' {
+      @if function-exists(inline-font-files) and $inline-woff == true and ($ext == 'woff' or $ext == 'woff2') {
         $font-src: inline-font-files(map-get($files, $ext));
       }
       @else if function-exists(font-url) {
