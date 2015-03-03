@@ -1,4 +1,4 @@
-*, *:before, *:after {
+html {
   @if mixin-exists('box-sizing') {
     @include box-sizing('border-box');
   }
@@ -8,7 +8,14 @@
   }
 }
 
-img, video {
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+embed,
+img,
+object,
+video {
   max-width: 100%;
   height: auto;
 }
