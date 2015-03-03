@@ -29,6 +29,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Kickstart](#kickstart)
 1. [Nested Context](#nested-context)
 1. [Parallax](#parallax)
+1. [Reset](#reset)
 1. [RTL](#rtl)
 1. [Settings](#settings)
 1. [Triangles](#triangles)
@@ -274,12 +275,19 @@ What is an intrinsic ratio you may ask? Well Thierry Koblentz wrote a great [A L
 Importing the kickstart partial with `@import "toolkit/kickstart";` will add the following common styles to your project:
 
 ```scss
-*, *:before, *:after {
+html {
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
 
-img, video {
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+embed,
+img,
+object,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -326,6 +334,10 @@ The parallax mixin puts elements into real perspective and scales them back down
 
 - `'parallax perspective': 1`
 - `'parallax distance': 0`
+
+## Reset
+
+Importing the reset partial with `@import "toolkit/reset";` will add a CSS Reset in based on work done by [Nicholas Gallagher and Jonathan Neal](http://necolas.github.io/normalize.css/), [Richard Clark](http://richclarkdesign.com), and [Tim Murtaugh](http://monkeydo.biz/), and some other things that are useful. Also includes the [kickstart](#kickstart):
 
 ## RTL
 
