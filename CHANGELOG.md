@@ -1,6 +1,12 @@
 # Toolkit
 
-## v 2.7.0
+## v2.8.0
+
+* **New** Added a CSS Reset!
+* **Change** Updated Kickstart's box sizing definition to play nicer with other things.
+* **Change** Added support for `woff2` to the `font-face` mixin
+
+## v2.7.0
 
 * **New** Added the `set-multiple` mixin to allow multiple properties to be set to the same value (thanks [@Robovirtuoso](https://github.com/Robovirtuoso)
 
