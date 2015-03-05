@@ -1,5 +1,10 @@
 # Toolkit
 
+## v2.9.0
+### March 4, 2015
+
+* **New** Added `mixin-dryer` mixin to make writing your static mixin from [DRY-ing Out your Sass Mixins](http://alistapart.com/article/dry-ing-out-your-sass-mixins) much easier to do, all in line!
+
 ## v2.8.0
 
 * **New** Added a CSS Reset!

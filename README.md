@@ -197,6 +197,34 @@ The pattern that inspired the [A List Apart](http://alistapart.com/) article [DR
 
 #### @include dynamic-extend($id) { @content }
 
+The `dynamic-extend` mixin is the core mixin for dynamically creating placeholder selectors and extending them directly.
+
+#### @include mixin-dryer($id [,$extend: true]) { @content }
+
+The `mixin-dryer` mixin is a one-stop-shop mixin for working with the whole pattern. It wraps the contents of the **static** portion of the pattern into a single mixin. If you don't think someone would want to use the static mixin on its own, simply drop `mixin-dryer` into your core mixin and you're good to go! The button example from A List Apart can be written with this mixin as follows:
+
+```scss
+@mixin button($color, $extend: true) {
+  background-color: $color;
+  border-color: mix(black, $color, 25%);
+
+  &:hover {
+    background-color: mix(black, $color, 15%);
+    border-color: mix($black, $color, 40%);
+  }
+
+  @include mixin-dryer('button', $extend) {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: .25em .5em;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+```
+
 ## Font Helpers
 
 Web fonts are absolutely awesome, but working with them can be a bit tricky. Ligatures are super powerful and make fonts that that support them even more beautiful, but aren't on by default. Webfonts are awesome, but you need to wait for them to download and that can cause a Flash of Unstyled Text, which can be jarring and unpleasant. Toolkit provides some tools to ease this.

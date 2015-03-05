@@ -28,3 +28,17 @@ $Private-Toolkit-Placeholders: (
   }
   @extend %#{$placeholder-id};
 }
+
+//////////////////////////////
+// Static Mixin Helper
+//////////////////////////////
+@mixin mixin-dryer($id, $extend: true) {
+  @if $extend == true {
+    @include dynamic-extend($id) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
