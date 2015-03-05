@@ -1,7 +1,7 @@
 {
   "name": "sass-toolkit",
   "description": "Toolkit full of bits and bobs of awesome aimed at assisting in advanced styling with Sass",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "main": "stylesheets/_toolkit.scss",
   "ignore": [
     "**/.*",
