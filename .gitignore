@@ -6,3 +6,4 @@ example/css/
 Gemfile.lock
 /tests/output/
 /vendor
+/node_modules
