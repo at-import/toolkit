@@ -63,6 +63,12 @@ To install as a Bower package, run the following:
 bower install sass-toolkit --save-dev
 ```
 
+Even as an [Eyeglass](https://github.com/sass-eyeglass/eyeglass) module!
+
+```bash
+npm install sass-toolkit --save-dev
+```
+
 ### Changing Settings
 
 All of Toolkit's settings can be changed with a simple mixin. Whenever you would like to change a default, include the following mixin, and from then on out, whenever that default is needed, the value you've changed it to will be used:
