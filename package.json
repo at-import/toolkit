@@ -1,0 +1,39 @@
+{
+  "name": "sass-toolkit",
+  "version": "2.9.0",
+  "description": "Think of Toolkit as your swiss army knife for modern design and development.",
+  "main": "stylesheets/_toolkit.scss",
+  "eyeglass": {
+    "exports": "eyeglass-exports.js",
+    "name": "toolkit"
+  },
+  "devDependencies": {
+    "diff": "^1.2.1",
+    "fs-extra": "^0.14.0",
+    "glob": "^4.3.2",
+    "node-sass": "^3.0.0"
+  },
+  "scripts": {
+    "test": "cd tests && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/at-import/toolkit.git"
+  },
+  "keywords": [
+    "sass",
+    "design",
+    "typography",
+    "fed",
+    "rwd",
+    "eyeglass-module",
+    "toolkit",
+    "design"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/at-import/toolkit/issues"
+  },
+  "homepage": "https://github.com/at-import/toolkit"
+}
