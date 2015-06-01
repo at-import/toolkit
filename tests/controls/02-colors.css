@@ -4,16 +4,16 @@
 .color--tint {
   _setting--tint-color: #fff;
   _test: "tint(#b4d455, 25%)";
-  _result: #c6de7f;
+  _result: #c7df80;
   /* Set New Tint Color */
   _setting--tint-color: #eee;
   _test: "tint(#b4d455, 25%)";
-  _result: #c2da7b;
+  _result: #c3db7b;
 }
 .color--shade {
   _setting--shade-color: #000;
   _test: "shade(#b4d455, 25%)";
-  _result: #879f3f;
+  _result: #879f40;
   /* Set New Shade Color */
   _setting--shade-color: #111;
   _test: "shade(#b4d455, 25%)";
@@ -46,26 +46,26 @@
 .color--stack {
   _setting--color-stack-amounts: 25% 50% 75% 85% 90%;
   _test: "color-stack(red, blue)";
-  _result: red #bf003f #7f007f #3f00bf #2600d8 #1900e5;
+  _result: red #bf0040 purple #4000bf #2600d9 #1900e6;
   _test: "color-stack(red, blue, 15%, 20%, 25%, 30%)";
-  _result: red #d80026 #cc0033 #bf003f #b2004c;
+  _result: red #d90026 #cc0033 #bf0040 #b3004d;
 }
 .color--tint-stack {
   _setting--tint-color: #eee;
   _test: "tint-stack(red, 15%, 20%, 25%, 30%)";
-  _result: red #fc2323 #fb2f2f #fa3b3b #f94747;
+  _result: red #fc2424 #fc3030 #fb3c3c #fa4747;
 }
 .color--tint-stack {
   _setting--shade-color: #111;
   _test: "shade-stack(red, 15%, 20%, 25%, 30%)";
-  _result: red #db0202 #cf0303 #c30404 #b70505;
+  _result: red #db0303 #cf0303 #c40404 #b80505;
 }
 .color--tint-shade-stack {
   _setting--tint-shade-stack-amounts: 75% 50% 25%;
   _test: "tint-shade-stack(red)";
-  _result: #4c0c0c #880808 #c30404 red #fa3b3b #f67777 #f2b2b2;
+  _result: #4d0d0d #880909 #c40404 red #fb3c3c #f77777 #f2b3b3;
   _test: "tint-shade-stack(red, blue, 15%, 20%, 25%, 30%)";
-  _result: #db0202 #cf0303 #c30404 #b70505 red #f94747 #fa3b3b #fb2f2f #fc2323;
+  _result: #db0303 #cf0303 #c40404 #b80505 red #fa4747 #fb3c3c #fc3030 #fc2424;
 }
 
 /**

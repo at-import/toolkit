@@ -1,9 +1,16 @@
-*, *:before, *:after {
+html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-img, video {
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+embed,
+img,
+object,
+video {
   max-width: 100%;
   height: auto;
 }
