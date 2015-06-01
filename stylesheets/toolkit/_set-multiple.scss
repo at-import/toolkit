@@ -5,7 +5,7 @@
   @if $property-length < 1 {
     @if feature-exists(at-error) {
       @error $error-msg;
-    } 
+    }
     @else {
       @warn $error-msg;
     }
