@@ -7,3 +7,4 @@ Gemfile.lock
 /tests/output/
 /vendor
 /node_modules
+/tests/diff
