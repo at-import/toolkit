@@ -4,6 +4,7 @@
   "description": "Think of Toolkit as your swiss army knife for modern design and development.",
   "main": "stylesheets/_toolkit.scss",
   "eyeglass": {
+    "needs": "^0.8.2",
     "exports": "eyeglass-exports.js",
     "name": "toolkit"
   },
@@ -14,7 +15,11 @@
     "node-sass": "^3.0.0"
   },
   "scripts": {
-    "test": "cd tests && node index.js"
+    "test": "cd tests && node index.js",
+    "bump:major": "node .bump.js --major",
+    "bump:minor": "node .bump.js --minor",
+    "bump:patch": "node .bump.js --patch",
+    "publish": "node .gembuild.js && git push && git push origin --tags"
   },
   "repository": {
     "type": "git",
