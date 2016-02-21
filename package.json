@@ -1,6 +1,6 @@
 {
   "name": "sass-toolkit",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Think of Toolkit as your swiss army knife for modern design and development.",
   "main": "stylesheets/_toolkit.scss",
   "eyeglass": {

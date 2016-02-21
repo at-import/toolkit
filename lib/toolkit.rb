@@ -12,6 +12,6 @@ end
 
 
 module Toolkit
-  VERSION = "2.9.0"
-  DATE = "2015-03-04"
+  VERSION = "2.10.0"
+  DATE = "2016-02-21"
 end
