@@ -35,7 +35,7 @@ Think of Toolkit as your swiss army knife for Progressive Enhancement and Respon
 1. [Carousels](#carousels)
 	* [CSS Carousel Component](#css-carousel-component)
 	* [CSS Carousel Animation](#css-carousel-animation)
-1. [Debugging](#debug)
+1. [Debugging](#debugging)
 1. [Odds and Ends](#odds-and-ends)
 1. [Templates](#templates)
 
