@@ -159,9 +159,12 @@ $replace-text-inline-element: false !default;
       repeat: no-repeat;
     }
     @if $with-dimensions {
-      background-size: image-width($sprite-file) image-height($sprite-file);
+      background-size: image-width(sprite-path($sprite-map)) image-height(sprite-path($sprite-map));
+      @include sprite($sprite-map, $sprite);
     }
-    @include sprite($retina-map, $sprite);
+    @else {
+      @include sprite($retina-map, $sprite);
+    }
   }
 
     //////////////////////////////
