@@ -327,6 +327,8 @@ $social: 'social';
 
 If you do not want to include dimensions in your output, pass `$with-dimensions: false` into the `retina-background` mixin as well.
 
+Due to a bug plus a design decision, it's not possible to use "@extend" inside media queries; until toolkit 1.3.7 you would get an error if you tried to use the `retina-background` mixin inside a `breakpoint` mixin, for instance. To work around this, pass `$extend: false` into the mixin to avoid errors, however you won't have the .ie6, .ie7 and .ie8 classes added for you.
+
 ### Progressively Enhanced Text Replacement
 
 Text replacement is pretty good for accessibility and whatnot, but as is, it's not very good for progressive enhancement. There's a lot that goes in to text replacement in general, and then combine that with serving either a PNG or an SVG (for resolution independence) and you start to have to write a lot of CSS for something fairly simple. Plus, we all like to use image sprites for our text replacement, right? RIGHT?! That's even more work that we need to deal with. Not any more! We can have Compass automate the whole process, and do it more efficiently than if we had done it by hand to boot. Setup is fairly easy, and there is only one major restriction: this method cannot currently be used from within a media query, but other than that, it's good to go!
@@ -697,7 +699,7 @@ As an example, let's say we wanted all Twitter links to be blue and have a littl
 ```scss
 @include style-external-links('twitter.com') {
   color: blue;
-  
+
   &:before {
     content: '';
     height: 1em;
@@ -856,7 +858,7 @@ Remember the good-old-fashioned [Faux Columns Hack](http://alistapart.com/articl
    width: 25%;
    float: right
  }
- 
+
  .col-wrapper {
    // Widths are where each color band should end, so with the above columns, they're going to end at 25%, 75%, then 100%.
    // The 100% can be omitted if you'd like.
@@ -866,7 +868,7 @@ Remember the good-old-fashioned [Faux Columns Hack](http://alistapart.com/articl
    @include equal-height-columns($widths, $colors);
  }
  ```
- 
+
  ```css
  .col-1 {
   width: 25%;
