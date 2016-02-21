@@ -1,6 +1,6 @@
 {
   "name": "sass-toolkit",
-  "version": "1.1.1",
+  "version": ">=1.1.1",
   "main": "compass/stylesheets/_toolkit.scss",
   "ignore": [
     "**/.*",
