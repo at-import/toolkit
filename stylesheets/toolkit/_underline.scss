@@ -22,7 +22,7 @@
   background-position: 0 (($width) * $PX) + $distance;
 
   @if $clear-descenders {
-    text-shadow: (1 * $PX) (1 * $PX) 0 $background, (-1 * $PX) 0 0 $background;
+    text-shadow: (1 * $PX) (1 * $PX) 0 $background, (-1 * $PX) (-1 * $PX) 0 $background, (1 * $PX) (-1 * $PX) 0 $background, (-1 * $PX) (1 * $PX) 0 $background;
   }
 }
 
