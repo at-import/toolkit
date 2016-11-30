@@ -368,7 +368,7 @@ The parallax mixin puts elements into real perspective and scales them back down
 
 ## Reset
 
-Importing the reset partial with `@import "toolkit/reset";` will add a CSS Reset in based on work done by [Nicholas Gallagher and Jonathan Neal](http://necolas.github.io/normalize.css/), [Richard Clark](http://richclarkdesign.com), and [Tim Murtaugh](http://monkeydo.biz/), and some other things that are useful. Also includes the [kickstart](#kickstart):
+Importing the reset partial with `@import "toolkit/reset";` will add a CSS Reset in based on work done by [Nicholas Gallagher and Jonathan Neal](http://necolas.github.io/normalize.css/), [Richard Clark](http://richclarkdesign.com), and [Tim Murtaugh](http://monkeydo.biz/), and some other things that are useful. Also includes the [kickstart](#kickstart).
 
 ## RTL
 
