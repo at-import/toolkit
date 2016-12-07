@@ -1,10 +1,10 @@
 {
   "name": "sass-toolkit",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "description": "Think of Toolkit as your swiss army knife for modern design and development.",
   "main": "stylesheets/_toolkit.scss",
   "eyeglass": {
-    "needs": "^0.8.2",
+    "needs": "^1.0.0",
     "exports": "eyeglass-exports.js",
     "name": "toolkit"
   },
